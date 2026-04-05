@@ -1,0 +1,30 @@
+[PropertyInfo]
+AbnormalTimer,java.util.Timer,false,false, , ,false,<default>
+AbnormalTimerTask,AbnormalTimerProc,false,false, , ,false,<default>
+m_bInitIBSEM,boolean,false,false, , ,false,<default>
+m_bOnSyncAll,boolean,false,false, , ,false,<default>
+m_bSyncCarrierInfo,boolean,false,false, , ,false,<default>
+m_dbFrame,DBAccessFrame,false,false, , ,false,<default>
+m_IBSEMIF,IBSEMIF,false,false, , ,false,<default>
+m_lAbnormalOperationTimeStamp,long,false,false, , ,false,<default>
+m_lLastDeleteLogTime,long,false,false, , ,false,<default>
+m_lMainOperationTimeStamp,long,false,false, , ,false,<default>
+m_nDeleteLogDay,int,false,false, , ,false,<default>
+m_nInTransitTimeout,int,false,false, , ,false,<default>
+m_nTempHoldedTimeout,int,false,false, , ,false,<default>
+m_Owner,OCSManagerMainFrame,false,false, , ,false,<default>
+m_sHangCheck,String,false,false, , ,false,<default>
+m_sLogPath,String,false,false, , ,false,<default>
+m_strIBSEMConfigFileName,String,false,false, , ,false,<default>
+m_strTSCID,String,false,false, , ,false,<default>
+m_strVersionID,String,false,false, , ,false,<default>
+MainTimer,java.util.Timer,false,false, , ,false,<default>
+MainTimerTask,MainTimerProc,false,false, , ,false,<default>
+Util,utilLog,false,false, , ,false,<default>
+WatchDogTimer,java.util.Timer,false,false, , ,false,<default>
+WatchDogTimerTask,WatchDogTimerProc,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

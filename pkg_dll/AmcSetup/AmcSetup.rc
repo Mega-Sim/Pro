@@ -1,0 +1,1693 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Korean resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
+#pragma code_page(949)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 18, 1\r\n"
+    "#pragma code_page(949)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\AmcSetup.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.kor\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\AmcSetup.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "AmcSetup 정보"
+FONT 9, "굴림"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "AmcSetup 버전 2.04.04",IDC_STATIC,40,10,119,8,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (C) 2007",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "확인",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_AMCSETUP_DIALOG DIALOGEX 0, 0, 320, 200
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "AmcSetup"
+FONT 9, "굴림", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "확인",IDOK,260,7,50,14
+    PUSHBUTTON      "취소",IDCANCEL,260,23,50,14
+    LTEXT           "TODO: 대화 상자 컨트롤을 여기에 두십시오.",IDC_STATIC,
+                    50,90,200,8
+END
+
+IDD_PROPPAGE1 DIALOG DISCARDABLE  0, 0, 401, 320
+STYLE WS_CHILD | WS_DISABLED | WS_CAPTION
+CAPTION "Dev. Open"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "IRQ : ",IDC_STATIC,37,38,17,8
+    EDITTEXT        IDC_EDIT_IRQ_NO,56,36,40,14,ES_AUTOHSCROLL
+    LTEXT           "Addr :",IDC_STATIC,35,57,19,8
+    EDITTEXT        IDC_EDIT_ADDR,56,55,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    LTEXT           "ABS Path : ",IDC_STATIC,21,78,33,8
+    EDITTEXT        IDC_EDIT_ABS_PATH,56,74,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Configurations",IDC_STATIC,18,17,99,85
+    LTEXT           "2. '절대경로/AMCParam.INI"" 내용으로 로딩된 값 변경",
+                    IDC_STATIC,141,43,235,11,SS_SUNKEN
+    GROUPBOX        " Device open sequence ",IDC_STATIC,133,17,255,85
+    LTEXT           "1. DSP보드의 부트파라미터를 로딩",IDC_STATIC,141,28,235,
+                    11,SS_SUNKEN
+    LTEXT           "4. 최종값을 '절대경로/DefaultParam.ini""로 저장",
+                    IDC_STATIC,142,72,235,11,SS_SUNKEN
+    PUSHBUTTON      "Device Open",IDC_BUTTON_DEV_OPEN,38,121,63,32
+    LTEXT           "DSP Firmware Version :",IDC_STATIC,49,208,75,8
+    EDITTEXT        IDC_EDIT_VERSION_DSP,131,206,56,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "This Program :",IDC_STATIC,77,166,47,8
+    EDITTEXT        IDC_EDIT_VERSION_THIS,131,164,56,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    LTEXT           "PC Firmware Version :",IDC_STATIC,53,187,71,8
+    EDITTEXT        IDC_EDIT_VERSION_LIB,131,185,56,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    PUSHBUTTON      "DSP Reset",IDC_BUTTON_DSP_RESET,50,235,50,14
+    LTEXT           "Encoder Offset",IDC_STATIC,145,269,50,8,NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_ENCODER_OFFSET,144,279,74,14,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    PUSHBUTTON      "eeprom Flush",IDC_BUTTON_FLUSH,144,298,50,14,NOT 
+                    WS_VISIBLE
+    LTEXT           "5. ""DefaultParam.ini""을 ""AmcParam.ini""로 저장",
+                    IDC_STATIC,142,86,235,11,SS_SUNKEN
+    LTEXT           "3. 최종값을 dsp로 내려보내서 실행메모리와 eeprom에 write",
+                    IDC_STATIC,141,57,235,11,SS_SUNKEN
+    EDITTEXT        IDC_EDIT_DPRAM_TEST_COUNT,255,267,40,14,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    PUSHBUTTON      "DPRAM Test",IDC_BUTTON_DPRAM_TEST,253,285,50,14,NOT 
+                    WS_VISIBLE
+    LTEXT           "회",IDC_STATIC,295,272,9,8,NOT WS_VISIBLE
+    LTEXT           "Static",IDC_STATIC_DPRAM_TEST_MSG,251,304,119,8,
+                    SS_SUNKEN | NOT WS_VISIBLE
+    GROUPBOX        "Testing",IDC_STATIC_BT_GROUPTEXT,197,109,197,134
+    LTEXT           "장치가 닫혀있는 상태에서 수행하시기 바랍니다.",
+                    IDC_STATIC_BT_COMMENT,203,123,172,8
+    LTEXT           "Count:",IDC_STATIC_BT_COUNT,208,140,23,8
+    LTEXT           "비교할 AMC버전",IDC_STATIC_BT_VERSION,208,163,58,8
+    EDITTEXT        IDC_EDIT_BT_COUNT,235,138,40,14,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    EDITTEXT        IDC_EDIT_BT_WAIT_AMCVERSION,234,173,55,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Counter Init.",IDC_BUTTON_BT_INIT,327,138,50,14
+    PUSHBUTTON      "Start",IDC_BUTTON_BT_STARTSTOP,327,156,50,31,
+                    BS_MULTILINE
+    LTEXT           "Static",IDC_STATIC_BT_PROGRESS,214,193,169,37,SS_SUNKEN
+END
+
+IDD_DIALOG_IOTEST DIALOG DISCARDABLE  0, 0, 410, 320
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION " Bit I/O Test "
+FONT 8, "Tahoma"
+BEGIN
+    CONTROL         "Bit 0",IDC_CHECK_IBIT0,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,15,30,10
+    GROUPBOX        "Input port",IDC_STATIC,7,4,196,249
+    CONTROL         "Bit 1",IDC_CHECK_IBIT1,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,30,30,10
+    CONTROL         "Bit 2",IDC_CHECK_IBIT2,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,45,30,10
+    CONTROL         "Bit 3",IDC_CHECK_IBIT3,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,60,30,10
+    CONTROL         "Bit 4",IDC_CHECK_IBIT4,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,75,30,10
+    CONTROL         "Bit 5",IDC_CHECK_IBIT5,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,90,30,10
+    CONTROL         "Bit 6",IDC_CHECK_IBIT6,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,105,30,10
+    CONTROL         "Bit 7",IDC_CHECK_IBIT7,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,120,30,10
+    CONTROL         "Bit 8",IDC_CHECK_IBIT8,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,135,30,10
+    CONTROL         "Bit 9",IDC_CHECK_IBIT9,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,150,30,10
+    CONTROL         "Bit 10",IDC_CHECK_IBIT10,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,165,34,10
+    CONTROL         "Bit 11",IDC_CHECK_IBIT11,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,180,34,10
+    CONTROL         "Bit 12",IDC_CHECK_IBIT12,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,195,34,10
+    CONTROL         "Bit 13",IDC_CHECK_IBIT13,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,210,34,10
+    CONTROL         "Bit 14",IDC_CHECK_IBIT14,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,225,34,10
+    CONTROL         "Bit 15",IDC_CHECK_IBIT15,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,13,240,34,10
+    CONTROL         "Bit 16",IDC_CHECK_IBIT16,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,15,34,10
+    CONTROL         "Bit 17",IDC_CHECK_IBIT17,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,30,34,10
+    CONTROL         "Bit 18",IDC_CHECK_IBIT18,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,45,34,10
+    CONTROL         "Bit 19",IDC_CHECK_IBIT19,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,60,34,10
+    CONTROL         "Bit 20",IDC_CHECK_IBIT20,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,75,34,10
+    CONTROL         "Bit 21",IDC_CHECK_IBIT21,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,90,34,10
+    CONTROL         "Bit 22",IDC_CHECK_IBIT22,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,105,34,10
+    CONTROL         "Bit 23",IDC_CHECK_IBIT23,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,120,34,10
+    CONTROL         "Bit 24",IDC_CHECK_IBIT24,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,135,34,10
+    CONTROL         "Bit 25",IDC_CHECK_IBIT25,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,150,34,10
+    CONTROL         "Bit 26",IDC_CHECK_IBIT26,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,165,34,10
+    CONTROL         "Bit 27",IDC_CHECK_IBIT27,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,180,34,10
+    CONTROL         "Bit 28",IDC_CHECK_IBIT28,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,195,34,10
+    CONTROL         "Bit 29",IDC_CHECK_IBIT29,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,210,34,10
+    CONTROL         "Bit 30",IDC_CHECK_IBIT30,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,225,34,10
+    CONTROL         "Bit 31",IDC_CHECK_IBIT31,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,61,240,34,10
+    CONTROL         "Bit 32",IDC_CHECK_IBIT32,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,15,34,10
+    CONTROL         "Bit 33",IDC_CHECK_IBIT33,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,30,34,10
+    CONTROL         "Bit 34",IDC_CHECK_IBIT34,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,45,34,10
+    CONTROL         "Bit 35",IDC_CHECK_IBIT35,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,60,34,10
+    CONTROL         "Bit 36",IDC_CHECK_IBIT36,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,75,34,10
+    CONTROL         "Bit 37",IDC_CHECK_IBIT37,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,90,34,10
+    CONTROL         "Bit 38",IDC_CHECK_IBIT38,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,105,34,10
+    CONTROL         "Bit 39",IDC_CHECK_IBIT39,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,120,34,10
+    CONTROL         "Bit 40",IDC_CHECK_IBIT40,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,135,34,10
+    CONTROL         "Bit 41",IDC_CHECK_IBIT41,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,150,34,10
+    CONTROL         "Bit 42",IDC_CHECK_IBIT42,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,165,34,10
+    CONTROL         "Bit 43",IDC_CHECK_IBIT43,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,180,34,10
+    CONTROL         "Bit 44",IDC_CHECK_IBIT44,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,195,34,10
+    CONTROL         "Bit 45",IDC_CHECK_IBIT45,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,210,34,10
+    CONTROL         "Bit 46",IDC_CHECK_IBIT46,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,225,34,10
+    CONTROL         "Bit 47",IDC_CHECK_IBIT47,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,115,240,34,10
+    CONTROL         "Bit 48",IDC_CHECK_IBIT48,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,15,34,10
+    CONTROL         "Bit 49",IDC_CHECK_IBIT49,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,30,34,10
+    CONTROL         "Bit 50",IDC_CHECK_IBIT50,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,45,34,10
+    CONTROL         "Bit 51",IDC_CHECK_IBIT51,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,60,34,10
+    CONTROL         "Bit 52",IDC_CHECK_IBIT52,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,75,34,10
+    CONTROL         "Bit 53",IDC_CHECK_IBIT53,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,90,34,10
+    CONTROL         "Bit 54",IDC_CHECK_IBIT54,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,105,34,10
+    CONTROL         "Bit 55",IDC_CHECK_IBIT55,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,120,34,10
+    CONTROL         "Bit 56",IDC_CHECK_IBIT56,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,135,34,10
+    CONTROL         "Bit 57",IDC_CHECK_IBIT57,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,150,34,10
+    CONTROL         "Bit 58",IDC_CHECK_IBIT58,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,165,34,10
+    CONTROL         "Bit 59",IDC_CHECK_IBIT59,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,180,34,10
+    CONTROL         "Bit 60",IDC_CHECK_IBIT60,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,195,34,10
+    CONTROL         "Bit 61",IDC_CHECK_IBIT61,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,210,34,10
+    CONTROL         "Bit 62",IDC_CHECK_IBIT62,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,225,34,10
+    CONTROL         "Bit 63",IDC_CHECK_IBIT63,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,162,240,34,10
+    PUSHBUTTON      "Self testing start",IDC_BUTTON_OUTPUT_AUTO_CHK_START,
+                    345,285,58,13
+    PUSHBUTTON      "Self testing stop",IDC_BUTTON_OUTPUT_AUTO_CHK_STOP,345,
+                    298,58,13
+    GROUPBOX        "Output port",IDC_STATIC,207,4,196,249
+    CONTROL         "Bit 0",IDC_CHECK_OBIT0,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,15,30,10
+    CONTROL         "Bit 1",IDC_CHECK_OBIT1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,30,30,10
+    CONTROL         "Bit 2",IDC_CHECK_OBIT2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,45,30,10
+    CONTROL         "Bit 3",IDC_CHECK_OBIT3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,60,30,10
+    CONTROL         "Bit 4",IDC_CHECK_OBIT4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,75,30,10
+    CONTROL         "Bit 5",IDC_CHECK_OBIT5,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,90,30,10
+    CONTROL         "Bit 6",IDC_CHECK_OBIT6,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,105,30,10
+    CONTROL         "Bit 7",IDC_CHECK_OBIT7,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,120,30,10
+    CONTROL         "Bit 8",IDC_CHECK_OBIT8,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,135,30,10
+    CONTROL         "Bit 9",IDC_CHECK_OBIT9,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,150,30,10
+    CONTROL         "Bit 10",IDC_CHECK_OBIT10,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,165,34,10
+    CONTROL         "Bit 11",IDC_CHECK_OBIT11,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,180,34,10
+    CONTROL         "Bit 12",IDC_CHECK_OBIT12,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,195,34,10
+    CONTROL         "Bit 13",IDC_CHECK_OBIT13,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,210,34,10
+    CONTROL         "Bit 14",IDC_CHECK_OBIT14,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,225,34,10
+    CONTROL         "Bit 15",IDC_CHECK_OBIT15,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,212,240,34,10
+    CONTROL         "Bit 16",IDC_CHECK_OBIT16,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,15,34,10
+    CONTROL         "Bit 17",IDC_CHECK_OBIT17,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,30,34,10
+    CONTROL         "Bit 18",IDC_CHECK_OBIT18,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,45,34,10
+    CONTROL         "Bit 19",IDC_CHECK_OBIT19,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,60,34,10
+    CONTROL         "Bit 20",IDC_CHECK_OBIT20,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,75,34,10
+    CONTROL         "Bit 21",IDC_CHECK_OBIT21,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,90,34,10
+    CONTROL         "Bit 22",IDC_CHECK_OBIT22,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,105,34,10
+    CONTROL         "Bit 23",IDC_CHECK_OBIT23,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,120,34,10
+    CONTROL         "Bit 24",IDC_CHECK_OBIT24,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,135,34,10
+    CONTROL         "Bit 25",IDC_CHECK_OBIT25,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,150,34,10
+    CONTROL         "Bit 26",IDC_CHECK_OBIT26,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,165,34,10
+    CONTROL         "Bit 27",IDC_CHECK_OBIT27,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,180,34,10
+    CONTROL         "Bit 28",IDC_CHECK_OBIT28,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,195,34,10
+    CONTROL         "Bit 29",IDC_CHECK_OBIT29,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,210,34,10
+    CONTROL         "Bit 30",IDC_CHECK_OBIT30,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,225,34,10
+    CONTROL         "Bit 31",IDC_CHECK_OBIT31,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,260,240,34,10
+    CONTROL         "Bit 32",IDC_CHECK_OBIT32,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,15,34,10
+    CONTROL         "Bit 33",IDC_CHECK_OBIT33,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,30,34,10
+    CONTROL         "Bit 34",IDC_CHECK_OBIT34,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,45,34,10
+    CONTROL         "Bit 35",IDC_CHECK_OBIT35,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,60,34,10
+    CONTROL         "Bit 36",IDC_CHECK_OBIT36,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,75,34,10
+    CONTROL         "Bit 37",IDC_CHECK_OBIT37,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,90,34,10
+    CONTROL         "Bit 38",IDC_CHECK_OBIT38,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,105,34,10
+    CONTROL         "Bit 39",IDC_CHECK_OBIT39,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,120,34,10
+    CONTROL         "Bit 40",IDC_CHECK_OBIT40,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,135,34,10
+    CONTROL         "Bit 41",IDC_CHECK_OBIT41,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,150,34,10
+    CONTROL         "Bit 42",IDC_CHECK_OBIT42,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,165,34,10
+    CONTROL         "Bit 43",IDC_CHECK_OBIT43,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,180,34,10
+    CONTROL         "Bit 44",IDC_CHECK_OBIT44,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,195,34,10
+    CONTROL         "Bit 45",IDC_CHECK_OBIT45,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,210,34,10
+    CONTROL         "Bit 46",IDC_CHECK_OBIT46,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,225,34,10
+    CONTROL         "Bit 47",IDC_CHECK_OBIT47,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,314,240,34,10
+    CONTROL         "Bit 48",IDC_CHECK_OBIT48,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,15,34,10
+    CONTROL         "Bit 49",IDC_CHECK_OBIT49,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,30,34,10
+    CONTROL         "Bit 50",IDC_CHECK_OBIT50,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,45,34,10
+    CONTROL         "Bit 51",IDC_CHECK_OBIT51,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,60,34,10
+    CONTROL         "Bit 52",IDC_CHECK_OBIT52,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,75,34,10
+    CONTROL         "Bit 53",IDC_CHECK_OBIT53,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,90,34,10
+    CONTROL         "Bit 54",IDC_CHECK_OBIT54,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,105,34,10
+    CONTROL         "Bit 55",IDC_CHECK_OBIT55,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,120,34,10
+    CONTROL         "Bit 56",IDC_CHECK_OBIT56,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,135,34,10
+    CONTROL         "Bit 57",IDC_CHECK_OBIT57,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,150,34,10
+    CONTROL         "Bit 58",IDC_CHECK_OBIT58,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,165,34,10
+    CONTROL         "Bit 59",IDC_CHECK_OBIT59,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,180,34,10
+    CONTROL         "Bit 60",IDC_CHECK_OBIT60,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,195,34,10
+    CONTROL         "Bit 61",IDC_CHECK_OBIT61,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,210,34,10
+    CONTROL         "Bit 62",IDC_CHECK_OBIT62,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,225,34,10
+    CONTROL         "Bit 63",IDC_CHECK_OBIT63,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,361,240,34,10
+    LTEXT           "Interval:",IDC_STATIC,282,300,27,8
+    EDITTEXT        IDC_EDIT_IO_WAIT_TIME,313,297,20,14,ES_AUTOHSCROLL
+    LTEXT           "ms",IDC_STATIC,335,303,10,8
+    PUSHBUTTON      "All output  '1'",IDC_BUTTON_OUTPUT_ALLSET,345,256,58,13
+    PUSHBUTTON      "All output '0'",IDC_BUTTON_OUTPUT_ALLRESET,345,269,58,
+                    13
+    CONTROL         "Bit0~63",IDC_RADIO_SEL_IO1,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,13,282,41,10
+    CONTROL         "Bit64~127",IDC_RADIO_SEL_IO2,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,13,297,49,10
+    CONTROL         "Bit128~191",IDC_RADIO_SEL_IO3,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,62,283,53,10
+    CONTROL         "Bit192~255",IDC_RADIO_SEL_IO4,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,62,297,53,10
+    EDITTEXT        IDC_EDIT_IOSEL,13,265,98,12,ES_AUTOHSCROLL | WS_DISABLED
+    GROUPBOX        "TEST I/O SELECT",IDC_STATIC,7,253,110,60
+    EDITTEXT        IDC_EDIT_IO_IN4,123,301,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IO_IN3,123,288,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IO_IN2,123,275,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IO_IN1,123,263,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IO_OUT4,162,301,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IO_OUT3,162,288,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IO_OUT2,162,275,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IO_OUT1,162,263,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "IN0~127",IDC_STATIC,128,253,30,8
+    LTEXT           "OUT0~127",IDC_STATIC,163,253,36,8
+    LTEXT           "IN128~255",IDC_STATIC,202,253,38,8
+    LTEXT           "OUT128~255",IDC_STATIC,242,253,43,8
+    EDITTEXT        IDC_EDIT_IO_IN5,202,263,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IO_OUT5,241,263,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IO_IN6,202,275,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IO_OUT6,241,275,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IO_IN7,202,288,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IO_OUT7,241,288,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IO_IN8,202,301,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IO_OUT8,241,301,38,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_IN_COUNT,284,263,27,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_OUT_COUNT,312,263,27,12,ES_AUTOHSCROLL
+    LTEXT           "IN",IDC_STATIC,294,253,14,8
+    LTEXT           "OUT:",IDC_STATIC,318,253,14,8
+    PUSHBUTTON      "I/O 'W'",IDC_BUTTON_IO_W,284,278,28,13
+    PUSHBUTTON      "I/O 'R'",IDC_BUTTON_IO_R,312,278,28,13
+END
+
+IDD_DIALOG_ACTION DIALOG DISCARDABLE  0, 0, 401, 320
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION " PTP && Jog "
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "AXIS",IDC_STATIC,33,18,15,8
+    EDITTEXT        IDC_EDIT_CMD_AXIS,54,16,40,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Delay",IDC_STATIC,29,35,19,8
+    EDITTEXT        IDC_EDIT_CMD_DELAY,54,33,40,14,ES_AUTOHSCROLL
+    LTEXT           "Position 1",IDC_STATIC,17,52,35,8
+    EDITTEXT        IDC_EDIT_CMD_POS1,54,50,40,14,ES_AUTOHSCROLL
+    LTEXT           "Position 2",IDC_STATIC,17,69,34,8
+    EDITTEXT        IDC_EDIT_CMD_POS2,54,67,40,14,ES_AUTOHSCROLL
+    LTEXT           "Velocity",IDC_STATIC,21,86,27,8
+    EDITTEXT        IDC_EDIT_CMD_VEL,54,84,40,14,ES_AUTOHSCROLL
+    LTEXT           "Accel",IDC_STATIC,29,103,19,8
+    EDITTEXT        IDC_EDIT_CMD_ACCEL,54,101,40,14,ES_AUTOHSCROLL
+    LTEXT           "Decel",IDC_STATIC,29,120,19,8
+    EDITTEXT        IDC_EDIT_CMD_DECEL,54,118,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Command",IDC_STATIC,7,7,134,130
+    LTEXT           "In Sequence ?",IDC_STATIC,168,18,47,8
+    GROUPBOX        "Axis Status",IDC_STATIC,149,7,126,130
+    LTEXT           "In Motion ?",IDC_STATIC,178,35,36,8
+    LTEXT           "In Position ?",IDC_STATIC,175,52,39,8
+    LTEXT           "Frames empty no.",IDC_STATIC,154,120,62,8
+    LTEXT           "Axis Done ?",IDC_STATIC,176,69,37,8
+    LTEXT           "Source",IDC_STATIC,189,86,23,8
+    LTEXT           "State",IDC_STATIC,195,103,17,8
+    EDITTEXT        IDC_EDIT_AS_INSEQUENCE,218,16,51,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AS_INMOTION,218,33,51,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AS_INPOSITION,218,50,51,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AS_FRAMES_LEFT,218,118,51,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AS_AXISDONE,218,67,51,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AS_AXIS_SOURCE,218,84,51,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AS_AXIS_STATE,218,101,51,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    PUSHBUTTON      "Cycle Pos 2",IDC_BUTTON_CYCLE_POS,285,15,50,14
+    LTEXT           "Command Pos",IDC_STATIC,26,164,35,8
+    LTEXT           "Actual Pos",IDC_STATIC,39,179,22,8
+    LTEXT           "Error Value",IDC_STATIC,42,194,19,8
+    LTEXT           "Velocity(PPS)",IDC_STATIC,27,208,45,8
+    LTEXT           "Encoder Pos",IDC_STATIC,36,244,29,8
+    LTEXT           "RPM(com, Act)",IDC_STATIC,15,257,52,8
+    EDITTEXT        IDC_EDIT_MS_POS,74,160,51,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_MS_ACTUAL_POS,74,175,51,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_MS_ERROR_VALUE,74,190,51,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_MS_VELOCITY,74,205,51,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_MS_ENCODER_POS,74,240,51,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_MS_RPM,74,255,51,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    PUSHBUTTON      "Repeat",IDC_BUTTON_REPEAT,285,38,50,14
+    PUSHBUTTON      "Repeat Stop",IDC_BUTTON_REPEAT_STOP,343,38,50,14
+    PUSHBUTTON      "EStop",IDC_BUTTON_ESTOP,285,60,50,14
+    PUSHBUTTON      "Stop",IDC_BUTTON_STOP,285,83,50,14
+    PUSHBUTTON      "Pause",IDC_BUTTON_PAUSE,344,60,50,14,NOT WS_VISIBLE | 
+                    WS_DISABLED
+    PUSHBUTTON      "Pause Clear",IDC_BUTTON_PAUSE_CLEAR,343,104,50,14,NOT 
+                    WS_VISIBLE | WS_DISABLED
+    PUSHBUTTON      "<-- Axis",IDC_BUTTON_AXIS_PREV,285,155,50,14
+    PUSHBUTTON      "Axis  -->",IDC_BUTTON_AXIS_NEXT,343,155,50,14
+    LTEXT           "msec",IDC_STATIC,99,121,31,8
+    LTEXT           "msec",IDC_STATIC,99,105,31,8
+    LTEXT           "pulse / sec",IDC_STATIC,99,87,40,8
+    LTEXT           "pulse",IDC_STATIC,99,70,18,8
+    LTEXT           "pulse",IDC_STATIC,99,54,18,8
+    LTEXT           "회 / 200us",IDC_STATIC,99,37,34,8
+    CONTROL         "Trapezoid",IDC_CHECK_TRAPEZOID,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,9,140,47,10
+    CONTROL         "S-Curve",IDC_CHECK_SCURVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,56,140,41,10
+    PUSHBUTTON      "Amp On",IDC_BUTTON_AMP_ON,285,177,50,14
+    PUSHBUTTON      "Amp Off",IDC_BUTTON_AMP_OFF,343,177,50,14
+    PUSHBUTTON      "Reset",IDC_BUTTON_RESET,285,199,50,14
+    PUSHBUTTON      "Tunning",IDC_BUTTON_TUNNING,16,281,62,32
+    PUSHBUTTON      "S/W Limit",IDC_BUTTON_SW_LIMIT,86,281,62,32
+    PUSHBUTTON      "Limit Switch",IDC_BUTTON_LIMIT_SWITCH,156,281,62,32
+    PUSHBUTTON      "Axis CFG",IDC_BUTTON_AXIS_CFG,226,281,62,32
+    CONTROL         "Pos(+)",IDC_CHECK_POS_PLUS,"Button",BS_AUTOCHECKBOX | 
+                    BS_FLAT | WS_DISABLED | WS_TABSTOP,155,163,34,10
+    CONTROL         "Home",IDC_CHECK_HOME,"Button",BS_AUTOCHECKBOX | BS_FLAT | 
+                    WS_DISABLED | WS_TABSTOP,199,163,34,10
+    CONTROL         "Neg(-)",IDC_CHECK_NEG_MINUS,"Button",BS_AUTOCHECKBOX | 
+                    BS_FLAT | WS_DISABLED | WS_TABSTOP,239,163,34,10
+    CONTROL         "Amp Fault",IDC_CHECK_AMP_FAULT,"Button",BS_AUTOCHECKBOX | 
+                    BS_FLAT | WS_DISABLED | WS_TABSTOP,155,178,46,10
+    CONTROL         "Amp Enable",IDC_CHECK_AMP_ENABLE,"Button",
+                    BS_AUTOCHECKBOX | BS_FLAT | WS_DISABLED | WS_TABSTOP,223,
+                    178,51,10
+    GROUPBOX        "Sensor && Switch Status",IDC_STATIC,143,151,134,45
+    LTEXT           "Jog Speed (p/sec)",IDC_STATIC,150,213,56,8
+    EDITTEXT        IDC_EDIT_JOG_SPEED_PS,215,210,54,14,ES_AUTOHSCROLL
+    LTEXT           "Jog Speed (r/min)",IDC_STATIC,150,227,54,8
+    EDITTEXT        IDC_EDIT_JOG_SPEED_RM,215,226,54,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    PUSHBUTTON      "Jog POS -->",IDC_BUTTON_JOG_POS,214,250,56,14
+    PUSHBUTTON      "<-- Jog NEG",IDC_BUTTON_JOG_NEG,149,250,56,14
+    GROUPBOX        "Jog Command",IDC_STATIC,143,198,134,76
+    GROUPBOX        "Motion Status",IDC_STATIC,7,151,128,124
+    PUSHBUTTON      "Clear Status",IDC_BUTTON_CLEARALL,285,126,50,14
+    PUSHBUTTON      "Stop Clear",IDC_BUTTON_CLEAR_STOP,343,83,50,14
+    CONTROL         "Relative Move",IDC_CHECK_RELATIVE_MOVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,116,140,63,10
+    PUSHBUTTON      "Frame Clear",IDC_BUTTON_FRAME_CLEAR,343,126,50,14
+    EDITTEXT        IDC_EDIT_ENCODER_POSITION,308,236,56,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Get Position",IDC_BUTTON_GET_POSITION,284,251,50,14
+    PUSHBUTTON      "Set Position",IDC_BUTTON_SET_POSITION,340,251,50,14
+    GROUPBOX        "Encoder Position",IDC_STATIC,280,224,114,46
+    PUSHBUTTON      "Cycle Pos 1",IDC_BUTTON_CYCLE_POS2,344,15,50,14
+    EDITTEXT        IDC_EDIT_MS_ACTVELOCITY,74,220,51,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Act. Velocity(PPS)",IDC_STATIC,12,223,63,8
+    PUSHBUTTON      "Dbg Msg Wnd.",IDC_BUTTON_DEBUG,343,199,50,14
+    CONTROL         "Pos2 Random",IDC_CHECK_POS2RND,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,196,139,59,10
+    PUSHBUTTON      "Set TqLimit",IDC_BUTTON_TQ_LIMIT_SET,320,274,50,14
+    PUSHBUTTON      "Reset TqLimit",IDC_BUTTON_TQ_LIMIT_RESET,320,291,50,14
+    PUSHBUTTON      "Reload All",IDC_BUTTON_RELOAD,285,104,50,14
+END
+
+IDD_DIALOG_TUNING DIALOG DISCARDABLE  0, 0, 278, 183
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Parameter Tuning"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "Quit",IDCANCEL,221,162,50,14
+    LTEXT           "AXIS",IDC_STATIC,14,13,16,8
+    EDITTEXT        IDC_EDIT_AXIS,32,11,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    CTEXT           "P Gain",IDC_STATIC,22,34,40,10,SS_SUNKEN
+    CTEXT           "I Gain",IDC_STATIC,69,34,40,10,SS_SUNKEN
+    CTEXT           "D Gain",IDC_STATIC,116,34,40,10,SS_SUNKEN
+    CTEXT           "F Gain",IDC_STATIC,163,34,40,10,SS_SUNKEN
+    CTEXT           "I Limit",IDC_STATIC,210,34,40,10,SS_SUNKEN
+    EDITTEXT        IDC_EDIT_PGAIN,22,59,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_IGAIN,69,59,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DGAIN,116,59,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_FGAIN,163,59,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ILIMIT,210,59,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Position",IDC_STATIC,7,49,251,30
+    EDITTEXT        IDC_EDIT_VPGAIN,22,93,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_VIGAIN,69,93,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_VDGAIN,116,93,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_VFGAIN,163,93,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_VILIMIT,210,93,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Velocity",IDC_STATIC,7,83,251,30
+    LTEXT           "Analog Limit :",IDC_STATIC,27,124,43,8
+    EDITTEXT        IDC_EDIT_ANALOG_LIMIT,73,121,40,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Analog Offset :",IDC_STATIC,127,123,48,8
+    EDITTEXT        IDC_EDIT_ANALOG_OFFSET,178,120,40,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Analog Output :",IDC_STATIC,18,141,52,8
+    EDITTEXT        IDC_EDIT_ANALOG_OUTPUT,73,138,40,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    PUSHBUTTON      "DSP Read",IDC_BUTTON_READ,7,162,50,14
+    PUSHBUTTON      "DSP&& Ini Write",IDC_BUTTON_WRITE,62,162,50,14
+    PUSHBUTTON      "AMCParam.ini  Save",IDC_BUTTON_SAVE,116,146,102,14
+    PUSHBUTTON      "<-- Axis Prev",IDC_BUTTON_AXIS_PREV,116,162,50,14
+    PUSHBUTTON      "Axis Next -->",IDC_BUTTON_AXIS_NEXT,168,162,50,14
+    PUSHBUTTON      "Flush && Quit",IDC_BUTTON_CLOSE,221,146,50,14
+    PUSHBUTTON      "<-- Edit",IDC_BUTTON_EDITOFFSET,221,120,30,14
+END
+
+IDD_DIALOG_SOFT_LIMITS DIALOG DISCARDABLE  0, 0, 257, 270
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Software Limits Configuration"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "Quit",IDCANCEL,200,244,50,14
+    LTEXT           "AXIS",IDC_STATIC,27,10,16,8
+    EDITTEXT        IDC_EDIT_AXIS,50,7,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    GROUPBOX        "Highest Pos. Event",IDC_STATIC,7,26,73,62
+    GROUPBOX        "Lowest Pos. Event",IDC_STATIC,93,26,73,62
+    GROUPBOX        "Error Limit Event",IDC_STATIC,177,26,73,62
+    LTEXT           "Lowest Pos.",IDC_STATIC,37,115,40,8
+    LTEXT           "Highest Pos.",IDC_STATIC,36,101,41,8
+    LTEXT           "Error Limit.",IDC_STATIC,40,130,36,8
+    LTEXT           "Max. Velocity",IDC_STATIC,32,145,44,8
+    LTEXT           "Max. Accel",IDC_STATIC,40,160,36,8
+    LTEXT           "In-Position",IDC_STATIC,41,175,35,8
+    LTEXT           "Stop Rate",IDC_STATIC,43,190,33,8
+    LTEXT           "E-Stop Rate",IDC_STATIC,36,205,40,8
+    LTEXT           "Gear Ratio",IDC_STATIC,41,220,35,8
+    LTEXT           "Pulse Ratio",IDC_STATIC,40,235,36,8
+    LTEXT           "V Tracking Factor",IDC_STATIC,20,250,56,8
+    EDITTEXT        IDC_EDIT_LOWEST_POS,84,113,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_HIGHEST_POS,84,99,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ERROR_LIMIT,84,128,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MAX_VELOCITY,84,143,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MAX_ACCEL,84,158,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_IN_POSITION,84,173,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_STOP_RATE,84,188,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ESTOP_RATE,84,203,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_GEAR_RATIO,84,218,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PULSE_RATIO,84,233,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_VTRACKING_FACTOR,84,248,60,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Axis Next -->",IDC_BUTTON_SL_AXIS_NEXT,200,201,50,14
+    PUSHBUTTON      "<-- Axis Prev",IDC_BUTTON_SL_AXIS_PREV,200,184,50,14
+    PUSHBUTTON      "INI\r\nWrite",IDC_BUTTON_SL_INI_FLUSH,200,147,50,31,
+                    BS_MULTILINE
+    PUSHBUTTON      "DSP&& Ini Write",IDC_BUTTON_SL_DSP_WRITE,200,127,50,14
+    PUSHBUTTON      "DSP Read",IDC_BUTTON_SL_DSP_READ,200,107,50,14
+    CONTROL         "No Event",IDC_RADIO_HP_NOEVENT,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,17,39,45,10
+    CONTROL         "Stop",IDC_RADIO_HP_STOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,17,51,31,10
+    CONTROL         "EStop",IDC_RADIO_HP_ESTOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,17,63,35,10
+    CONTROL         "Abort",IDC_RADIO_HP_ABORT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,17,75,34,10
+    CONTROL         "No Event",IDC_RADIO_LP_NOEVENT,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,103,39,45,10
+    CONTROL         "Stop",IDC_RADIO_LP_STOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,103,51,31,10
+    CONTROL         "EStop",IDC_RADIO_LP_ESTOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,103,63,35,10
+    CONTROL         "Abort",IDC_RADIO_LP_ABORT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,103,75,34,10
+    PUSHBUTTON      "Flush && Quit",IDC_BUTTON_CLOSE,200,227,50,14
+    CONTROL         "No Event",IDC_RADIO_EL_NOEVENT,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,189,39,45,10
+    CONTROL         "Stop",IDC_RADIO_EL_STOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,189,51,31,10
+    CONTROL         "EStop",IDC_RADIO_EL_ESTOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,189,63,35,10
+    CONTROL         "Abort",IDC_RADIO_EL_ABORT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,189,75,34,10
+    LTEXT           "pulse",IDC_STATIC,148,103,18,8
+    LTEXT           "pulse",IDC_STATIC,148,117,18,8
+    LTEXT           "pulse",IDC_STATIC,148,131,18,8
+    LTEXT           "pulse/msec",IDC_STATIC,148,147,36,8
+    LTEXT           "pulse/sec",IDC_STATIC,148,161,31,8
+    LTEXT           "pulse",IDC_STATIC,148,176,18,8
+    LTEXT           "msec",IDC_STATIC,148,191,17,8
+    LTEXT           "msec",IDC_STATIC,148,206,17,8
+END
+
+IDD_DIALOG_LIMIT_SWITCH DIALOG DISCARDABLE  0, 0, 249, 257
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Limit Switch Configuration"
+FONT 8, "Tahoma"
+BEGIN
+    DEFPUSHBUTTON   "Quit",IDCANCEL,190,236,50,14
+    LTEXT           "AXIS",IDC_STATIC,75,10,16,8
+    EDITTEXT        IDC_EDIT_AXIS,96,7,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    CONTROL         "No Event",IDC_RADIO_PL_NOEVENT,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,17,36,45,10
+    CONTROL         "Stop",IDC_RADIO_PL_STOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,17,48,31,10
+    CONTROL         "EStop",IDC_RADIO_PL_ESTOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,17,60,35,10
+    CONTROL         "Abort",IDC_RADIO_PL_ABORT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,17,72,34,10
+    CONTROL         "Low Active",IDC_CHECK_PL_LOWACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,63,73,51,10
+    CONTROL         "High Active",IDC_CHECK_PL_HIGHACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,63,52,52,10
+    GROUPBOX        "Positive Limit",IDC_STATIC,7,24,114,67
+    CONTROL         "No Event",IDC_RADIO_NL_NOEVENT,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,138,36,45,10
+    CONTROL         "Stop",IDC_RADIO_NL_STOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,138,48,31,10
+    CONTROL         "EStop",IDC_RADIO_NL_ESTOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,138,60,35,10
+    CONTROL         "Abort",IDC_RADIO_NL_ABORT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,138,72,34,10
+    CONTROL         "Low Active",IDC_CHECK_NL_LOWACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,184,73,51,10
+    CONTROL         "High Active",IDC_CHECK_NL_HIGHACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,184,52,52,10
+    GROUPBOX        "Negative Limit",IDC_STATIC,128,24,114,67
+    CONTROL         "No Event",IDC_RADIO_HS_NOEVENT,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,17,106,45,10
+    CONTROL         "Stop",IDC_RADIO_HS_STOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,17,118,31,10
+    CONTROL         "EStop",IDC_RADIO_HS_ESTOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,17,130,35,10
+    CONTROL         "Abort",IDC_RADIO_HS_ABORT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,17,142,34,10
+    CONTROL         "Low Active",IDC_CHECK_HS_LOWACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,63,143,51,10
+    CONTROL         "High Active",IDC_CHECK_HS_HIGHACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,63,122,52,10
+    GROUPBOX        "Home Sensor",IDC_STATIC,7,94,114,67
+    CONTROL         "No Event",IDC_RADIO_AF_NOEVENT,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,138,106,45,
+                    10
+    CONTROL         "Stop",IDC_RADIO_AF_STOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED | WS_GROUP,138,118,31,10
+    CONTROL         "EStop",IDC_RADIO_AF_ESTOP,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED | WS_GROUP,138,130,35,10
+    CONTROL         "Abort",IDC_RADIO_AF_ABORT,"Button",BS_AUTORADIOBUTTON | 
+                    WS_DISABLED | WS_GROUP,138,142,34,10
+    CONTROL         "Low Active",IDC_CHECK_AF_LOWACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,184,143,51,10
+    CONTROL         "High Active",IDC_CHECK_AF_HIGHACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,184,122,52,10
+    GROUPBOX        "Amp Fault",IDC_STATIC,128,94,114,67
+    GROUPBOX        "Amp Reset Level",IDC_STATIC,7,167,114,31
+    CONTROL         "High Active",IDC_CHECK_AR_HIGHACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,179,52,10
+    CONTROL         "Low Active",IDC_CHECK_AR_LOWACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,66,179,51,10
+    GROUPBOX        "Amp Enable Level",IDC_STATIC,128,167,114,31
+    CONTROL         "High Active",IDC_CHECK_AE_HIGHACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,134,179,52,10
+    CONTROL         "Low Active",IDC_CHECK_AE_LOWACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,187,179,51,10
+    GROUPBOX        "In Position Level",IDC_STATIC,7,201,114,31
+    CONTROL         "High Active",IDC_CHECK_IP_HIGHACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,214,52,10
+    CONTROL         "Low Active",IDC_CHECK_IP_LOWACTIVE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,66,214,51,10
+    PUSHBUTTON      "<-- Axis Prev",IDC_BUTTON_LS_AXIS_PREV,68,236,50,14
+    PUSHBUTTON      "Axis Next -->",IDC_BUTTON_LS_AXIS_NEXT,129,236,50,14
+    PUSHBUTTON      "Flush && Quit",IDC_BUTTON_CLOSE,191,219,50,14
+END
+
+IDD_DIALOG_AXIS_CONFIG DIALOG DISCARDABLE  0, 0, 318, 158
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Axis Configuration"
+FONT 8, "Tahoma"
+BEGIN
+    PUSHBUTTON      "Flush && Quit",ID_CLOSE,261,120,50,14
+    CONTROL         "Servo",IDC_RADIO_MOTOR_SERVO,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,13,34,35,10
+    CONTROL         "Stepper",IDC_RADIO_MOTOR_STEPPER,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,66,34,41,10
+    CONTROL         "Micro",IDC_RADIO_MOTOR_MICRO,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,119,34,33,10
+    LTEXT           "AXIS",IDC_STATIC,41,10,16,8
+    EDITTEXT        IDC_EDIT_AXIS,65,7,40,14,ES_AUTOHSCROLL | WS_DISABLED
+    GROUPBOX        "Motor",IDC_STATIC,7,24,150,22
+    CONTROL         "OpenLoop",IDC_RADIO_CONTROL_OPENLOOP,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,23,58,49,10
+    CONTROL         "Closed Loop",IDC_RADIO_CONTROL_CLOSEDLOOP,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,90,58,55,10
+    GROUPBOX        "Control Loop",IDC_STATIC,7,48,150,22
+    GROUPBOX        "Control",IDC_STATIC,7,72,150,22
+    CONTROL         "Velocity",IDC_RADIO_CONTROL_VELOCITY,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,23,81,41,10
+    CONTROL         "Torque",IDC_RADIO_CONTROL_TORQUE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,90,81,39,10
+    GROUPBOX        "Voltage",IDC_STATIC,7,96,150,22
+    CONTROL         "Bipolar",IDC_RADIO_VOLTAGE_BIPOLAR,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,23,105,37,10
+    CONTROL         "Unipolar",IDC_RADIO_VOLTAGE_UNIPOLAR,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,90,105,42,10
+    GROUPBOX        "Feedback",IDC_STATIC,161,24,150,22
+    CONTROL         "Encoder",IDC_RADIO_FEEDBACK_ENCODER,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,169,34,42,10
+    CONTROL         "Bi-Analog",IDC_RADIO_FEEDBACK_BIANALOG,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,261,34,46,10
+    CONTROL         "Analog",IDC_RADIO_FEEDBACK_ANALOG,"Button",
+                    BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,217,34,38,10
+    GROUPBOX        "Pos I Mode",IDC_STATIC,161,48,150,22
+    CONTROL         "Only Standing",IDC_RADIO_POSIMODE_ONLY_STANDING,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,177,58,61,10
+    CONTROL         "Always",IDC_RADIO_POSIMODE_ALWAYS,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,244,58,39,10
+    GROUPBOX        "Vel I Mode",IDC_STATIC,161,72,150,22
+    CONTROL         "Only Standing",IDC_RADIO_VELIMODE_ONLY_STANDING,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,177,81,61,10
+    CONTROL         "Always",IDC_RADIO_VELIMODE_ALWAYS,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,244,81,39,10
+    GROUPBOX        "Encoder Direction (DSP Reboot)",IDC_STATIC,161,96,150,
+                    22
+    CONTROL         "CW",IDC_RADIO_ENCODERDIRECTION_CW,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,244,106,27,10
+    CONTROL         "CCW",IDC_RADIO_ENCODERDIRECTION_CCW,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,177,106,32,10
+    PUSHBUTTON      "<-- Axis Prev",IDC_BUTTON_AXIS_PREV,107,137,50,14
+    PUSHBUTTON      "Axis Next -->",IDC_BUTTON_AXIS_NEXT,161,137,50,14
+    DEFPUSHBUTTON   "Quit",IDCANCEL,261,137,50,14
+END
+
+IDD_DIALOG_MOVEX DIALOG DISCARDABLE  0, 0, 401, 320
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION " Move_X "
+FONT 8, "Tahoma"
+BEGIN
+    CONTROL         "",IDC_MOVEX_VIEW,"Static",SS_BLACKRECT | SS_SUNKEN | 
+                    WS_BORDER,7,141,340,155
+    LTEXT           "",IDC_MOVEX_YSCALE,348,141,46,155,SS_SUNKEN
+    LTEXT           "간편 View",IDC_MOVEX_XSCALE,7,297,168,16,SS_SUNKEN
+    LTEXT           "가속도 :",IDC_STATIC,24,39,25,8
+    EDITTEXT        IDC_EDIT_MOVEX_ACC,56,35,34,14,ES_AUTOHSCROLL
+    LTEXT           "감속도 :",IDC_STATIC,24,57,25,8
+    LTEXT           "최대속도 :",IDC_STATIC,17,77,32,8
+    LTEXT           "정지 위치 :",IDC_STATIC,15,96,34,8
+    EDITTEXT        IDC_EDIT_MOVEX_DCC,56,54,34,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MOVEX_MAXSPEED,56,73,49,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MOVEX_STOPPOS,56,93,49,14,ES_AUTOHSCROLL
+    LTEXT           "pulse/sec",IDC_STATIC,111,77,33,8
+    LTEXT           "pulse",IDC_STATIC,111,95,18,8
+    PUSHBUTTON      "move_p",IDC_BUTTON_MOVEP,289,108,50,14
+    PUSHBUTTON      "move_n",IDC_BUTTON_MOVEN,344,108,50,14
+    PUSHBUTTON      "move_s",IDC_BUTTON_MOVES,289,124,50,14
+    PUSHBUTTON      "move_ds",IDC_BUTTON_MOVEDS,344,124,50,14
+    LTEXT           "Axis :",IDC_STATIC,31,19,18,8
+    EDITTEXT        IDC_EDIT_AXIS,56,16,29,14,ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "<- Axis",IDC_BUTTON_AXIS_PREV,88,16,31,14
+    PUSHBUTTON      "Axis ->",IDC_BUTTON_AXIS_NEXT,120,16,31,14
+    PUSHBUTTON      "Stop",IDC_BUTTON_PAUSE,289,24,50,14
+    PUSHBUTTON      "Clear Stop",IDC_BUTTON_PAUSECLEAR,344,24,50,14
+    PUSHBUTTON      "Amp On",IDC_BUTTON_AMPON,289,7,50,14
+    PUSHBUTTON      "Amp Off",IDC_BUTTON_AMPOFF,344,7,50,14
+    PUSHBUTTON      "Clear Status",IDC_BUTTON_CLEARSTATUS,289,41,50,14
+    EDITTEXT        IDC_EDIT_CURPOS,49,121,39,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Command",IDC_STATIC,12,124,34,8
+    GROUPBOX        "Command",IDC_STATIC,7,7,157,105
+    GROUPBOX        "Axis Status",IDC_STATIC,168,7,118,105
+    LTEXT           "In Sequence ?",IDC_STATIC,175,18,47,8
+    EDITTEXT        IDC_EDIT_INSEQUENCE,226,15,54,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "In Motion ?",IDC_STATIC,185,34,37,8
+    EDITTEXT        IDC_EDIT_INMOTION,226,31,54,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "In Position ?",IDC_STATIC,182,50,40,8
+    EDITTEXT        IDC_EDIT_INPOSITION,226,47,54,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Axis Done?",IDC_STATIC,173,66,46,8
+    LTEXT           "Axis Source",IDC_STATIC,172,82,47,8
+    LTEXT           "Axis State",IDC_STATIC,172,97,50,8
+    EDITTEXT        IDC_EDIT_AXISDONE,226,63,54,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AXISSOURCE,226,79,54,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AXISSTATE,226,95,54,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    CONTROL         140,IDC_STATIC,"Static",SS_BITMAP,352,297,33,16
+    GROUPBOX        "Position",IDC_STATIC,7,112,279,26
+    EDITTEXT        IDC_EDIT_ACTUALPOS,113,121,39,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Actual",IDC_STATIC,92,124,20,8
+    EDITTEXT        IDC_EDIT_ERRORPOS,175,121,39,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Error",IDC_STATIC,157,124,15,8
+    LTEXT           "Com.",IDC_STATIC,221,124,16,8
+    EDITTEXT        IDC_EDIT_COMVEL,241,121,39,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    PUSHBUTTON      "Set Position '0'",IDC_BUTTON_SETPOSITION_ZERO,289,91,
+                    105,14
+    PUSHBUTTON      "Free Run",IDC_BUTTON_RUN,290,74,50,14
+    PUSHBUTTON      "Stop",IDC_BUTTON_STOP,344,74,50,14
+    PUSHBUTTON      "Trace",IDC_BUTTON_RUN_ONESHOT,344,58,50,14
+    CONTROL         "sec",IDC_CHECK_ACCMOVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,99,40,35,10
+    CONTROL         "1m/s2",IDC_CHECK_DIVMOVE,"Button",BS_AUTOCHECKBOX | 
+                    BS_MULTILINE | WS_TABSTOP,99,51,38,18
+    PUSHBUTTON      "Hold",IDC_BUTTON_VIEW_HOLD,180,299,50,14
+END
+
+IDD_DIALOG_MOVE234 DIALOG DISCARDABLE  0, 0, 401, 319
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Axes"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "최고속도:",IDC_STATIC,14,9,36,8
+    EDITTEXT        IDC_EDIT_MAX_SPEED,55,7,26,14,ES_AUTOHSCROLL
+    LTEXT           "Pos :",IDC_STATIC,12,32,17,8
+    LTEXT           "가속limit :",IDC_STATIC,12,61,34,8
+    EDITTEXT        IDC_EDIT_AX1_POS,47,29,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_AX1_ACC,47,60,40,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    GROUPBOX        "Axis #1",IDC_STATIC,7,20,90,245
+    LTEXT           "In Sequence",IDC_STATIC,13,94,41,8
+    EDITTEXT        IDC_EDIT_AX1_INSEQUENCE,59,90,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "In Motion",IDC_STATIC,23,109,31,8
+    EDITTEXT        IDC_EDIT_AX1_INMOTION,59,105,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "In Position",IDC_STATIC,20,123,34,8
+    EDITTEXT        IDC_EDIT_AX1_INPOSITION,59,120,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Axis Done",IDC_STATIC,21,137,33,8
+    EDITTEXT        IDC_EDIT_AX1_AXISDONE,59,135,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Command",IDC_STATIC,16,204,32,8
+    EDITTEXT        IDC_EDIT_AX1_COMMAND,59,201,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Actual",IDC_STATIC,27,220,21,8
+    EDITTEXT        IDC_EDIT_AX1_ACTUAL,59,216,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Error",IDC_STATIC,31,234,17,8
+    EDITTEXT        IDC_EDIT_AX1_ERROR,59,231,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Encoder",IDC_STATIC,21,250,27,8
+    EDITTEXT        IDC_EDIT_AX1_ENCODER,59,246,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    CONTROL         "Action",IDC_CHECK_AX1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,26,78,36,10
+    LTEXT           "Pos :",IDC_STATIC,109,32,17,8
+    LTEXT           "가속limit :",IDC_STATIC,109,62,34,8
+    EDITTEXT        IDC_EDIT_AX2_POS,144,29,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_AX2_ACC,144,60,40,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    GROUPBOX        "Axis #2",IDC_STATIC,104,20,92,245
+    LTEXT           "In Sequence",IDC_STATIC,110,94,41,8
+    EDITTEXT        IDC_EDIT_AX2_INSEQUENCE,156,90,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "In Motion",IDC_STATIC,120,110,31,8
+    EDITTEXT        IDC_EDIT_AX2_INMOTION,156,105,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "In Position",IDC_STATIC,117,123,34,8
+    EDITTEXT        IDC_EDIT_AX2_INPOSITION,156,120,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Axis Done",IDC_STATIC,118,137,33,8
+    EDITTEXT        IDC_EDIT_AX2_AXISDONE,156,135,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Command",IDC_STATIC,113,205,32,8
+    EDITTEXT        IDC_EDIT_AX2_COMMAND,156,201,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Actual",IDC_STATIC,124,221,21,8
+    EDITTEXT        IDC_EDIT_AX2_ACTUAL,156,216,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Error",IDC_STATIC,128,234,17,8
+    EDITTEXT        IDC_EDIT_AX2_ERROR,156,231,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Encoder",IDC_STATIC,118,250,27,8
+    EDITTEXT        IDC_EDIT_AX2_ENCODER,156,246,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    CONTROL         "Action",IDC_CHECK_AX2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,123,78,36,10
+    LTEXT           "Pos :",IDC_STATIC,207,32,17,8
+    LTEXT           "가속limit :",IDC_STATIC,207,62,34,8
+    EDITTEXT        IDC_EDIT_AX3_POS,242,29,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_AX3_ACC,242,60,40,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    GROUPBOX        "Axis #3",IDC_STATIC,202,20,93,245
+    LTEXT           "In Sequence",IDC_STATIC,208,94,41,8
+    EDITTEXT        IDC_EDIT_AX3_INSEQUENCE,254,90,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "In Motion",IDC_STATIC,218,110,31,8
+    EDITTEXT        IDC_EDIT_AX3_INMOTION,254,105,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "In Position",IDC_STATIC,215,123,34,8
+    EDITTEXT        IDC_EDIT_AX3_INPOSITION,254,120,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Axis Done",IDC_STATIC,216,137,33,8
+    EDITTEXT        IDC_EDIT_AX3_AXISDONE,254,135,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Command",IDC_STATIC,211,205,32,8
+    EDITTEXT        IDC_EDIT_AX3_COMMAND,254,201,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Actual",IDC_STATIC,222,221,21,8
+    EDITTEXT        IDC_EDIT_AX3_ACTUAL,254,216,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Error",IDC_STATIC,226,234,17,8
+    EDITTEXT        IDC_EDIT_AX3_ERROR,254,231,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Encoder",IDC_STATIC,216,250,27,8
+    EDITTEXT        IDC_EDIT_AX3_ENCODER,254,246,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    CONTROL         "Action",IDC_CHECK_AX3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,221,78,36,10
+    LTEXT           "Pos :",IDC_STATIC,311,32,17,8
+    LTEXT           "가속limit :",IDC_STATIC,311,62,34,8
+    EDITTEXT        IDC_EDIT_AX4_POS,345,29,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_AX4_ACC,345,60,40,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    GROUPBOX        "Axis #4",IDC_STATIC,301,20,93,245
+    LTEXT           "In Sequence",IDC_STATIC,311,94,41,8
+    EDITTEXT        IDC_EDIT_AX4_INSEQUENCE,357,90,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "In Motion",IDC_STATIC,321,110,31,8
+    EDITTEXT        IDC_EDIT_AX4_INMOTION,357,105,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "In Position",IDC_STATIC,319,123,34,8
+    EDITTEXT        IDC_EDIT_AX4_INPOSITION,357,120,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Axis Done",IDC_STATIC,319,137,33,8
+    EDITTEXT        IDC_EDIT_AX4_AXISDONE,357,135,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Command",IDC_STATIC,315,205,32,8
+    EDITTEXT        IDC_EDIT_AX4_COMMAND,357,201,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Actual",IDC_STATIC,325,221,21,8
+    EDITTEXT        IDC_EDIT_AX4_ACTUAL,357,216,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Error",IDC_STATIC,329,234,17,8
+    EDITTEXT        IDC_EDIT_AX4_ERROR,357,231,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "Encoder",IDC_STATIC,319,250,27,8
+    EDITTEXT        IDC_EDIT_AX4_ENCODER,357,246,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    CONTROL         "Action",IDC_CHECK_AX4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,325,78,36,10
+    PUSHBUTTON      "Action\r\nAll",IDC_BUTTON_ACTION_ALL,60,281,50,29,
+                    BS_MULTILINE
+    PUSHBUTTON      "Stop\r\nAll",IDC_BUTTON_STOP_ALL,127,281,50,29,
+                    BS_MULTILINE
+    PUSHBUTTON      "Clear Stop\r\nAll",IDC_BUTTON_CLEAR_STOP_ALL,181,281,50,
+                    29,BS_MULTILINE
+    LTEXT           "Frames ",IDC_STATIC,29,153,26,8
+    LTEXT           "Frames ",IDC_STATIC,126,154,26,8
+    LTEXT           "Frames ",IDC_STATIC,223,155,26,8
+    LTEXT           "Frames ",IDC_STATIC,327,153,26,8
+    EDITTEXT        IDC_EDIT_AX4_FRAMESLEFT,357,151,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AX3_FRAMESLEFT,254,151,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AX2_FRAMESLEFT,156,151,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AX1_FRAMESLEFT,59,150,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKRECT,14,196,76,1
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKRECT,111,197,76,1
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKRECT,209,197,76,1
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKRECT,312,197,76,1
+    PUSHBUTTON      "Frames Clear\r\nAll",IDC_BUTTON_FRAMES_CLEAR_ALL,235,
+                    281,50,29,BS_MULTILINE
+    PUSHBUTTON      "Axis On\r\nAll",IDC_BUTTON_AXIS_ON_ALL,292,281,50,29,
+                    BS_MULTILINE
+    PUSHBUTTON      "Axis Off\r\nAll",IDC_BUTTON_AXIS_OFF_ALL,344,281,50,29,
+                    BS_MULTILINE
+    PUSHBUTTON      "Position Clear",IDC_BUTTON_POSITION_CLEAR,60,266,50,14
+    LTEXT           "Source",IDC_STATIC,30,168,23,8
+    EDITTEXT        IDC_EDIT_AX1_AXISSOURCE,59,165,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AX1_STATE,59,180,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "State",IDC_STATIC,35,182,18,8
+    LTEXT           "Source",IDC_STATIC,127,168,23,8
+    EDITTEXT        IDC_EDIT_AX2_AXISSOURCE,156,165,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AX2_STATE,156,180,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "State",IDC_STATIC,132,182,18,8
+    LTEXT           "Source",IDC_STATIC,224,169,23,8
+    EDITTEXT        IDC_EDIT_AX3_AXISSOURCE,254,166,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AX3_STATE,254,181,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "State",IDC_STATIC,230,182,18,8
+    LTEXT           "Source",IDC_STATIC,327,169,23,8
+    EDITTEXT        IDC_EDIT_AX4_AXISSOURCE,357,166,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_AX4_STATE,357,181,28,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "State",IDC_STATIC,333,182,18,8
+    CONTROL         "S Curve",IDC_CHECK_SCURVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,356,7,41,10
+    PUSHBUTTON      "Repeat Start",IDC_BUTTON_REPEAT,127,266,50,14
+    PUSHBUTTON      "Repeat Stop",IDC_BUTTON_REPEAT_STOP,183,266,50,14
+    PUSHBUTTON      "Home\r\nAll",IDC_BUTTON_ACTION_HOME,7,282,50,29,
+                    BS_MULTILINE
+    EDITTEXT        IDC_EDIT_PAUSE_AXIS,367,267,19,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Pause Axis:",IDC_BUTTON_PAUSE,324,267,41,14
+    PUSHBUTTON      "Clear Stop",IDC_BUTTON_CLEAR_STOP,271,267,50,14,
+                    WS_DISABLED
+    LTEXT           "%",IDC_STATIC,83,10,8,8
+    LTEXT           "가속시간:",IDC_STATIC,110,9,36,8
+    EDITTEXT        IDC_EDIT_ACC_MSEC,150,7,30,14,ES_AUTOHSCROLL
+    LTEXT           "msec",IDC_STATIC,183,9,17,8
+    LTEXT           "속도limit :",IDC_STATIC,11,46,34,8
+    EDITTEXT        IDC_EDIT_AX1_VEL,47,45,40,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "속도limit :",IDC_STATIC,109,47,34,8
+    EDITTEXT        IDC_EDIT_AX2_VEL,143,45,40,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "속도limit :",IDC_STATIC,207,47,34,8
+    EDITTEXT        IDC_EDIT_AX3_VEL,241,45,40,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "속도limit :",IDC_STATIC,311,47,34,8
+    EDITTEXT        IDC_EDIT_AX4_VEL,345,45,40,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    CONTROL         "Use PTP",IDC_CHECK_USE_STMOVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,315,7,40,10
+    EDITTEXT        IDC_EDIT_SEQ_VEL,215,7,40,14,ES_AUTOHSCROLL
+    LTEXT           "V:",IDC_STATIC,207,9,8,8
+    LTEXT           "A:",IDC_STATIC,259,9,8,8
+    EDITTEXT        IDC_EDIT_SEQ_ACC,267,7,40,14,ES_AUTOHSCROLL
+END
+
+IDD_DIALOG_ERROR_CODES DIALOG DISCARDABLE  0, 0, 401, 319
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Error Status"
+FONT 8, "Tahoma"
+BEGIN
+    LTEXT           "ST_NONE\t\t\t0x0000\t\t정상동작",IDC_STATIC,42,25,312,
+                    11
+    LTEXT           "ST_HOME_SWITCH\t\t0x0001\t\t원점센서 감지",IDC_STATIC,
+                    42,37,306,11
+    LTEXT           "ST_POS_LIMIT\t\t\t0x0002\t\t(+)방향 Limit 센서 감지",
+                    IDC_STATIC,42,49,311,11
+    LTEXT           "ST_NEG_LIMIT\t\t\t0x0004\t\t(-)방향 Limit 센서 감지",
+                    IDC_STATIC,42,61,311,11
+    LTEXT           "ST_AMP_FAULT\t\t\t0x0008\t\tAmp Fault 상태 발생",
+                    IDC_STATIC,42,73,311,11
+    LTEXT           "ST_SYSTEM_INSEC\t\t0x0010\t\tSYSTEM 전원 이상 발생",
+                    IDC_STATIC,42,85,311,11
+    LTEXT           "ST_V_LIMIT\t\t\t0x0020\t\t현재 속도가 속도 limit보다 클때 발생",
+                    IDC_STATIC,42,97,311,11
+    LTEXT           "ST_X_NEG_LIMIT\t\t0x0040\t\t(-) Position limit를 벗어날때 발생",
+                    IDC_STATIC,42,109,311,11
+    LTEXT           "ST_X_POS_LIMIT\t\t0x0080\t\t(+) Position limit를 벗어날때 발생",
+                    IDC_STATIC,42,121,311,11
+    LTEXT           "ST_ERROR_LIMIT\t\t0x0100\t\t위치 오차가 limit 값보다 클때 발생",
+                    IDC_STATIC,42,133,311,11
+    LTEXT           "ST_PC_COMMAND\t\t0x0200\t\tEVENT가 발생된 상태일때 발생",
+                    IDC_STATIC,42,145,311,11
+    LTEXT           "ST_OUT_OF_FRAMES\t\t0x0400\t\tFRAME BUFFER가 FULL 상태일때 발생",
+                    IDC_STATIC,42,157,311,11
+    LTEXT           "ST_AMP_POWER_ONOFF\t0x0800\t\tAMP  Disable상태일 때 발생",
+                    IDC_STATIC,42,169,311,11
+    LTEXT           "ST_ABS_COMM_ERROR\t\t0x1000\t\tABS Encoder 통신 error시 발생",
+                    IDC_STATIC,42,181,311,11
+    LTEXT           "ST_INPOSITION_STATUS\t0x2000\t\tIn Position Signal입력 여부",
+                    IDC_STATIC,42,193,311,11
+    LTEXT           "ST_SW_IN_POSITION\t\t0x4000\t\tSoftware In Position 인 경우",
+                    IDC_STATIC,42,205,311,11
+    LTEXT           "ST_MUST_REBOOT\t\t0x8000\t\t보드 리부팅이 필요한 에러 발생",
+                    IDC_STATIC,42,217,311,11
+    GROUPBOX        " Axis Source codes ",IDC_STATIC,22,7,363,230
+    GROUPBOX        " Axis State",IDC_STATIC,22,242,363,62
+    LTEXT           "NORMAL_EVENT\t\t\t0x00\t\tNo Event",IDC_STATIC,42,255,
+                    311,11
+    LTEXT           "STOP_EVENT\t\t\t0x01\t\tStop Event",IDC_STATIC,42,265,
+                    311,11
+    LTEXT           "E_STOP_EVENT\t\t\t0x02\t\tE-Stop Event",IDC_STATIC,42,
+                    276,311,11
+    LTEXT           "ABORT_EVENT\t\t\t0x03\t\tAbort Event",IDC_STATIC,42,288,
+                    311,11
+END
+
+IDD_DIALOG_FS DIALOG DISCARDABLE  0, 0, 401, 319
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION " File system "
+FONT 8, "Tahoma"
+BEGIN
+    CONTROL         "List2",IDC_LIST_FS_LIST,"SysListView32",LVS_REPORT | 
+                    LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,7,7,317,246
+    PUSHBUTTON      "List Refresh",IDC_BUTTON_REFRESH,344,7,50,22
+    PUSHBUTTON      "File Delete",IDC_BUTTON_DELETE,344,34,50,22
+    PUSHBUTTON      "File Dnload",IDC_BUTTON_DNLOAD,344,102,50,22
+    PUSHBUTTON      "File Upload",IDC_BUTTON_UPLOAD,344,78,50,22
+    PUSHBUTTON      "Set Boot",IDC_BUTTON_SETBOOT,344,159,50,22
+    PUSHBUTTON      "Filesystem\r\nFormat",IDC_BUTTON_FORMAT,344,187,50,22,
+                    BS_MULTILINE
+    PUSHBUTTON      "System Info",IDC_BUTTON_SYSTEMINFO,344,214,50,22,
+                    BS_MULTILINE
+    LTEXT           "System Info : ",IDC_STATIC,8,274,46,8
+    EDITTEXT        IDC_EDIT_SYSTEMINFO,57,271,267,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    CONTROL         "Progress1",IDC_PROGRESS1,"msctls_progress32",PBS_SMOOTH | 
+                    WS_BORDER,57,287,267,14
+    LTEXT           "진행사항 :",IDC_STATIC,14,290,40,8
+    PUSHBUTTON      "DSP 재시작",IDC_BUTTON_RESTART,344,290,50,22,
+                    BS_MULTILINE
+    LTEXT           "",IDC_STATIC_PROGRESS,57,304,161,8,SS_SUNKEN
+    LTEXT           "파일전체 크기",IDC_STATIC,143,258,51,8
+    EDITTEXT        IDC_EDIT_TOTAL_BYTES,199,255,70,14,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    LTEXT           "바이트",IDC_STATIC,273,257,25,8
+    PUSHBUTTON      "Dump1",IDC_BUTTON_DUMP1,344,240,50,14
+    PUSHBUTTON      "Dump2",IDC_BUTTON_DUMP2,344,254,50,14
+    PUSHBUTTON      "Dump3",IDC_BUTTON_DUMP3,344,268,50,14
+    PUSHBUTTON      "File Install",IDC_BUTTON_FILE_INSTALL,344,127,50,22
+END
+
+IDD_DIALOG_SYNC DIALOG DISCARDABLE  0, 0, 401, 319
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Misc."
+FONT 8, "Tahoma"
+BEGIN
+    EDITTEXT        IDC_EDIT_MASTER_AXIS,46,16,20,14,ES_AUTOHSCROLL
+    LTEXT           "Slave :",IDC_STATIC,83,18,23,8
+    EDITTEXT        IDC_EDIT_SLAVE_AXIS,108,16,20,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "set_sync_map",IDC_BUTTON_SET_MAP,143,13,50,14
+    GROUPBOX        " Axis ",IDC_STATIC,7,7,130,28
+    PUSHBUTTON      "control   'ON'",IDC_BUTTON_CONTROL_ON,201,13,50,14
+    PUSHBUTTON      "control   'OFF'",IDC_BUTTON_CONTROL_OFF,201,30,50,14
+    GROUPBOX        " Gain ",IDC_STATIC,7,37,130,28
+    EDITTEXT        IDC_EDIT_GAIN,35,46,46,14,ES_AUTOHSCROLL
+    LTEXT           "(실수 형)",IDC_STATIC,92,49,32,8
+    PUSHBUTTON      "set_sync_gain",IDC_BUTTON_SET_GAIN,144,48,50,14
+    PUSHBUTTON      "get_sync_gain",IDC_BUTTON_GET_GAIN,201,48,50,14
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKRECT,7,71,387,1
+    LTEXT           "",IDC_STATIC_CTRL_ON,257,16,61,8,SS_SUNKEN
+    LTEXT           "",IDC_STATIC_CTRL_OFF,257,33,61,8,SS_SUNKEN
+    LTEXT           "",IDC_STATIC_SYNC_POSITION,266,54,128,8,SS_SUNKEN
+    PUSHBUTTON      "Enable/Disable Wdt",IDC_BUTTON_ENABLE_WDT,46,111,98,14
+    CONTROL         "Main Loop",IDC_CHECK_MAIN_STATUS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,40,91,48,10
+    CONTROL         "Extra",IDC_CHECK_EXTRA_STATUS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,97,91,33,10
+    CONTROL         "Sub-Control",IDC_CHECK_SUBCONTROL_STATUS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,139,91,54,10
+    CONTROL         "Control",IDC_CHECK_CONTROL_STATUS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,202,91,39,10
+    EDITTEXT        IDC_EDIT_WDT_STATUS,295,103,23,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Get Status",IDC_BUTTON_GET_WDT_STATUS,294,84,50,14
+    PUSHBUTTON      "Set Status",IDC_BUTTON_SET_WDT_STATUS,325,103,50,14
+    GROUPBOX        "Watch Dog",IDC_STATIC,7,76,387,54
+    PUSHBUTTON      "Clear Wdt",IDC_BUTTON_CLR_WDT_REASON,186,111,50,14
+    PUSHBUTTON      "Dbg. Status",IDC_BUTTON_GET_DBG_STATUS,132,135,50,14
+    EDITTEXT        IDC_EDIT_DBG_STATUS,7,151,175,161,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_READONLY | 
+                    WS_VSCROLL
+    PUSHBUTTON      "Dpram Test",IDC_BUTTON_DPRAM_TEST,192,275,50,14,NOT 
+                    WS_VISIBLE
+    EDITTEXT        IDC_EDIT_DPRAM_TEST,193,295,185,14,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE | WS_DISABLED
+    GROUPBOX        "PROFILE MARGIN",IDC_STATIC,192,147,184,50
+    GROUPBOX        "ACT VELOCITY MONITERING",IDC_STATIC,192,201,184,68
+    EDITTEXT        IDC_EDIT_PM_AXIS,212,158,22,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PM_USE,253,158,22,14,ES_AUTOHSCROLL
+    LTEXT           "Axis",IDC_STATIC,197,162,14,8
+    LTEXT           "use",IDC_STATIC,239,162,12,8
+    LTEXT           "value",IDC_STATIC,282,162,18,8
+    EDITTEXT        IDC_EDIT_PM_VALUE,302,158,47,14,ES_AUTOHSCROLL
+    LTEXT           "(pps)",IDC_STATIC,352,163,22,10
+    PUSHBUTTON      "set_vel_curve",IDC_BUTTON_SET_VEL_CURVE,207,177,72,14
+    PUSHBUTTON      "get_vel_curve",IDC_BUTTON_GET_VEL_CURVE,290,177,72,14
+    LTEXT           "Axis",IDC_STATIC,197,214,14,8
+    LTEXT           "Event",IDC_STATIC,196,233,20,8
+    LTEXT           "Value",IDC_STATIC,256,214,18,8
+    EDITTEXT        IDC_EDIT_AVM_AXIS,219,212,22,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_AVM_EVENT,219,230,22,14,ES_AUTOHSCROLL
+    LTEXT           "Time",IDC_STATIC,256,234,16,8
+    EDITTEXT        IDC_EDIT_AVM_VALUE,278,213,56,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_AVM_TIME,278,230,55,14,ES_AUTOHSCROLL
+    LTEXT           "(pps)",IDC_STATIC,335,218,22,10
+    LTEXT           "(200us)",IDC_STATIC,334,235,25,10
+    PUSHBUTTON      "set_actvel_margin",IDC_BUTTON_SET_ACTVEL_MARGIN,207,250,
+                    72,14
+    PUSHBUTTON      "get_actvel_margin",IDC_BUTTON_GET_ACTVEL_MARGIN,289,249,
+                    72,14
+    PUSHBUTTON      "Dbg. Status2",IDC_BUTTON_GET_DBG_STATUS2,77,135,50,14
+END
+
+IDD_DIALOG_FILTERING DIALOG DISCARDABLE  0, 0, 401, 308
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Filtering"
+FONT 8, "Tahoma"
+BEGIN
+    PUSHBUTTON      "Get Freq.",IDC_BUTTON_POS_GET,54,60,50,14
+    LTEXT           "Notch Filter Fc:",IDC_STATIC,22,93,50,8
+    EDITTEXT        IDC_EDIT_POS_NOTCH,80,90,40,14,ES_AUTOHSCROLL
+    LTEXT           "Hz",IDC_STATIC,128,94,9,8
+    LTEXT           "LPF  Fc:",IDC_STATIC,46,110,26,8
+    EDITTEXT        IDC_EDIT_POS_LPF,80,108,40,14,ES_AUTOHSCROLL
+    LTEXT           "Hz",IDC_STATIC,128,112,9,8
+    PUSHBUTTON      "Set Freq.",IDC_BUTTON_POS_SET,54,143,50,14
+    GROUPBOX        "Position mode Filter Setting",IDC_STATIC,16,42,134,120
+    PUSHBUTTON      "Get Freq.",IDC_BUTTON_VEL_GET,54,195,50,14
+    LTEXT           "Notch Filter Fc:",IDC_STATIC,22,228,50,8
+    EDITTEXT        IDC_EDIT_VEL_NOTCH,80,225,40,14,ES_AUTOHSCROLL
+    LTEXT           "Hz",IDC_STATIC,128,229,9,8
+    LTEXT           "LPF  Fc:",IDC_STATIC,46,245,26,8
+    EDITTEXT        IDC_EDIT_VEL_LPF,80,243,40,14,ES_AUTOHSCROLL
+    LTEXT           "Hz",IDC_STATIC,128,245,9,8
+    PUSHBUTTON      "Set Freq.",IDC_BUTTON_VEL_SET,54,278,50,14
+    GROUPBOX        "Velocity mode Filter Setting",IDC_STATIC,16,176,134,120
+    LTEXT           "AXIS :",IDC_STATIC,17,16,21,8
+    EDITTEXT        IDC_EDIT_AXIS,41,13,26,14,ES_AUTOHSCROLL | WS_DISABLED
+    PUSHBUTTON      "<- Prev Axis",IDC_BUTTON_PREV_AXIS,71,13,50,14
+    PUSHBUTTON      "Next Axis ->",IDC_BUTTON_NEXT_AXIS,123,13,50,14
+    GROUPBOX        "SYSTEM MONITERING",IDC_STATIC,158,41,225,254
+    GROUPBOX        "Monitering Result (Error Check)",IDC_STATIC,163,51,215,
+                    42
+    CONTROL         "3.3V",IDC_CHECK_MONI_ST_3P3,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,185,64,31,10
+    CONTROL         "AXIS0",IDC_CHECK_MONI_ST_AXIS0,"Button",BS_AUTOCHECKBOX | 
+                    NOT WS_VISIBLE | WS_DISABLED | WS_TABSTOP,185,79,35,10
+    CONTROL         "5V",IDC_CHECK_MONI_ST_5P,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,231,64,24,10
+    CONTROL         "12V",IDC_CHECK_MONI_ST_12P,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,276,64,28,10
+    CONTROL         "-12V",IDC_CHECK_MONI_ST_12M,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,322,64,31,10
+    CONTROL         "AXIS1",IDC_CHECK_MONI_ST_AXIS1,"Button",BS_AUTOCHECKBOX | 
+                    NOT WS_VISIBLE | WS_DISABLED | WS_TABSTOP,231,79,35,10
+    CONTROL         "AXIS2",IDC_CHECK_MONI_ST_AXIS2,"Button",BS_AUTOCHECKBOX | 
+                    NOT WS_VISIBLE | WS_DISABLED | WS_TABSTOP,276,79,35,10
+    CONTROL         "AXIS3",IDC_CHECK_MONI_ST_AXIS3,"Button",BS_AUTOCHECKBOX | 
+                    NOT WS_VISIBLE | WS_DISABLED | WS_TABSTOP,322,79,35,10
+    CONTROL         "3.3V",IDC_CHECK_MONI_SYS_3P3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,166,107,31,10
+    CONTROL         "5V",IDC_CHECK_MONI_SYS_5P,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,166,125,24,10
+    CONTROL         "12V",IDC_CHECK_MONI_SYS_12P,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,166,144,28,10
+    CONTROL         "-12V",IDC_CHECK_MONI_SYS_12M,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,166,162,31,10
+    CONTROL         "AXIS0",IDC_CHECK_MONI_SYS_AXIS0,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,166,180,35,10
+    CONTROL         "AXIS1",IDC_CHECK_MONI_SYS_AXIS1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,166,199,35,10
+    CONTROL         "AXIS2",IDC_CHECK_MONI_SYS_AXIS2,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,166,217,35,10
+    CONTROL         "AXIS3",IDC_CHECK_MONI_SYS_AXIS3,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,166,236,35,10
+    LTEXT           "SOURCE",IDC_STATIC,168,95,28,8
+    EDITTEXT        IDC_EDIT_MONI_PERCENT_3P3,219,105,29,14,ES_AUTOHSCROLL
+    LTEXT           "Curoff(%)",IDC_STATIC,220,95,34,8
+    EDITTEXT        IDC_EDIT_MONI_PERCENT_5P,219,123,29,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_PERCENT_12P,219,141,30,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_PERCENT_12M,219,159,30,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_PERCENT_AXIS0,219,177,30,14,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_MONI_PERCENT_AXIS1,220,196,29,14,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_MONI_PERCENT_AXIS2,220,215,29,14,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_MONI_PERCENT_AXIS3,220,234,29,14,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_MONI_VALUE_3P3,258,105,34,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_VALUE_5P,258,123,34,14,ES_AUTOHSCROLL
+    LTEXT           "VALUE",IDC_STATIC,265,95,22,8
+    EDITTEXT        IDC_EDIT_MONI_VALUE_12P,258,141,34,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_VALUE_12M,258,159,34,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_VALUE_AXIS0,258,177,34,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_VALUE_AXIS1,258,196,34,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_VALUE_AXIS2,258,215,34,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_VALUE_AXIS3,258,234,34,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "ON",IDC_BUTTON_MONI_ENABLE_SET,168,251,24,14
+    PUSHBUTTON      "SET",IDC_BUTTON_MONI_CUTOFF_SET,222,251,24,14
+    PUSHBUTTON      "GET",IDC_BUTTON_MONI_CUTOFF_GET,222,265,24,14
+    PUSHBUTTON      "GET",IDC_BUTTON_MONI_VALUE_GET,264,264,24,14
+    LTEXT           "(V)",IDC_STATIC,294,110,10,8
+    LTEXT           "(V)",IDC_STATIC,294,129,10,8
+    LTEXT           "(V)",IDC_STATIC,294,146,10,8
+    LTEXT           "(V)",IDC_STATIC,294,164,10,8
+    LTEXT           "(D)",IDC_STATIC,294,182,10,8
+    PUSHBUTTON      "OFF",IDC_BUTTON_MONI_DISABLE_SET,192,251,24,14
+    PUSHBUTTON      "GET",IDC_BUTTON_MONI_ENABLE_GET,179,266,24,14
+    CONTROL         "AUTO GET",IDC_CHECK_MONI_AUTO,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,324,266,49,10
+    GROUPBOX        "",IDC_STATIC,254,90,124,203
+    EDITTEXT        IDC_EDIT_MONI_RAW_VALUE_3P3,309,105,32,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_RAW_VALUE_5P,309,123,32,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_RAW_VALUE_12P,309,141,32,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_RAW_VALUE_12M,309,159,32,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_RAW_VALUE_AXIS0,309,177,32,14,
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_RAW_VALUE_AXIS1,309,196,32,14,
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_RAW_VALUE_AXIS2,309,215,32,14,
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_RAW_VALUE_AXIS3,309,233,32,14,
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_CPA_VALUE_AXIS0,342,177,32,14,
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_CPA_VALUE_AXIS1,342,196,32,14,
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_CPA_VALUE_AXIS2,342,215,32,14,
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_CPA_VALUE_AXIS3,342,233,32,14,
+                    ES_AUTOHSCROLL
+    LTEXT           "RAW",IDC_STATIC,316,95,17,8
+    LTEXT           "DSPDAC",IDC_STATIC,343,95,28,8
+    LTEXT           "(D=ACD= ADC Convert DAC)",IDC_STATIC,276,280,100,8
+    LTEXT           "(D)",IDC_STATIC,294,202,10,8
+    LTEXT           "(D)",IDC_STATIC,294,220,10,8
+    LTEXT           "(D)",IDC_STATIC,294,238,10,8
+    EDITTEXT        IDC_EDIT_MONI_ONOFF_3P3,201,105,18,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_ONOFF_5P,201,123,18,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_ONOFF_12P,201,141,18,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_ONOFF_12M,201,159,18,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_MONI_ONOFF_AXIS0,201,177,18,14,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_MONI_ONOFF_AXIS1,202,196,18,14,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_MONI_ONOFF_AXIS2,202,215,18,14,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_MONI_ONOFF_AXIS3,202,234,18,14,ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    LTEXT           "EN",IDC_STATIC,207,95,10,8
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,8,2,0
+ PRODUCTVERSION 2,8,2,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041204b0"
+        BEGIN
+            VALUE "Comments", "Web site, http://www.cantops.biz\0"
+            VALUE "CompanyName", "CANTOPS\0"
+            VALUE "FileDescription", "2011.08.23\0"
+            VALUE "FileVersion", "2, 8, 2, 0\0"
+            VALUE "InternalName", "AmcSetup\0"
+            VALUE "LegalCopyright", "Copyright (C) 2007-2011 All rights reserved by CANTOPS\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "AmcSetup.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "Amc Application\0"
+            VALUE "ProductVersion", "2, 8, 2, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x412, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_AMCSETUP_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_PROPPAGE1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 394
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 312
+    END
+
+    IDD_DIALOG_IOTEST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 403
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 313
+    END
+
+    IDD_DIALOG_ACTION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 394
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 313
+    END
+
+    IDD_DIALOG_TUNING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 271
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 176
+    END
+
+    IDD_DIALOG_SOFT_LIMITS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 250
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 263
+    END
+
+    IDD_DIALOG_LIMIT_SWITCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 242
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 250
+    END
+
+    IDD_DIALOG_AXIS_CONFIG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 311
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 151
+    END
+
+    IDD_DIALOG_MOVEX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 394
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 313
+    END
+
+    IDD_DIALOG_MOVE234, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 394
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 312
+    END
+
+    IDD_DIALOG_ERROR_CODES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 394
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 312
+    END
+
+    IDD_DIALOG_FS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 394
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 312
+    END
+
+    IDD_DIALOG_SYNC, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 394
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 312
+    END
+
+    IDD_DIALOG_FILTERING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 394
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 301
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP_LOGO         BITMAP  DISCARDABLE     "res\\캔탑스로고-small.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "AmcSetup 정보(&A)..."
+    IDS_PROPSHT_CAPTION     "Property Sheet"
+END
+
+#endif    // Korean resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
+#ifdef _WIN32
+LANGUAGE 18, 1
+#pragma code_page(949)
+#endif //_WIN32
+#include "res\AmcSetup.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.kor\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

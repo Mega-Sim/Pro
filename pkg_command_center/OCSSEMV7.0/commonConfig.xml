@@ -1,0 +1,9 @@
+<config>
+	<dbConnection>
+		<url>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.240.16.190)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=OCSDB)(SERVER=DEDICATED)))</url>
+		<userName>uocsdb_test_pmm</userName>
+		<passWord>acsmcs2</passWord>
+	</dbConnection>
+	<hostServiceType>Primary</hostServiceType> <!-- Primary, Secondary -->
+	<remoteHostIpAddress>10.240.75.218</remoteHostIpAddress>
+</config>

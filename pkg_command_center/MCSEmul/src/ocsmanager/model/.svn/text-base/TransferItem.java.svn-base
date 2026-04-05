@@ -1,0 +1,46 @@
+/**
+ * Copyright 2011 by Samsung Electronics, Inc.,
+ * 
+ * This software is the confidential and proprietary information
+ * of Samsung Electronics, Inc. ("Confidential Information").  You
+ * shall not disclose such Confidential Information and shall use
+ * it only in accordance with the terms of the license agreement
+ * you entered into with Samsung.
+ */
+package ocsmanager.model;
+
+/**
+ * Ό³Έν
+ * 
+ * @author LWG
+ * @date   2011. 9. 5.
+ * @version 3.0
+ */
+public class TransferItem {
+	private String carrierId;
+	private String sourceLoc = null;
+	private String destLoc = null;
+	
+	public TransferItem(String carrierId, String sourceLoc, String destLoc) {
+		this.carrierId = carrierId;
+		this.sourceLoc = sourceLoc;
+		this.destLoc = destLoc;
+	}
+	
+	public String getSourceLoc() {
+		return sourceLoc;
+	}
+	public void setSourceLoc(String sourceLoc) {
+		this.sourceLoc = sourceLoc;
+	}
+	public String getDestLoc() {
+		return destLoc;
+	}
+	public void setDestLoc(String destLoc) {
+		this.destLoc = destLoc;
+	}
+	public String getCarrierId() {
+		return carrierId;
+	}
+	
+}

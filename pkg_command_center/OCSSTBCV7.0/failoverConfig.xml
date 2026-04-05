@@ -1,0 +1,183 @@
+<config>
+ 	<failoverUse>TRUE</failoverUse>	
+
+	<databaseConnCheck>
+ 		<intervalMillis>500</intervalMillis>
+ 		<timeoutCount>8</timeoutCount>
+ 	</databaseConnCheck>
+
+ 	<heartBeatList>
+ 		<heartBeat>
+ 			<ipAddress>10.240.50.223</ipAddress>
+		 	<port>6801</port>
+      <!-- PUBLIC LOCAL DIRECT -->
+      <type>PUBLIC</type>
+ 		</heartBeat>
+ 		<heartBeat>
+ 			<ipAddress>10.240.50.223</ipAddress>
+		 	<port>6802</port>
+		 	<!-- PUBLIC LOCAL DIRECT -->
+      <type>DIRECT</type>
+ 		</heartBeat>
+ 		<heartBeat>
+ 			<ipAddress>10.240.50.223</ipAddress>
+		 	<port>6803</port>
+		 	<!-- PUBLIC LOCAL DIRECT -->
+      <type>DIRECT</type>
+ 		</heartBeat>
+ 		<heartBeat>
+ 			<ipAddress>10.240.50.223</ipAddress>
+		 	<port>6804</port>
+		 	<!-- PUBLIC LOCAL DIRECT -->
+      <type>LOCAL</type>
+ 		</heartBeat>
+	    <intervalMillis>500</intervalMillis>
+	    <listenIntervalCount>1</listenIntervalCount>
+	    <timeoutCount>8</timeoutCount>
+ 	</heartBeatList>
+	<directHeartBeat>
+ 		<ipAddress>10.240.50.223</ipAddress>
+		<port>6805</port>
+	</directHeartBeat>
+ 	<publicNetCheck usage="true">
+ 		<gatewayIpAddress>10.240.50.1</gatewayIpAddress>
+ 		<remotePublicIpAddress>10.240.50.223</remotePublicIpAddress>
+ 		<pingTimeoutMillis>2000</pingTimeoutMillis>
+ 		<intervalMillis>200</intervalMillis>
+ 		<timeoutCount>1</timeoutCount>
+ 	</publicNetCheck>
+ 	
+ 	<localNetCheck usage="true">
+ 		<gatewayIpAddress>10.240.50.1</gatewayIpAddress>
+ 		<remotePublicIpAddress>10.240.50.223</remotePublicIpAddress>
+ 		<pingTimeoutMillis>2000</pingTimeoutMillis>
+ 		<intervalMillis>200</intervalMillis>
+ 		<timeoutCount>1</timeoutCount>
+ 	</localNetCheck>
+	<networkPingCheck usage="true">
+		<ipList>
+			<ipAddress name="name">127.0.0.1</ipAddress>
+		</ipList>
+		<pingTimeoutMillis>2000</pingTimeoutMillis>
+		<intervalMillis>2000</intervalMillis>
+	</networkPingCheck>
+	<deleteLogDay>7</deleteLogDay>	
+	<deleteHistoryDay>15</deleteHistoryDay>
+
+	<watchdogIntervalMillis>1000</watchdogIntervalMillis>
+	<remoteInitTimeOutCount>30</remoteInitTimeOutCount>
+	<inserviceRequestTimeoutCount>40</inserviceRequestTimeoutCount>
+	<autoTakeOverCount>0</autoTakeOverCount>  
+	<unknownWaitCount>5</unknownWaitCount>  <!-- when remote service status is unknown, failover wait  count -->
+
+  <historyInsertCount>4</historyInsertCount>
+  <delayInformMillis>3000</delayInformMillis>
+  <fileSizeTraceIntervalMillis>10000</fileSizeTraceIntervalMillis>
+
+	<localProcessList>
+		<operation failoverUse="TRUE">
+			<watchdogControl>
+				<run>TRUE</run>
+				<policy>ALWAYS_UP</policy>
+			</watchdogControl>
+			<failoverPolicy>NETDBBASE</failoverPolicy>
+			<netCheckUsage>
+                <public>TRUE</public>
+                <local>TRUE</local>
+            </netCheckUsage>
+		</operation>
+		<jobassign failoverUse="TRUE">
+      <watchdogControl>
+        <run>TRUE</run>
+        <policy>ALWAYS_UP</policy>
+      </watchdogControl>
+      <failoverPolicy>NETDBBASE</failoverPolicy>
+      <netCheckUsage>
+        <public>TRUE</public>
+        <local>FALSE</local>
+      </netCheckUsage>
+      <fileSizeTrace usage="true">
+        <fileNamePrefix filePath="/usr2/ocstv1/UOCS3.0/04_OCSJobAssign/log/Exception">CommonException</fileNamePrefix>
+        <fileNamePrefix filePath="/usr2/ocstv1/UOCS3.0/04_OCSJobAssign/log/Exception">JobAssignException</fileNamePrefix>
+        <fileNamePrefix filePath="/usr2/ocstv1/UOCS3.0/04_OCSJobAssign/log/Exception">OcsManagerException</fileNamePrefix>
+        <fileNamePrefix filePath="/usr2/ocstv1/UOCS3.0/04_OCSJobAssign/log/Exception">RouteException</fileNamePrefix>
+      </fileSizeTrace>
+    </jobassign>
+		<remoteserver failoverUse="FALSE">
+            <watchdogControl>
+                <run>TRUE</run>
+                <policy>VIP_STRICT</policy>
+            </watchdogControl>
+        </remoteserver>
+		<nrserver failoverUse="FALSE">
+			<watchdogControl>
+	    		<run>TRUE</run>
+	    		<policy>VIP_STRICT</policy>
+			</watchdogControl>
+		</nrserver>
+		<ibsem failoverUse="TRUE">
+            <watchdogControl>
+                 <run>TRUE</run>
+                 <policy>ALWAYS_UP</policy>  
+             </watchdogControl>
+             <failoverPolicy>VIPBASE</failoverPolicy>   <!-- VIPBASE, NETDBBASE, ANYHOST  -->
+             <netCheckUsage>
+                 <public>FALSE</public>
+                 <local>FALSE</local>
+             </netCheckUsage>
+         </ibsem>
+		<stbc failoverUse="TRUE">
+            <watchdogControl>
+                <run>TRUE</run>
+                <policy>ALWAYS_UP</policy>
+            </watchdogControl>
+            <failoverPolicy>VIPBASE</failoverPolicy>
+            <netCheckUsage>
+                <public>FALSE</public>
+                <local>FALSE</local>
+            </netCheckUsage>
+        </stbc>
+		<unitdevice failoverUse="FALSE">
+            <watchdogControl>
+                <run>TRUE</run>
+                <policy>VIP_STRICT</policy>
+            </watchdogControl>
+        </unitdevice>
+		<ucinterface failoverUse="FALSE">
+            <watchdogControl>
+                <run>TRUE</run>
+                <policy>VIP_STRICT</policy>
+            </watchdogControl>
+        </ucinterface>
+		<optimizer failoverUse="TRUE">
+			<watchdogControl>
+				<run>TRUE</run>
+				<policy>ALWAYS_UP</policy>
+			</watchdogControl>
+			<failoverPolicy>NETDBBASE</failoverPolicy>
+			<netCheckUsage>
+				<public>TRUE</public>
+				<local>FALSE</local>
+			</netCheckUsage>
+		</optimizer>
+		<longrun failoverUse="TRUE">
+			<watchdogControl>
+				<run>TRUE</run>
+				<policy>ALWAYS_UP</policy>
+			</watchdogControl>
+			<failoverPolicy>NETDBBASE</failoverPolicy>
+			<netCheckUsage>
+				<public>TRUE</public>
+				<local>FALSE</local>
+			</netCheckUsage>
+	  	</longrun>
+	  	<ziplogs failoverUse="FALSE">
+        <watchdogControl>
+          <run>TRUE</run>
+          <policy>ALWAYS_UP</policy>
+        </watchdogControl>
+      </ziplogs>
+
+ 	</localProcessList>
+	
+</config>

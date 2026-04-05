@@ -1,0 +1,2 @@
+#! /bin/bash
+${JAVA_HOME}/bin/java -Xmx257M -DUOCSModule=unitdevice -Xms128M -Dlog4j.configuration=file://${UOCSPATH}/07_OCSUnitDevice/logConfig.xml -classpath ../11_OCSCommonLib/ojdbc14.jar:./OcsUnitDevice.jar:../11_OCSCommonLib/log4j-1.2.16.jar:../11_OCSCommonLib/xcs-commons-0.0.3_20110501.jar com.samsung.ocs.unitdevice/UnitDeviceMain

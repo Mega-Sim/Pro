@@ -1,0 +1,2150 @@
+03-31 21:01:40.042 INFO MCS 3.0.18
+03-31 21:01:40.042 SEND D1 S2F49W   SYSBYTE=60
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 13 'PremoveCmd001'>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 9 'BHF005_B6'>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:01:40.081 WARN RECEIVE UNKNOWN MESSAGE FOR D1 S2F50    SYSBYTE=60 (ERR_DISPATCHER_UnrecognizedFunction)
+03-31 21:01:40.087 RECD D1 S2F50    SYSBYTE=60
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 21:01:42.105 RECD D1 S6F11W   SYSBYTE=293 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '108'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '18'>
+                               <L 1 ITEM(6)
+                                   <A 13 ITEM(7) 'PremoveCmd001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:01:42.113 RECD D1 S6F11W   SYSBYTE=294 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '204'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '27'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 13 ITEM(8) 'PremoveCmd001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:01:42.120 SEND D1 S6F12    SYSBYTE=293
+                   <B 1 '0'>.
+03-31 21:01:42.126 SEND D1 S6F12    SYSBYTE=294
+                   <B 1 '0'>.
+03-31 21:02:15.805 RECD D1 S6F11W   SYSBYTE=295 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '201'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '24'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <L 1 ITEM(8)
+                                       <A 9 ITEM(9) 'BHF005_B6'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:02:15.811 SEND D1 S6F12    SYSBYTE=295
+                   <B 1 '0'>.
+03-31 21:02:16.330 RECD D1 S6F11W   SYSBYTE=296 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '111'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '21'>
+                               <L 1 ITEM(6)
+                                   <A 13 ITEM(7) 'PremoveCmd001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:02:16.343 RECD D1 S6F11W   SYSBYTE=297 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '202'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '25'>
+                               <L 3 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 9 ITEM(8) 'BHF005_B6'>
+                                   <A 10 ITEM(9) 'Carrier001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:02:16.352 SEND D1 S6F12    SYSBYTE=296
+                   <B 1 '0'>.
+03-31 21:02:16.359 SEND D1 S6F12    SYSBYTE=297
+                   <B 1 '0'>.
+03-31 21:02:35.915 RECD D1 S6F11W   SYSBYTE=298 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '151'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '22'>
+                               <L 5 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 10 ITEM(8) 'Carrier001'>
+                                   <A 8 ITEM(9) 'OHT510_1'>
+                                   <A 13 ITEM(10) 'PremoveCmd001'>
+                                   <U2 1 ITEM(11) '100'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:02:35.924 RECD D1 S6F11W   SYSBYTE=299 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '203'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '26'>
+                               <L 3 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 9 ITEM(8) 'BHF005_B6'>
+                                   <A 10 ITEM(9) 'Carrier001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:02:35.932 SEND D1 S6F12    SYSBYTE=298
+                   <B 1 '0'>.
+03-31 21:02:35.938 SEND D1 S6F12    SYSBYTE=299
+                   <B 1 '0'>.
+03-31 21:02:36.433 RECD D1 S6F11W   SYSBYTE=300 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '205'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '28'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <L 1 ITEM(8)
+                                       <A 9 ITEM(9) 'BHF005_B6'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:02:36.440 SEND D1 S6F12    SYSBYTE=300
+                   <B 1 '0'>.
+03-31 21:02:41.517 SEND D1 S2F41W   SYSBYTE=61
+                   <L 2
+                       <A 5 'ABORT'>
+                       <L 1
+                           <L 2
+                               <A 9 'COMMANDID'>
+                               <A 13 'PremoveCmd001'>
+                           >
+                       >
+                   >.
+03-31 21:02:41.549 RECD D1 S2F42    SYSBYTE=61 S2F42
+                   <L 2
+                       <B 1 HCACK '4'>
+                       <L 0 CPCOUNT>
+                   >.
+03-31 21:02:41.967 RECD D1 S6F11W   SYSBYTE=301 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '103'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '13'>
+                               <L 1 ITEM(6)
+                                   <A 13 ITEM(7) 'PremoveCmd001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:02:41.973 SEND D1 S6F12    SYSBYTE=301
+                   <B 1 '0'>.
+03-31 21:02:41.981 RECD D1 S6F11W   SYSBYTE=302 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '101'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '11'>
+                               <L 2 ITEM(6)
+                                   <L 3 ITEM(7)
+                                       <A 13 ITEM(8) 'PremoveCmd001'>
+                                       <U2 1 ITEM(9) '10'>
+                                       <U2 1 ITEM(10) '0'>
+                                   >
+                                   <L 1 ITEM(11)
+                                       <L 2 ITEM(12)
+                                           <L 3 ITEM(13)
+                                               <A 10 ITEM(14) 'Carrier001'>
+                                               <A 9 ITEM(15) 'BHF005_B6'>
+                                               <A 9 ITEM(16) 'BDB001_B1'>
+                                           >
+                                           <A 8 ITEM(17) 'OHT510_1'>
+                                       >
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:02:41.988 SEND D1 S6F12    SYSBYTE=302
+                   <B 1 '0'>.
+03-31 21:02:41.995 RECD D1 S6F11W   SYSBYTE=303 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '210'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '33'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 13 ITEM(8) 'PremoveCmd001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:02:42.001 SEND D1 S6F12    SYSBYTE=303
+                   <B 1 '0'>.
+03-31 21:03:12.318 SEND D1 S2F49W   SYSBYTE=62
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 13 'PremoveCmd002'>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 8 'OHT510_1'>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BBD002_B4'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 7 'PREMOVE'>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '500'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:03:12.360 WARN RECEIVE UNKNOWN MESSAGE FOR D1 S2F50    SYSBYTE=62 (ERR_DISPATCHER_UnrecognizedFunction)
+03-31 21:03:12.367 RECD D1 S2F50    SYSBYTE=62
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 21:03:12.611 RECD D1 S6F11W   SYSBYTE=304 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '108'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '18'>
+                               <L 1 ITEM(6)
+                                   <A 13 ITEM(7) 'PremoveCmd002'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:03:12.617 SEND D1 S6F12    SYSBYTE=304
+                   <B 1 '0'>.
+03-31 21:03:12.626 RECD D1 S6F11W   SYSBYTE=305 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '204'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '27'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 13 ITEM(8) 'PremoveCmd002'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:03:12.632 SEND D1 S6F12    SYSBYTE=305
+                   <B 1 '0'>.
+03-31 21:03:12.669 RECD D1 S6F11W   SYSBYTE=306 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '111'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '21'>
+                               <L 1 ITEM(6)
+                                   <A 13 ITEM(7) 'PremoveCmd002'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:03:12.675 SEND D1 S6F12    SYSBYTE=306
+                   <B 1 '0'>.
+03-31 21:03:12.697 RECD D1 S6F11W   SYSBYTE=307 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '205'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '28'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <L 1 ITEM(8)
+                                       <A 9 ITEM(9) 'BHF005_B6'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:03:12.703 SEND D1 S6F12    SYSBYTE=307
+                   <B 1 '0'>.
+03-31 21:03:55.844 RECD D1 S6F11W   SYSBYTE=308 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '201'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '24'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <L 1 ITEM(8)
+                                       <A 9 ITEM(9) 'BBD002_B4'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:03:55.853 SEND D1 S6F12    SYSBYTE=308
+                   <B 1 '0'>.
+03-31 21:04:02.739 SEND D1 S2F49W   SYSBYTE=63
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 13 'PremoveCmd003'>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier002'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 9 'BHF003_B6'>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BBD002_B4'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:04:02.792 WARN RECEIVE UNKNOWN MESSAGE FOR D1 S2F50    SYSBYTE=63 (ERR_DISPATCHER_UnrecognizedFunction)
+03-31 21:04:02.798 RECD D1 S2F50    SYSBYTE=63
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 21:04:04.384 RECD D1 S6F11W   SYSBYTE=309 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '108'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '18'>
+                               <L 1 ITEM(6)
+                                   <A 13 ITEM(7) 'PremoveCmd003'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:04:04.392 SEND D1 S6F12    SYSBYTE=309
+                   <B 1 '0'>.
+03-31 21:04:04.902 RECD D1 S6F11W   SYSBYTE=310 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '204'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '27'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT513'>
+                                   <A 13 ITEM(8) 'PremoveCmd003'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:04:04.910 SEND D1 S6F12    SYSBYTE=310
+                   <B 1 '0'>.
+03-31 21:04:41.054 RECD D1 S6F11W   SYSBYTE=311 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '201'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '24'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT513'>
+                                   <L 1 ITEM(8)
+                                       <A 9 ITEM(9) 'BHF003_B6'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:04:41.062 SEND D1 S6F12    SYSBYTE=311
+                   <B 1 '0'>.
+03-31 21:04:41.580 RECD D1 S6F11W   SYSBYTE=312 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '111'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '21'>
+                               <L 1 ITEM(6)
+                                   <A 13 ITEM(7) 'PremoveCmd003'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:04:41.590 RECD D1 S6F11W   SYSBYTE=313 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '202'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '25'>
+                               <L 3 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT513'>
+                                   <A 9 ITEM(8) 'BHF003_B6'>
+                                   <A 10 ITEM(9) 'Carrier002'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:04:41.599 SEND D1 S6F12    SYSBYTE=312
+                   <B 1 '0'>.
+03-31 21:04:41.614 SEND D1 S6F12    SYSBYTE=313
+                   <B 1 '0'>.
+03-31 21:05:01.681 RECD D1 S6F11W   SYSBYTE=314 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '151'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '22'>
+                               <L 5 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT513'>
+                                   <A 10 ITEM(8) 'Carrier002'>
+                                   <A 8 ITEM(9) 'OHT513_1'>
+                                   <A 13 ITEM(10) 'PremoveCmd003'>
+                                   <U2 1 ITEM(11) '100'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:05:01.693 RECD D1 S6F11W   SYSBYTE=315 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '203'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '26'>
+                               <L 3 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT513'>
+                                   <A 9 ITEM(8) 'BHF003_B6'>
+                                   <A 10 ITEM(9) 'Carrier002'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:05:01.701 SEND D1 S6F12    SYSBYTE=314
+                   <B 1 '0'>.
+03-31 21:05:01.707 RECD D1 S6F11W   SYSBYTE=316 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '205'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '28'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT513'>
+                                   <L 1 ITEM(8)
+                                       <A 9 ITEM(9) 'BHF003_B6'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:05:01.712 SEND D1 S6F12    SYSBYTE=315
+                   <B 1 '0'>.
+03-31 21:05:01.718 SEND D1 S6F12    SYSBYTE=316
+                   <B 1 '0'>.
+03-31 21:05:51.377 RECD D1 S6F11W   SYSBYTE=317 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '201'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '24'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT513'>
+                                   <L 1 ITEM(8)
+                                       <A 9 ITEM(9) 'BBD002_B4'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:05:51.384 SEND D1 S6F12    SYSBYTE=317
+                   <B 1 '0'>.
+03-31 21:05:51.890 RECD D1 S6F11W   SYSBYTE=318 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '206'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '29'>
+                               <L 3 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT513'>
+                                   <A 9 ITEM(8) 'BBD002_B4'>
+                                   <A 10 ITEM(9) 'Carrier002'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:05:51.898 SEND D1 S6F12    SYSBYTE=318
+                   <B 1 '0'>.
+03-31 21:06:12.072 RECD D1 S6F11W   SYSBYTE=319 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '152'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '23'>
+                               <L 4 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT513'>
+                                   <A 10 ITEM(8) 'Carrier002'>
+                                   <A 9 ITEM(9) 'BBD002_B4'>
+                                   <A 13 ITEM(10) 'PremoveCmd003'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:06:12.110 RECD D1 S6F11W   SYSBYTE=320 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '207'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '30'>
+                               <L 3 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT513'>
+                                   <A 9 ITEM(8) 'BBD002_B4'>
+                                   <A 10 ITEM(9) 'Carrier002'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:06:12.122 SEND D1 S6F12    SYSBYTE=319
+                   <B 1 '0'>.
+03-31 21:06:12.129 SEND D1 S6F12    SYSBYTE=320
+                   <B 1 '0'>.
+03-31 21:06:12.135 RECD D1 S6F11W   SYSBYTE=321 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '210'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '33'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT513'>
+                                   <A 13 ITEM(8) 'PremoveCmd003'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:06:12.141 SEND D1 S6F12    SYSBYTE=321
+                   <B 1 '0'>.
+03-31 21:06:12.147 RECD D1 S6F11W   SYSBYTE=322 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '107'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '17'>
+                               <L 3 ITEM(6)
+                                   <L 3 ITEM(7)
+                                       <A 13 ITEM(8) 'PremoveCmd003'>
+                                       <U2 1 ITEM(9) '10'>
+                                       <U2 1 ITEM(10) '0'>
+                                   >
+                                   <U2 1 ITEM(11) '0'>
+                                   <L 1 ITEM(12)
+                                       <L 2 ITEM(13)
+                                           <L 3 ITEM(14)
+                                               <A 10 ITEM(15) 'Carrier002'>
+                                               <A 9 ITEM(16) 'BHF003_B6'>
+                                               <A 9 ITEM(17) 'BBD002_B4'>
+                                           >
+                                           <A 9 ITEM(18) 'BBD002_B4'>
+                                       >
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:06:12.153 SEND D1 S6F12    SYSBYTE=322
+                   <B 1 '0'>.
+03-31 21:08:42.356 SEND D1 S2F41W   SYSBYTE=64
+                   <L 2
+                       <A 5 'ABORT'>
+                       <L 1
+                           <L 2
+                               <A 9 'COMMANDID'>
+                               <A 13 'PremoveCmd002'>
+                           >
+                       >
+                   >.
+03-31 21:08:42.387 RECD D1 S2F42    SYSBYTE=64 S2F42
+                   <L 2
+                       <B 1 HCACK '4'>
+                       <L 0 CPCOUNT>
+                   >.
+03-31 21:08:43.027 RECD D1 S6F11W   SYSBYTE=323 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '103'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '13'>
+                               <L 1 ITEM(6)
+                                   <A 13 ITEM(7) 'PremoveCmd002'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:08:43.033 SEND D1 S6F12    SYSBYTE=323
+                   <B 1 '0'>.
+03-31 21:08:43.041 RECD D1 S6F11W   SYSBYTE=324 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '101'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '11'>
+                               <L 2 ITEM(6)
+                                   <L 3 ITEM(7)
+                                       <A 13 ITEM(8) 'PremoveCmd002'>
+                                       <U2 1 ITEM(9) '10'>
+                                       <U2 1 ITEM(10) '0'>
+                                   >
+                                   <L 1 ITEM(11)
+                                       <L 2 ITEM(12)
+                                           <L 3 ITEM(13)
+                                               <A 10 ITEM(14) 'Carrier001'>
+                                               <A 9 ITEM(15) 'BHF005_B6'>
+                                               <A 9 ITEM(16) 'BBD002_B4'>
+                                           >
+                                           <A 8 ITEM(17) 'OHT510_1'>
+                                       >
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:08:43.048 SEND D1 S6F12    SYSBYTE=324
+                   <B 1 '0'>.
+03-31 21:08:43.054 RECD D1 S6F11W   SYSBYTE=325 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '210'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '33'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 13 ITEM(8) 'PremoveCmd002'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:08:43.060 SEND D1 S6F12    SYSBYTE=325
+                   <B 1 '0'>.
+03-31 21:08:56.439 SEND D1 S2F49W   SYSBYTE=65
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 13 'PremoveCmd004'>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 8 'OHT510_1'>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:08:56.491 WARN RECEIVE UNKNOWN MESSAGE FOR D1 S2F50    SYSBYTE=65 (ERR_DISPATCHER_UnrecognizedFunction)
+03-31 21:08:56.497 RECD D1 S2F50    SYSBYTE=65
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 21:08:57.101 RECD D1 S6F11W   SYSBYTE=326 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '108'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '18'>
+                               <L 1 ITEM(6)
+                                   <A 13 ITEM(7) 'PremoveCmd004'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:08:57.107 RECD D1 S6F11W   SYSBYTE=327 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '204'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '27'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 13 ITEM(8) 'PremoveCmd004'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:08:57.113 SEND D1 S6F12    SYSBYTE=326
+                   <B 1 '0'>.
+03-31 21:08:57.119 SEND D1 S6F12    SYSBYTE=327
+                   <B 1 '0'>.
+03-31 21:08:57.153 RECD D1 S6F11W   SYSBYTE=328 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '111'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '21'>
+                               <L 1 ITEM(6)
+                                   <A 13 ITEM(7) 'PremoveCmd004'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:08:57.159 SEND D1 S6F12    SYSBYTE=328
+                   <B 1 '0'>.
+03-31 21:08:57.174 RECD D1 S6F11W   SYSBYTE=329 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '205'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '28'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <L 1 ITEM(8)
+                                       <A 9 ITEM(9) 'BHF005_B6'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:08:57.180 SEND D1 S6F12    SYSBYTE=329
+                   <B 1 '0'>.
+03-31 21:09:27.277 RECD D1 S6F11W   SYSBYTE=330 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '201'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '24'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <L 1 ITEM(8)
+                                       <A 9 ITEM(9) 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:09:27.284 SEND D1 S6F12    SYSBYTE=330
+                   <B 1 '0'>.
+03-31 21:09:27.796 RECD D1 S6F11W   SYSBYTE=331 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '206'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '29'>
+                               <L 3 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 9 ITEM(8) 'BDB001_B1'>
+                                   <A 10 ITEM(9) 'Carrier001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:09:27.805 SEND D1 S6F12    SYSBYTE=331
+                   <B 1 '0'>.
+03-31 21:09:47.893 RECD D1 S6F11W   SYSBYTE=332 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '152'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '23'>
+                               <L 4 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 10 ITEM(8) 'Carrier001'>
+                                   <A 9 ITEM(9) 'BDB001_B1'>
+                                   <A 13 ITEM(10) 'PremoveCmd004'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:09:47.900 SEND D1 S6F12    SYSBYTE=332
+                   <B 1 '0'>.
+03-31 21:09:47.908 RECD D1 S6F11W   SYSBYTE=333 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '207'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '30'>
+                               <L 3 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 9 ITEM(8) 'BDB001_B1'>
+                                   <A 10 ITEM(9) 'Carrier001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:09:47.914 SEND D1 S6F12    SYSBYTE=333
+                   <B 1 '0'>.
+03-31 21:09:47.922 RECD D1 S6F11W   SYSBYTE=334 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '210'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '33'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 13 ITEM(8) 'PremoveCmd004'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:09:47.928 SEND D1 S6F12    SYSBYTE=334
+                   <B 1 '0'>.
+03-31 21:09:47.935 RECD D1 S6F11W   SYSBYTE=335 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '107'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '17'>
+                               <L 3 ITEM(6)
+                                   <L 3 ITEM(7)
+                                       <A 13 ITEM(8) 'PremoveCmd004'>
+                                       <U2 1 ITEM(9) '10'>
+                                       <U2 1 ITEM(10) '0'>
+                                   >
+                                   <U2 1 ITEM(11) '0'>
+                                   <L 1 ITEM(12)
+                                       <L 2 ITEM(13)
+                                           <L 3 ITEM(14)
+                                               <A 10 ITEM(15) 'Carrier001'>
+                                               <A 9 ITEM(16) 'BHF005_B6'>
+                                               <A 9 ITEM(17) 'BDB001_B1'>
+                                           >
+                                           <A 9 ITEM(18) 'BDB001_B1'>
+                                       >
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:09:47.941 SEND D1 S6F12    SYSBYTE=335
+                   <B 1 '0'>.
+03-31 21:17:13.025 SEND D1 S2F49W   SYSBYTE=66
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 9 'BHF005_B6'>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:17:43.612 SEND D1 S2F49W   SYSBYTE=67
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 13 'PremoveCmd001'>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 9 'BHF005_B6'>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:17:58.026 TIME T3 TIMEOUT FOR D1 S2F49W   SYSBYTE=66
+03-31 21:18:04.675 SEND D1 S2F49W   SYSBYTE=68
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 13 'PremoveCmd001'>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 150 'Carrier001Carrier001Carrier001Carrier001Carrier001Carrier001Carrier001Carrier001Carrier001Carrier001Carrier001Carrier001Carrier001Carrier001Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 9 'BHF005_B6'>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:18:28.615 TIME T3 TIMEOUT FOR D1 S2F49W   SYSBYTE=67
+03-31 21:18:49.669 TIME T3 TIMEOUT FOR D1 S2F49W   SYSBYTE=68
+03-31 21:19:44.907 SEND D1 S2F49W   SYSBYTE=69
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 13 'PremoveCmd001'>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 9 'BHF005_B6'>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:19:44.954 WARN RECEIVE UNKNOWN MESSAGE FOR D1 S2F50    SYSBYTE=69 (ERR_DISPATCHER_UnrecognizedFunction)
+03-31 21:19:44.960 RECD D1 S2F50    SYSBYTE=69
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 21:19:46.496 RECD D1 S6F11W   SYSBYTE=336 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '108'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '18'>
+                               <L 1 ITEM(6)
+                                   <A 13 ITEM(7) 'PremoveCmd001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:19:46.502 SEND D1 S6F12    SYSBYTE=336
+                   <B 1 '0'>.
+03-31 21:19:46.508 RECD D1 S6F11W   SYSBYTE=337 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '204'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '27'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 13 ITEM(8) 'PremoveCmd001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:19:46.514 SEND D1 S6F12    SYSBYTE=337
+                   <B 1 '0'>.
+03-31 21:19:58.555 RECD D1 S6F11W   SYSBYTE=338 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '201'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '24'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <L 1 ITEM(8)
+                                       <A 9 ITEM(9) 'BHF005_B6'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:19:58.566 RECD D1 S6F11W   SYSBYTE=339 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '111'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '21'>
+                               <L 1 ITEM(6)
+                                   <A 13 ITEM(7) 'PremoveCmd001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:19:58.593 SEND D1 S6F12    SYSBYTE=338
+                   <B 1 '0'>.
+03-31 21:19:58.623 RECD D1 S6F11W   SYSBYTE=340 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '202'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '25'>
+                               <L 3 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 9 ITEM(8) 'BHF005_B6'>
+                                   <A 10 ITEM(9) 'Carrier001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:19:58.644 SEND D1 S6F12    SYSBYTE=339
+                   <B 1 '0'>.
+03-31 21:19:58.655 SEND D1 S6F12    SYSBYTE=340
+                   <B 1 '0'>.
+03-31 21:20:00.587 RECD D1 S6F11W   SYSBYTE=341 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '151'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '22'>
+                               <L 5 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 10 ITEM(8) 'Carrier001'>
+                                   <A 8 ITEM(9) 'OHT510_1'>
+                                   <A 13 ITEM(10) 'PremoveCmd001'>
+                                   <U2 1 ITEM(11) '100'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:20:00.594 RECD D1 S6F11W   SYSBYTE=342 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '203'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '26'>
+                               <L 3 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 9 ITEM(8) 'BHF005_B6'>
+                                   <A 10 ITEM(9) 'Carrier001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:20:00.601 SEND D1 S6F12    SYSBYTE=341
+                   <B 1 '0'>.
+03-31 21:20:00.607 SEND D1 S6F12    SYSBYTE=342
+                   <B 1 '0'>.
+03-31 21:20:01.105 RECD D1 S6F11W   SYSBYTE=343 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '205'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '28'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <L 1 ITEM(8)
+                                       <A 9 ITEM(9) 'BHF005_B6'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:20:01.111 SEND D1 S6F12    SYSBYTE=343
+                   <B 1 '0'>.
+03-31 21:20:06.137 RECD D1 S6F11W   SYSBYTE=344 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '201'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '24'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <L 1 ITEM(8)
+                                       <A 9 ITEM(9) 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:20:06.144 SEND D1 S6F12    SYSBYTE=344
+                   <B 1 '0'>.
+03-31 21:20:06.653 RECD D1 S6F11W   SYSBYTE=345 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '206'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '29'>
+                               <L 3 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 9 ITEM(8) 'BDB001_B1'>
+                                   <A 10 ITEM(9) 'Carrier001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:20:06.659 SEND D1 S6F12    SYSBYTE=345
+                   <B 1 '0'>.
+03-31 21:20:08.669 RECD D1 S6F11W   SYSBYTE=346 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '152'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '23'>
+                               <L 4 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 10 ITEM(8) 'Carrier001'>
+                                   <A 9 ITEM(9) 'BDB001_B1'>
+                                   <A 13 ITEM(10) 'PremoveCmd001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:20:08.675 SEND D1 S6F12    SYSBYTE=346
+                   <B 1 '0'>.
+03-31 21:20:08.709 RECD D1 S6F11W   SYSBYTE=347 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '207'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '30'>
+                               <L 3 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 9 ITEM(8) 'BDB001_B1'>
+                                   <A 10 ITEM(9) 'Carrier001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:20:08.717 RECD D1 S6F11W   SYSBYTE=348 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '210'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '33'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT510'>
+                                   <A 13 ITEM(8) 'PremoveCmd001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 21:20:08.723 SEND D1 S6F12    SYSBYTE=347
+                   <B 1 '0'>.
+03-31 21:20:08.729 SEND D1 S6F12    SYSBYTE=348
+                   <B 1 '0'>.
+03-31 21:20:08.737 RECD D1 S6F11W   SYSBYTE=349 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '107'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '17'>
+                               <L 3 ITEM(6)
+                                   <L 3 ITEM(7)
+                                       <A 13 ITEM(8) 'PremoveCmd001'>
+                                       <U2 1 ITEM(9) '10'>
+                                       <U2 1 ITEM(10) '0'>
+                                   >
+                                   <U2 1 ITEM(11) '0'>
+                                   <L 1 ITEM(12)
+                                       <L 2 ITEM(13)
+                                           <L 3 ITEM(14)
+                                               <A 10 ITEM(15) 'Carrier001'>
+                                               <A 9 ITEM(16) 'BHF005_B6'>
+                                               <A 9 ITEM(17) 'BDB001_B1'>
+                                           >
+                                           <A 9 ITEM(18) 'BDB001_B1'>
+                                       >
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:20:08.743 SEND D1 S6F12    SYSBYTE=349
+                   <B 1 '0'>.
+03-31 21:20:15.038 SEND D1 S2F49W   SYSBYTE=70
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 13 'PremoveCmd001'>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:21:00.040 TIME T3 TIMEOUT FOR D1 S2F49W   SYSBYTE=70
+03-31 21:21:08.092 SEND D1 S2F49W   SYSBYTE=71
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 13 'PremoveCmd001'>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:21:53.094 TIME T3 TIMEOUT FOR D1 S2F49W   SYSBYTE=71
+03-31 21:22:00.170 SEND D1 S2F49W   SYSBYTE=72
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 13 'PremoveCmd001'>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:22:45.171 TIME T3 TIMEOUT FOR D1 S2F49W   SYSBYTE=72
+03-31 21:23:34.029 SEND D1 S2F49W   SYSBYTE=73
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 13 'PremoveCmd001'>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:23:51.217 SEND D1 S2F49W   SYSBYTE=74
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 13 'PremoveCmd001'>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:24:19.046 TIME T3 TIMEOUT FOR D1 S2F49W   SYSBYTE=73
+03-31 21:24:36.218 TIME T3 TIMEOUT FOR D1 S2F49W   SYSBYTE=74
+03-31 21:24:46.668 SEND D1 S2F49W   SYSBYTE=75
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 8 'TRANSFER'>
+                       <L 2
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 9 'BHF005_B6'>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:25:03.882 WARN RECEIVE UNKNOWN MESSAGE FOR D1 S2F50    SYSBYTE=75 (ERR_DISPATCHER_UnrecognizedFunction)
+03-31 21:25:03.889 RECD D1 S2F50    SYSBYTE=75
+                   <L 2
+                       <B 1 '3'>
+                       <L 2
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <B 1 '2'>
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <B 1 '0'>
+                           >
+                       >
+                   >.
+03-31 21:25:40.442 SEND D1 S2F49W   SYSBYTE=76
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 8 'TRANSFER'>
+                       <L 2
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 9 'BHF005_B6'>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:25:51.150 WARN RECEIVE UNKNOWN MESSAGE FOR D1 S2F50    SYSBYTE=76 (ERR_DISPATCHER_UnrecognizedFunction)
+03-31 21:25:51.158 RECD D1 S2F50    SYSBYTE=76
+                   <L 2
+                       <B 1 '3'>
+                       <L 2
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <B 1 '2'>
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <B 1 '0'>
+                           >
+                       >
+                   >.
+03-31 21:25:53.817 SEND D1 S2F49W   SYSBYTE=77
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 13 'PremoveCmd001'>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:26:33.409 SEND D1 S2F49W   SYSBYTE=78
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 12 'TRANSFER_EX4'>
+                       <L 3
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 13 'PremoveCmd001'>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'DELIVERYINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 12 'DELIVERYTYPE'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 20 'EXPECTEDDELIVERYTIME'>
+                                       <U2 1 '0'>
+                                   >
+                                   <L 2
+                                       <A 19 'DELIVERYWAITTIMEOUT'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:26:38.837 TIME T3 TIMEOUT FOR D1 S2F49W   SYSBYTE=77
+03-31 21:27:18.411 TIME T3 TIMEOUT FOR D1 S2F49W   SYSBYTE=78
+03-31 21:32:35.815 SEND D1 S2F49W   SYSBYTE=79
+                   <L 4
+                       <U4 1 '0'>
+                       <A 0 ''>
+                       <A 8 'TRANSFER'>
+                       <L 2
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'COMMANDID'>
+                                       <A 0 ''>
+                                   >
+                                   <L 2
+                                       <A 8 'PRIORITY'>
+                                       <U2 1 '10'>
+                                   >
+                                   <L 2
+                                       <A 7 'REPLACE'>
+                                       <U2 1 '0'>
+                                   >
+                               >
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <L 3
+                                   <L 2
+                                       <A 9 'CARRIERID'>
+                                       <A 10 'Carrier001'>
+                                   >
+                                   <L 2
+                                       <A 10 'SOURCEPORT'>
+                                       <A 9 'BHF005_B6'>
+                                   >
+                                   <L 2
+                                       <A 8 'DESTPORT'>
+                                       <A 9 'BDB001_B1'>
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 21:33:15.090 WARN RECEIVE UNKNOWN MESSAGE FOR D1 S2F50    SYSBYTE=79 (ERR_DISPATCHER_UnrecognizedFunction)
+03-31 21:33:15.098 RECD D1 S2F50    SYSBYTE=79
+                   <L 2
+                       <B 1 '3'>
+                       <L 2
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <B 1 '2'>
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <B 1 '0'>
+                           >
+                       >
+                   >.
+03-31 21:45:23.384 WARN SOCKET READ ERROR(IOException):java.net.SocketException: Connection reset
+03-31 21:45:23.396 HSMS DISCONNECTED BY SECS TARGET
+03-31 21:45:33.493 TIME T5 TIMEOUT
+03-31 21:45:45.515 TIME T5 TIMEOUT

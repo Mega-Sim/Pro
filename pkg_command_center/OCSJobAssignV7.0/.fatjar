@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Wed Nov 07 14:13:20 KST 2018
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=OcsJobAssign.jar
+manifest.mergeall=true
+manifest.mainclass=com.samsung.ocs.jobassign.JobAssignMain
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=<jar|log4j-1.2.16.jar>;<jar|xcs-commons-0.0.3_20110501.jar>;<jar|ojdbc14.jar>;<jar|jdom.jar>
+includes=

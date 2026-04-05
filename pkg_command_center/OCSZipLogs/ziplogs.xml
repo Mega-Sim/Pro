@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CONFIG>
+
+	<OCSMODULE>
+		<ID>log1</ID>
+		<PATH>d:\test1</PATH>
+	</OCSMODULE>
+
+	<OCSMODULE>
+		<ID>log2</ID>
+		<PATH>d:\test2</PATH>
+	</OCSMODULE>
+
+	<RUNTIME>
+		<TIME>0904</TIME>
+	</RUNTIME>
+
+	<RUNTIME>
+		<TIME>1417</TIME>
+	</RUNTIME>
+
+	<RUNTIME>
+		<TIME>1518</TIME>
+	</RUNTIME>
+
+	<SLEEPTIME>M1</SLEEPTIME>
+	<ZIPTIME>H10</ZIPTIME>
+	<DELTIME>D5</DELTIME>
+	<ZIPLIMIT>5G</ZIPLIMIT>
+	
+</CONFIG>	

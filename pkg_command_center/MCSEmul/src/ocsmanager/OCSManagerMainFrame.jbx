@@ -1,0 +1,67 @@
+[PropertyInfo]
+AbnormalTimer,java.util.Timer,false,false, , ,false,<default>
+AbnormalTimerTask,AbnormalTimerProc,false,false, , ,false,<default>
+borderLayout1,BorderLayout,false,false, , ,false,<default>
+borderLayout2,BorderLayout,false,false, , ,false,<default>
+borderLayout3,BorderLayout,false,false, , ,false,<default>
+borderLayout4,BorderLayout,false,false, , ,false,<default>
+CarrierModel,DefaultTableModel,false,false, , ,false,<default>
+jBasicInfoPanel,JPanel,false,false, , ,false,<default>
+jCarrierPanel,JPanel,false,false, , ,false,<default>
+jCarrierTable,JTable,false,false, , ,false,<default>
+jLabel1,JLabel,false,false, , ,false,<default>
+jMenu1,JMenu,false,false, , ,false,<default>
+jMenu2,JMenu,false,false, , ,false,<default>
+jMenuBar1,JMenuBar,false,false, , ,false,<default>
+jMenuFile,JMenu,false,false, , ,false,<default>
+jMenuFileExit,JMenuItem,false,false, , ,false,<default>
+jMenuHelp,JMenu,false,false, , ,false,<default>
+jMenuHelpAbout,JMenuItem,false,false, , ,false,<default>
+jMenuSyncCarrierInfo,JMenuItem,false,false, , ,false,<default>
+jMenuSyncTrCmdInfo,JMenuItem,false,false, , ,false,<default>
+jMenuTSCAuto,JMenuItem,false,false, , ,false,<default>
+jMenuTSCControl,JMenu,false,false, , ,false,<default>
+jMenuTSCPaused,JMenuItem,false,false, , ,false,<default>
+jPanel1,JPanel,false,false, , ,false,<default>
+jScrollPane1,JScrollPane,false,false, , ,false,<default>
+jScrollPane2,JScrollPane,false,false, , ,false,<default>
+jScrollPane3,JScrollPane,false,false, , ,false,<default>
+jTabbedPane1,JTabbedPane,false,false, , ,false,<default>
+jTextField_DBConnectionStatus,JTextField,false,false, , ,false,<default>
+jTextField_DBUrl,JTextField,false,false, , ,false,<default>
+jTextField_TSCID,JTextField,false,false, , ,false,<default>
+jTrCmdPanel,JPanel,false,false, , ,false,<default>
+jTrCmdTable,JTable,false,false, , ,false,<default>
+jTSCPanel,JPanel,false,false, , ,false,<default>
+jTSCTable,JTable,false,false, , ,false,<default>
+m_bCarrierColumnMade,boolean,false,false, , ,false,<default>
+m_bInitIBSEM,boolean,false,false, , ,false,<default>
+m_bTrCmdColumnMade,boolean,false,false, , ,false,<default>
+m_bTSCColumnMade,boolean,false,false, , ,false,<default>
+m_dbFrame,DBAccessFrame,false,false, , ,false,<default>
+m_IBSEMIFDlg,IBSEMIFDlg,false,false, , ,false,<default>
+m_lAbnormalOperationTimeStamp,long,false,false, , ,false,<default>
+m_lMainOperationTimeStamp,long,false,false, , ,false,<default>
+m_nAbnormalCarrierTimeout,int,false,false, , ,false,<default>
+m_nTempHoldedTimeout,int,false,false, , ,false,<default>
+m_strIBSEMConfigFileName,String,false,false, , ,false,<default>
+m_strStockerID,String,false,false, , ,false,<default>
+m_strTSCID,String,false,false, , ,false,<default>
+MainTimer,java.util.Timer,false,false, , ,false,<default>
+MainTimerTask,MainTimerProc,false,false, , ,false,<default>
+statusBar,JLabel,false,false, , ,false,<default>
+titledBorder1,TitledBorder,false,false, , ,false,<default>
+titledBorder2,TitledBorder,false,false, , ,false,<default>
+TrCmdModel,DefaultTableModel,false,false, , ,false,<default>
+TSCModel,DefaultTableModel,false,false, , ,false,<default>
+Util,utilLog,false,false, , ,false,<default>
+WatchDogTimer,java.util.Timer,false,false, , ,false,<default>
+WatchDogTimerTask,WatchDogTimerProc,false,false, , ,false,<default>
+xYLayout1,XYLayout,false,false, , ,false,<default>
+xYLayout2,XYLayout,false,false, , ,false,<default>
+xYLayout3,XYLayout,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

@@ -1,0 +1,259 @@
+/**
+ * Copyright 2011 by Samsung Electronics, Inc.,
+ *
+ * This software is the confidential and proprietary information
+ * of Samsung Electronics, Inc. ("Confidential Information").  You
+ * shall not disclose such Confidential Information and shall use
+ * it only in accordance with the terms of the license agreement
+ * you entered into with Samsung.
+ */
+package ocsmanager;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import ocsmanager.model.AbstractOcsWorkThread;
+import ocsmanager.model.TransferCarrierJobEntry;
+import ocsmanager.model.TransferItem;
+
+/**
+ * 설명
+ *
+ * @author LWG
+ * @date 2011. 9. 5.
+ * @version 3.0
+ */
+public class FileLongRunManager {
+
+	private OCSManagerMain ocsMain;
+
+	private Map jobMap;
+
+	private boolean run = false;
+
+	private List transferList;
+
+	private long longrunCount = 0;
+
+	private FileLongrunThread thread;
+
+	public FileLongRunManager(OCSManagerMain ocsMain, utilLog utillog) {
+		this.ocsMain = ocsMain;
+		this.jobMap = new HashMap();
+		this.transferList = new ArrayList();
+		this.thread = new FileLongrunThread();
+		thread.setRunFlag(false);
+		thread.start();
+	}
+
+	public void initFileLongRunManager(String fileName) {
+		File f = new File(fileName);
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		transferList.clear();
+
+		try {
+			fr = new FileReader(f);
+			br = new BufferedReader(fr);
+			String line = "";
+
+			while ((line = br.readLine()) != null) {
+				if (line == null || line.length() == 0) {
+					continue;
+				}
+				if (line.indexOf("#") == 0) {
+					continue;
+				}
+				String[] split = line.split("/");
+				if (split != null && split.length == 2) {
+					String carrierId = split[0];
+					String nodeList = split[1];
+
+					String[] nodes = nodeList.split(",");
+					//노드갯수가 2개 미만은 버리자. 오동작 방지
+					if (nodes.length < 2) {
+						continue;
+					}
+					TransferCarrierJobEntry job = new TransferCarrierJobEntry(carrierId, nodeList);
+					jobMap.put(carrierId, job);
+
+					TransferItem transferItem = job.getFirstTransferItem();
+					if (transferItem != null) {
+						transferList.add(transferItem);
+					}
+
+					String strLog = "CARRIERID: " + carrierId + ", NodeList:" + nodeList;
+					ocsMain.DisplayUserLongRunLogInText(strLog);
+				}
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (br != null) {
+				try {
+					br.close();
+				} catch (Exception ignore) {
+				}
+			}
+			if (fr != null) {
+				try {
+					fr.close();
+				} catch (Exception ignore) {
+				}
+			}
+		}
+	}
+
+	public boolean isRun() {
+		return run;
+	}
+
+	public void transferCompleted(String carrierId, String sourceLoc, String destLoc) {
+		synchronized (transferList) {
+			TransferCarrierJobEntry job = (TransferCarrierJobEntry) jobMap.get(carrierId);
+			if (job != null) {
+				if (hasSameCarrierInList(carrierId) == false) {
+					TransferItem nextTransferItem = job.getNextTransferItem(sourceLoc, destLoc);
+					if (nextTransferItem != null) {
+						transferList.add(nextTransferItem);
+					}
+				}
+			}
+		}
+	}
+
+	private boolean hasSameCarrierInList(String carrierId) {
+		for (int i = 0; i < transferList.size(); i++) {
+			TransferItem item = (TransferItem) transferList.get(i);
+			if (item.getCarrierId().equals(carrierId)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void start() {
+		run = true;
+		thread.setRunFlag(run);
+	}
+
+	public void pause() {
+		run = false;
+		thread.setRunFlag(run);
+	}
+
+	public void processTransfer() {
+		if (run == true) {
+			if (transferList != null && transferList.size() > 0) {
+				int transferCount = 0;
+				for (int i = 0; i < transferList.size(); i++) {
+					TransferItem item = (TransferItem) transferList.get(i);
+					SendTransferCmdProcess(item);
+					String strLog = "Send:" + item.getCarrierId() + "," + item.getSourceLoc() + "->" + item.getDestLoc();
+					ocsMain.DisplayUserLongRunLogInText(strLog);
+					transferCount++;
+					System.out.println(item.getCarrierId());
+				}
+				for (int i = 0; i < transferCount; i++) {
+					transferList.remove(0);
+				}
+			}
+		}
+	}
+
+	private void SendTransferCmdProcess(TransferItem item) {
+		MyHashtable htCommandInfo = new MyHashtable();
+		htCommandInfo.put("TSC", "TOCS411");
+		htCommandInfo.put("MicroTrCmdID", getNextTrcmdId());
+		htCommandInfo.put("MicroTrCmdType", "TRANSFER");
+		htCommandInfo.put("CarrierID", item.getCarrierId());
+		htCommandInfo.put("CarrierLocID", "");
+		htCommandInfo.put("Source", item.getSourceLoc());
+		htCommandInfo.put("Dest", item.getDestLoc());
+		htCommandInfo.put("Priority", "" + 70);
+		htCommandInfo.put("Replace", new Integer(0));
+		htCommandInfo.put("EmptyCarrier", new Integer(0));
+		htCommandInfo.put("LotID", "AAA");
+		htCommandInfo.put("ErrorID", "");
+		htCommandInfo.put("FLOORNUMBER", new Integer(0));
+		// 명령 전송
+		ocsMain.semIF.SendMicroTC(htCommandInfo);
+	}
+
+	private String getNextTrcmdId() {
+		longrunCount++;
+		if (longrunCount < 0) {
+			longrunCount = 0;
+		}
+		return "FileLongrun" + longrunCount;
+	}
+
+	public void reconcileCarrier(Set carrierSet) {
+		for (Iterator it = jobMap.values().iterator(); it.hasNext();) {
+			TransferCarrierJobEntry job = (TransferCarrierJobEntry) it.next();
+			String carrierId = job.getCarrierId();
+			if (carrierSet.contains(carrierId) == false) {
+				TransferItem transferItem = job.getNextTransferItem();
+				transferList.add(transferItem);
+			}
+		}
+
+	}
+
+	class FileLongrunThread extends AbstractOcsWorkThread {
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see ocsmanager.model.AbstractOcsWorkThread#getThreadId()
+		 */
+		public String getThreadId() {
+			// TODO Auto-generated method stub
+			return "filelongrunthread";
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see ocsmanager.model.AbstractOcsWorkThread#initialize()
+		 */
+		protected void initialize() {
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see ocsmanager.model.AbstractOcsWorkThread#stopProcessing()
+		 */
+		protected void stopProcessing() {
+			// TODO Auto-generated method stub
+
+		}
+
+		/*
+		 * (non-Javadoc)
+		 * 
+		 * @see ocsmanager.model.AbstractOcsWorkThread#mainProcessing()
+		 */
+		protected void mainProcessing() {
+			// TODO Auto-generated method stub
+			processTransfer();
+		}
+
+	}
+}

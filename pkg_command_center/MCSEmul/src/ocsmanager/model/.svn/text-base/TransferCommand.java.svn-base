@@ -1,0 +1,116 @@
+/**
+ * Copyright 2012 by Samsung Electronics, Inc.,
+ * 
+ * This software is the confidential and proprietary information
+ * of Samsung Electronics, Inc. ("Confidential Information").  You
+ * shall not disclose such Confidential Information and shall use
+ * it only in accordance with the terms of the license agreement
+ * you entered into with Samsung.
+ */
+package ocsmanager.model;
+
+/**
+ * Ό³Έν
+ * 
+ * @author LWG
+ * @date   2012. 1. 25.
+ * @version 3.0
+ */
+public class TransferCommand {
+	
+	private String trCmdID = "";
+	private int priority = 30;
+	private String carrierID = "";
+	private String sourceLoc = "";
+	private String destLoc = "";
+	private String remoteCmd = "TRANSFER";
+	private double trQueuedTime = 0;
+	private int expectedDuration = 60;
+	private int noBlockingTime = 0;
+	private int waitTimeout = 0;
+	private String state = "";
+	private long entryPutTime = 0;
+	
+	// 2014.03.18 by MYM
+	private boolean isForStage = false;
+	
+	public boolean isForStage() {
+		return isForStage;
+	}
+	public void setForStage(boolean isForStage) {
+		this.isForStage = isForStage;
+	}
+	public String getTrCmdID() {
+		return trCmdID;
+	}
+	public void setTrCmdID(String trCmdID) {
+		this.trCmdID = trCmdID;
+	}
+	public int getPriority() {
+		return priority;
+	}
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+	public String getCarrierID() {
+		return carrierID;
+	}
+	public void setCarrierID(String carrierID) {
+		this.carrierID = carrierID;
+	}
+	public String getSourceLoc() {
+		return sourceLoc;
+	}
+	public void setSourceLoc(String sourceLoc) {
+		this.sourceLoc = sourceLoc;
+	}
+	public String getDestLoc() {
+		return destLoc;
+	}
+	public void setDestLoc(String destLoc) {
+		this.destLoc = destLoc;
+	}
+	public String getRemoteCmd() {
+		return remoteCmd;
+	}
+	public void setRemoteCmd(String remoteCmd) {
+		this.remoteCmd = remoteCmd;
+	}
+	public double getTrQueuedTime() {
+		return trQueuedTime;
+	}
+	public void setTrQueuedTime(double trQueuedTime) {
+		this.trQueuedTime = trQueuedTime;
+	}
+	public int getExpectedDuration() {
+		return expectedDuration;
+	}
+	public void setExpectedDuration(int expectedDuration) {
+		this.expectedDuration = expectedDuration;
+	}
+	public int getNoBlockingTime() {
+		return noBlockingTime;
+	}
+	public void setNoBlockingTime(int noBlockingTime) {
+		this.noBlockingTime = noBlockingTime;
+	}
+	public int getWaitTimeout() {
+		return waitTimeout;
+	}
+	public void setWaitTimeout(int waitTimeout) {
+		this.waitTimeout = waitTimeout;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public long getEntryPutTime() {
+		return entryPutTime;
+	}
+	public void setEntryPutTime(long entryPutTime) {
+		this.entryPutTime = entryPutTime;
+	}
+	
+}

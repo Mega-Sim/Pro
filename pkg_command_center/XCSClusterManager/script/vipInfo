@@ -1,0 +1,33 @@
+#!/bin/ksh
+#
+
+PSNAME=$(uname -s)
+case $PSNAME in
+# Linux
+  Linux)
+		# Modify VIPNAME
+		VIPNAME="12.21.100.144"
+		timeout 2 ip addr | grep ${VIPNAME} | wc -l | awk '{print$1}'
+		VIPNAMECHK=$(echo $?)
+    if [ ${VIPNAMECHK} -ne 0 ]
+    then
+    echo 0
+    fi
+                ;;
+# SunOS
+        SunOS)
+		# Modify VIPHOSTNAME
+		VIPHOSTNAME=ocss1ad1_lh
+		HOST=$(hostname)
+		hatimerun -t 2 /usr/cluster/bin/scha_resource_get -O STATUS_NODE -R ${VIPHOSTNAME} ${HOST}  | grep 'online' | wc -l | awk '{print$1}'
+		VIPHOSTNAMECHK=$(echo $?)
+    if [ ${VIPHOSTNAMECHK} -ne 0 ]
+    then
+    echo 0
+    fi
+                ;;
+# HP-UX
+        HP-UX)
+		echo 0
+                ;;
+esac

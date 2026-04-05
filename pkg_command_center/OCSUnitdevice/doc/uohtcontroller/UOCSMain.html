@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><!--JBuilder QuickDoc-->
+<HEAD>
+<TITLE>Class uohtcontroller.UOCSMain</TITLE><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+</HEAD>
+<BODY>
+
+<H2>
+<FONT SIZE="-1">uohtcontroller</FONT>
+<BR>Class UOCSMain</H2>
+<DL>
+<DT>public class <B>UOCSMain</B>
+</DL>
+<DL><DD>UOCSMain.java는 Main 모듈이다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF"><TD COLSPAN=1><FONT SIZE="+2">
+<B>Constructor Detail</B>
+</FONT></TD></TR></TABLE>
+
+<H3>UOCSMain</H3>
+<PRE>
+public <B>UOCSMain</B>()</PRE>
+<DL><DD>UOCSMain의 생성자이다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF"><TD COLSPAN=1><FONT SIZE="+2">
+<B>Method Detail</B>
+</FONT></TD></TR></TABLE>
+
+<H3>Initialize</H3>
+<PRE>
+public int <B>Initialize</B>()</PRE>
+<DL><DD>환경값 설정 및 DB를 포함한 각 모듈 생성<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>LoadConfig</H3>
+<PRE>
+boolean <B>LoadConfig</B>()</PRE>
+<DL><DD>환경설정값을 설정한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UOCSMainTimerStart</H3>
+<PRE>
+public void <B>UOCSMainTimerStart</B>()</PRE>
+<DL><DD>Main을 담당하는 Timer를 시작한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UOCSMainTimerStop</H3>
+<PRE>
+public void <B>UOCSMainTimerStop</B>()</PRE>
+<DL><DD>Main을 담당하는 Timer를 종료한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UOCSMainTimerTimer</H3>
+<PRE>
+void <B>UOCSMainTimerTimer</B>()</PRE>
+<DL><DD>Main을 담당하는 Timer이다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetErrorText</H3>
+<PRE>
+String <B>GetErrorText</B>(int&nbsp;nErrorCode)</PRE>
+<DL><DD>Error 문자열을 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UOCSMainTrace</H3>
+<PRE>
+void <B>UOCSMainTrace</B>(String&nbsp;strLog1,
+                   String&nbsp;strLog2)</PRE>
+<DL><DD>OCSMain의 이력을 저장한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateOperation</H3>
+<PRE>
+public boolean <B>CreateOperation</B>(String&nbsp;strVehicleName,
+                               String&nbsp;strIPAddress,
+                               String&nbsp;strVehicleLoc)</PRE>
+<DL><DD>Operation 객체를 생성하여 OperationList에 추가한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>DeleteOperation</H3>
+<PRE>
+public boolean <B>DeleteOperation</B>(String&nbsp;strVehicleID)</PRE>
+<DL><DD>Operation 객체를 OperationList에서 삭제한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetOperationIndex</H3>
+<PRE>
+public int <B>GetOperationIndex</B>(String&nbsp;strVehicleID)</PRE>
+<DL><DD>Operation Index를 OperationList에서 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetOperation</H3>
+<PRE>
+public Operation <B>GetOperation</B>(String&nbsp;strVehicleID)</PRE>
+<DL><DD>Operation 객체를 OperationList에서 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>OperationUnitStart</H3>
+<PRE>
+public boolean <B>OperationUnitStart</B>(String&nbsp;strOperationName)</PRE>
+<DL><DD>Operation Unit을 시작한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>OperationUnitStop</H3>
+<PRE>
+public void <B>OperationUnitStop</B>(String&nbsp;strOperationName)</PRE>
+<DL><DD>Operation Unit을 종료한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>OperationUnitInitialize</H3>
+<PRE>
+public void <B>OperationUnitInitialize</B>(String&nbsp;strVehicleID)</PRE>
+<DL><DD>Operation Unit을 초기화시킨다. User에 의한 작업삭제시 해당 작업을 수행하고 있는 Vehicle 정보 reset<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CheckAllVehiclePaused</H3>
+<PRE>
+public boolean <B>CheckAllVehiclePaused</B>()</PRE>
+<DL><DD>모든 Vehicle이 Paused상태가 되었는 지 여부를 체크한다.(Operation에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+</BODY>
+</HTML>

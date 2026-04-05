@@ -1,0 +1,21 @@
+[DB Access]
+DBMS=Oracle
+
+;Oracle ================================
+Url=jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST= 168.219.10.149)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=168.219.10.175)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=MCSDB)(SERVER=DEDICATED)))
+;User=sds2
+;Password=sdsdb
+User=mcsdev_nyk
+Password=mcsdev
+;User=umcsdb1
+;Password=acsmcs2
+
+[TSC]
+TSCID=TOCS
+
+[SR]
+SRStart=false
+
+[Log]
+;Path=/log/TOCS
+;DeleteLogDay=7

@@ -1,0 +1,44 @@
+.metadata
+.recommenders
+
+/**/bin/**/*
+
+
+
+### Operation 설정파일 ###
+OCSOperationV7.0/CarrierTypeConfig.xml
+OCSOperationV7.0/CollisionData2.txt
+OCSOperationV7.0/commonConfig.xml
+OCSOperationV7.0/failoverConfig.xml
+OCSOperationV7.0/InitializedBlockInfo.log
+OCSOperationV7.0/logConfig.xml
+OCSOperationV7.0/logConfig_operation.xml
+OCSOperationV7.0/ResultCode.xml
+OCSOperationV7.0/RuntimeUpdateHistory.log
+OCSOperationV7.0/SectionData.txt
+OCSOperationV7.0/StartupHistory.log
+
+
+### IBSEM 설정파일 ###
+OCSIBSEMV7.0/CarrierTypeConfig.xml
+OCSIBSEMV7.0/CollectionEvent.xml
+OCSIBSEMV7.0/commonConfig.xml
+OCSIBSEMV7.0/ErrorCode.txt
+OCSIBSEMV7.0/failoverConfig.xml
+OCSIBSEMV7.0/HCACK.xml
+OCSIBSEMV7.0/IBSEM.smd
+OCSIBSEMV7.0/IBSEM.xml
+OCSIBSEMV7.0/logConfig.xml
+OCSIBSEMV7.0/logConfig_ibsem.xml
+OCSIBSEMV7.0/Report.xml
+OCSIBSEMV7.0/RuntimeUpdateHistory.log
+OCSIBSEMV7.0/StartupHistory.log
+OCSIBSEMV7.0/VID.xml
+
+
+### Backup파일 ###
+.bak
+
+### log파일 ###
+.log
+UOCSUCInterface/classes/

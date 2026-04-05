@@ -1,0 +1,105 @@
+03-31 13:01:03.601 INFO MCS 3.0.18
+03-31 13:01:03.601 SEND FF FF 00 00 00 05 7F 00 00 34          Length=10           Linktest.req
+03-31 13:01:03.606 RECD FF FF 00 00 00 06 7F 00 00 34          Length=10           Linktest.rsp
+03-31 13:03:03.729 SEND FF FF 00 00 00 05 7F 00 00 35          Length=10           Linktest.req
+03-31 13:03:03.736 RECD FF FF 00 00 00 06 7F 00 00 35          Length=10           Linktest.rsp
+03-31 13:05:03.825 SEND FF FF 00 00 00 05 7F 00 00 36          Length=10           Linktest.req
+03-31 13:05:03.831 RECD FF FF 00 00 00 06 7F 00 00 36          Length=10           Linktest.rsp
+03-31 13:07:03.919 SEND FF FF 00 00 00 05 7F 00 00 37          Length=10           Linktest.req
+03-31 13:07:03.925 RECD FF FF 00 00 00 05 7F 00 00 2B          Length=10           Linktest.req
+03-31 13:07:03.929 SEND FF FF 00 00 00 06 7F 00 00 2B          Length=10           Linktest.rsp
+03-31 13:07:03.932 RECD FF FF 00 00 00 06 7F 00 00 37          Length=10           Linktest.rsp
+03-31 13:09:04.007 SEND FF FF 00 00 00 05 7F 00 00 38          Length=10           Linktest.req
+03-31 13:09:04.013 RECD FF FF 00 00 00 06 7F 00 00 38          Length=10           Linktest.rsp
+03-31 13:11:04.073 SEND FF FF 00 00 00 05 7F 00 00 39          Length=10           Linktest.req
+03-31 13:11:04.079 RECD FF FF 00 00 00 05 7F 00 00 2C          Length=10           Linktest.req
+03-31 13:11:04.087 RECD FF FF 00 00 00 06 7F 00 00 39          Length=10           Linktest.rsp
+03-31 13:11:04.092 SEND FF FF 00 00 00 06 7F 00 00 2C          Length=10           Linktest.rsp
+03-31 13:13:04.144 SEND FF FF 00 00 00 05 7F 00 00 3A          Length=10           Linktest.req
+03-31 13:13:04.152 RECD FF FF 00 00 00 06 7F 00 00 3A          Length=10           Linktest.rsp
+03-31 13:15:04.205 SEND FF FF 00 00 00 05 7F 00 00 3B          Length=10           Linktest.req
+03-31 13:15:04.213 RECD FF FF 00 00 00 06 7F 00 00 3B          Length=10           Linktest.rsp
+03-31 13:17:04.258 SEND FF FF 00 00 00 05 7F 00 00 3C          Length=10           Linktest.req
+03-31 13:17:04.261 RECD FF FF 00 00 00 05 7F 00 00 2D          Length=10           Linktest.req
+03-31 13:17:04.264 SEND FF FF 00 00 00 06 7F 00 00 2D          Length=10           Linktest.rsp
+03-31 13:17:04.268 RECD FF FF 00 00 00 06 7F 00 00 3C          Length=10           Linktest.rsp
+03-31 13:19:04.312 SEND FF FF 00 00 00 05 7F 00 00 3D          Length=10           Linktest.req
+03-31 13:19:04.319 RECD FF FF 00 00 00 06 7F 00 00 3D          Length=10           Linktest.rsp
+03-31 13:21:04.353 SEND FF FF 00 00 00 05 7F 00 00 3E          Length=10           Linktest.req
+03-31 13:21:04.356 RECD FF FF 00 00 00 05 7F 00 00 2E          Length=10           Linktest.req
+03-31 13:21:04.365 SEND FF FF 00 00 00 06 7F 00 00 2E          Length=10           Linktest.rsp
+03-31 13:21:04.371 RECD FF FF 00 00 00 06 7F 00 00 3E          Length=10           Linktest.rsp
+03-31 13:23:04.397 SEND FF FF 00 00 00 05 7F 00 00 3F          Length=10           Linktest.req
+03-31 13:23:04.404 RECD FF FF 00 00 00 06 7F 00 00 3F          Length=10           Linktest.rsp
+03-31 13:23:04.408 RECD FF FF 00 00 00 05 7F 00 00 2F          Length=10           Linktest.req
+03-31 13:23:04.413 SEND FF FF 00 00 00 06 7F 00 00 2F          Length=10           Linktest.rsp
+03-31 13:25:04.437 SEND FF FF 00 00 00 05 7F 00 00 40          Length=10           Linktest.req
+03-31 13:25:04.444 RECD FF FF 00 00 00 06 7F 00 00 40          Length=10           Linktest.rsp
+03-31 13:27:04.470 RECD FF FF 00 00 00 05 7F 00 00 30          Length=10           Linktest.req
+03-31 13:27:04.474 SEND FF FF 00 00 00 05 7F 00 00 41          Length=10           Linktest.req
+03-31 13:27:04.478 SEND FF FF 00 00 00 06 7F 00 00 30          Length=10           Linktest.rsp
+03-31 13:27:04.482 RECD FF FF 00 00 00 06 7F 00 00 41          Length=10           Linktest.rsp
+03-31 13:29:04.503 SEND FF FF 00 00 00 05 7F 00 00 42          Length=10           Linktest.req
+03-31 13:29:04.529 RECD FF FF 00 00 00 05 7F 00 00 31          Length=10           Linktest.req
+03-31 13:29:04.533 SEND FF FF 00 00 00 06 7F 00 00 31          Length=10           Linktest.rsp
+03-31 13:29:04.537 RECD FF FF 00 00 00 06 7F 00 00 42          Length=10           Linktest.rsp
+03-31 13:29:13.142 RECD 00 01 86 0B 00 00 00 00 00 B0          Length=55           D1 S6F11W   SYSBYTE=176 S6F11
+                        01 03 B1 04 00 00 00 00 A9 02 00 D2 01 01 01 02 A9 02 00 21 
+                        01 02 41 06 4F 48 54 35 30 38 41 0D 50 72 65 6D 6F 76 65 43 
+                        6D 64 30 30 31 
+03-31 13:29:13.152 RECD 00 01 86 0B 00 00 00 00 00 B1          Length=111          D1 S6F11W   SYSBYTE=177 S6F11
+                        01 03 B1 04 00 00 00 00 A9 02 00 6B 01 01 01 02 A9 02 00 11 
+                        01 03 01 03 41 0D 50 72 65 6D 6F 76 65 43 6D 64 30 30 31 A9 
+                        02 00 0A A9 02 00 00 A9 02 00 01 01 01 01 02 01 03 41 0A 43 
+                        61 72 72 69 65 72 30 30 31 41 09 42 48 46 30 30 35 5F 42 36 
+                        41 09 42 44 42 30 30 31 5F 42 31 41 08 4F 48 54 35 30 38 5F 
+                        31 
+03-31 13:29:13.163 SEND 00 01 06 0C 00 00 00 00 00 B0          Length=13           D1 S6F12    SYSBYTE=176
+                        21 01 00 
+03-31 13:29:13.174 SEND 00 01 06 0C 00 00 00 00 00 B1          Length=13           D1 S6F12    SYSBYTE=177
+                        21 01 00 
+03-31 13:31:13.167 SEND FF FF 00 00 00 05 7F 00 00 43          Length=10           Linktest.req
+03-31 13:31:13.174 RECD FF FF 00 00 00 06 7F 00 00 43          Length=10           Linktest.rsp
+03-31 13:33:13.196 RECD FF FF 00 00 00 05 7F 00 00 32          Length=10           Linktest.req
+03-31 13:33:13.203 SEND FF FF 00 00 00 05 7F 00 00 44          Length=10           Linktest.req
+03-31 13:33:13.206 SEND FF FF 00 00 00 06 7F 00 00 32          Length=10           Linktest.rsp
+03-31 13:33:13.210 RECD FF FF 00 00 00 06 7F 00 00 44          Length=10           Linktest.rsp
+03-31 13:35:13.228 SEND FF FF 00 00 00 05 7F 00 00 45          Length=10           Linktest.req
+03-31 13:35:13.235 RECD FF FF 00 00 00 05 7F 00 00 33          Length=10           Linktest.req
+03-31 13:35:13.240 SEND FF FF 00 00 00 06 7F 00 00 33          Length=10           Linktest.rsp
+03-31 13:35:13.243 RECD FF FF 00 00 00 06 7F 00 00 45          Length=10           Linktest.rsp
+03-31 13:37:13.254 SEND FF FF 00 00 00 05 7F 00 00 46          Length=10           Linktest.req
+03-31 13:37:13.260 RECD FF FF 00 00 00 05 7F 00 00 34          Length=10           Linktest.req
+03-31 13:37:13.265 SEND FF FF 00 00 00 06 7F 00 00 34          Length=10           Linktest.rsp
+03-31 13:37:13.268 RECD FF FF 00 00 00 06 7F 00 00 46          Length=10           Linktest.rsp
+03-31 13:39:13.279 SEND FF FF 00 00 00 05 7F 00 00 47          Length=10           Linktest.req
+03-31 13:39:13.285 RECD FF FF 00 00 00 06 7F 00 00 47          Length=10           Linktest.rsp
+03-31 13:41:13.301 RECD FF FF 00 00 00 05 7F 00 00 35          Length=10           Linktest.req
+03-31 13:41:13.312 SEND FF FF 00 00 00 05 7F 00 00 48          Length=10           Linktest.req
+03-31 13:41:13.318 SEND FF FF 00 00 00 06 7F 00 00 35          Length=10           Linktest.rsp
+03-31 13:41:13.321 RECD FF FF 00 00 00 06 7F 00 00 48          Length=10           Linktest.rsp
+03-31 13:43:13.319 SEND FF FF 00 00 00 05 7F 00 00 49          Length=10           Linktest.req
+03-31 13:43:13.343 RECD FF FF 00 00 00 05 7F 00 00 36          Length=10           Linktest.req
+03-31 13:43:13.347 SEND FF FF 00 00 00 06 7F 00 00 36          Length=10           Linktest.rsp
+03-31 13:43:13.351 RECD FF FF 00 00 00 06 7F 00 00 49          Length=10           Linktest.rsp
+03-31 13:45:13.362 SEND FF FF 00 00 00 05 7F 00 00 4A          Length=10           Linktest.req
+03-31 13:45:13.367 RECD FF FF 00 00 00 05 7F 00 00 37          Length=10           Linktest.req
+03-31 13:45:13.376 SEND FF FF 00 00 00 06 7F 00 00 37          Length=10           Linktest.rsp
+03-31 13:45:13.380 RECD FF FF 00 00 00 06 7F 00 00 4A          Length=10           Linktest.rsp
+03-31 13:47:13.382 SEND FF FF 00 00 00 05 7F 00 00 4B          Length=10           Linktest.req
+03-31 13:47:13.388 RECD FF FF 00 00 00 06 7F 00 00 4B          Length=10           Linktest.rsp
+03-31 13:49:13.397 RECD FF FF 00 00 00 05 7F 00 00 38          Length=10           Linktest.req
+03-31 13:49:13.401 SEND FF FF 00 00 00 06 7F 00 00 38          Length=10           Linktest.rsp
+03-31 13:51:13.407 SEND FF FF 00 00 00 05 7F 00 00 4C          Length=10           Linktest.req
+03-31 13:51:13.413 RECD FF FF 00 00 00 06 7F 00 00 4C          Length=10           Linktest.rsp
+03-31 13:53:13.444 RECD FF FF 00 00 00 05 7F 00 00 39          Length=10           Linktest.req
+03-31 13:53:13.457 SEND FF FF 00 00 00 05 7F 00 00 4D          Length=10           Linktest.req
+03-31 13:53:13.460 SEND FF FF 00 00 00 06 7F 00 00 39          Length=10           Linktest.rsp
+03-31 13:53:13.464 RECD FF FF 00 00 00 06 7F 00 00 4D          Length=10           Linktest.rsp
+03-31 13:55:13.475 SEND FF FF 00 00 00 05 7F 00 00 4E          Length=10           Linktest.req
+03-31 13:55:13.485 RECD FF FF 00 00 00 06 7F 00 00 4E          Length=10           Linktest.rsp
+03-31 13:57:13.483 RECD FF FF 00 00 00 05 7F 00 00 3A          Length=10           Linktest.req
+03-31 13:57:13.487 SEND FF FF 00 00 00 06 7F 00 00 3A          Length=10           Linktest.rsp
+03-31 13:59:13.485 SEND FF FF 00 00 00 05 7F 00 00 4F          Length=10           Linktest.req
+03-31 13:59:13.491 RECD FF FF 00 00 00 06 7F 00 00 4F          Length=10           Linktest.rsp
+03-31 14:01:13.492 INFO RECEIVE MESSAGE COUNT 2

@@ -1,0 +1,16 @@
+#! /bin/bash
+
+OSNAME=$(uname)
+case $OSNAME in
+        Linux)
+                PPS=$(pgrep -f "DUOCSModule=clustermanager" | wc -l)
+                        ;;
+        SunOS)
+                PPS=$(pgrep -f "DUOCSModule=clustermanager" | wc -l)
+                        ;;
+esac
+
+if [ ${PPS} -eq 0 ]
+then
+${JAVA_HOME}/bin/java -Xmx256M -DUOCSModule=clustermanager -DUOCS=${UOCSPATH}/uocs -DPSDATA=${UOCSPATH}/01_XCSClusterManager/script/processData -DVIPC=${UOCSPATH}/01_XCSClusterManager/script/vipInfo -Dlog4j.configuration=file://${UOCSPATH}/01_XCSClusterManager/logConfig.xml -Xms128M -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -Xloggc:$UOCSPATH/01_XCSClusterManager/GarbageCollection`date +%Y%m%d%H%M%S`.log -XX:+HeapDumpOnOutOfmemoryError -classpath ../11_OCSCommonLib/jdom.jar:../11_OCSCommonLib/ojdbc14.jar:../11_OCSCommonLib/log4j-1.2.16.jar:../11_OCSCommonLib/xcs-commons-0.0.3_20110501.jar:./OcsClusterManager.jar com.samsung.ocs.failover.XCSClusterManager
+fi

@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4793f8b9-2c78-463b-98b2-173f3fd15535}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{bf8e698e-e539-403d-8f65-972a459283b1}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{91d2960f-e2e7-40ca-a324-dd945cfe1d8b}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="amc_filter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amc_fs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amcio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amclib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amcmap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="crc\crc32.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pacfg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pamp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="panalog.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="petc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pframe.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pgain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="phome.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pinit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pint.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pinter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pio.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="plib.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="plib1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="plimit.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pmove.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pmovs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="psave.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pstatus.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pstop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ptraj.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_move.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="watchdog.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="log.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="amc_client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="serial_com_client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\amc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="amclib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="amcmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cmdset.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="crc\crc32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pcdef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pcglb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="simple_circular_queue.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="amclib.def">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="amclib.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

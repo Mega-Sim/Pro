@@ -1,0 +1,48 @@
+CREATE TABLE STBRFCDATA (
+	RFCID varchar2(15),
+	MACHINECODE varchar2(10),
+	MACHINEID varchar2(10),
+	CONDITION varchar2(10),
+	IPADDRESS varchar2(20),
+	ENABLED varchar2(10),
+	READY varchar2(10),
+	ERROR varchar2(10),
+	ERRORCODE varchar2(10),
+	UPDATE_TIME TIMESTAMP
+);
+
+CREATE TABLE STBCARRIERLOC (
+	CARRIERLOCID varchar2(64),
+	CARRIERID varchar2(64),
+	CARRIERSTATE varchar2(16),
+	IDREADER varchar2(20),
+	COMMANDNAME varchar2(32),
+	MCSCARRIERID varchar2(64),
+	OCSCARRIERID varchar2(64),
+	INSTALLTIME varchar2(16),
+	REMOVETIME varchar2(16),
+	ENABLED varchar2(6),
+	
+	RFCID varchar2(15),
+	RFCINDEX varchar2(10),	
+	READY varchar2(10),
+	CARRIERSENSOR varchar2(10),
+	STBHOMESENSOR varchar2(10),
+	ECAT1CONN	varchar2(10),
+	ECAT2CONN	varchar2(10),
+	CARRIERDETECT varchar2(10),
+	READRESULT varchar2(10),
+	VERIFYRESULT varchar2(10),
+	IDDATA varchar2(64),
+	STBENABLED varchar2(10),
+	
+	RFCREADERID varchar2(10),
+	HASREADER	varchar2(10)
+);
+
+-- alter table STBCARRIERLOC add RFCREADERID varchar2(10);
+-- alter table STBCARRIERLOC add HASREADER	varchar2(10);
+
+
+
+COMMIT;

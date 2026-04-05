@@ -1,0 +1,101 @@
+package ocsmanager;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+
+public class UDPComm
+{
+  String m_strIPAddress = "127.0.0.1";
+  int m_nPort = 4050;
+  String m_strSendMsg = "";
+  String m_strRcvMsg = "";
+
+  SendSocketThread m_SendSocketThread = null;
+  ReadSocketThread m_ReadSocketThread = null;
+  DatagramSocket m_Socket = null;
+  DatagramPacket m_SndPacket = null;
+  DatagramPacket m_RcvPacket = null;
+
+  OCSManagerMainFrame m_OM_MainFrame = null;
+
+  public UDPComm(OCSManagerMainFrame OM_MainFrame)
+  {
+    m_OM_MainFrame = OM_MainFrame;
+    try {
+      m_Socket = new DatagramSocket();
+      m_SendSocketThread = new SendSocketThread();
+      m_ReadSocketThread = new ReadSocketThread();
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+  }
+
+  public class SendSocketThread extends Thread {
+
+    public SendSocketThread() {
+
+    }
+
+    public void run()
+    {
+      try {
+        while (true)
+        {
+          if (m_strSendMsg.equals("") == true)
+            continue;
+
+          m_SndPacket = new DatagramPacket(m_strSendMsg.getBytes(), m_strSendMsg.length(),
+                                           InetAddress.getByName(m_strIPAddress), m_nPort);
+          m_Socket.send(m_SndPacket);
+          m_OM_MainFrame.DisplayLog("SND(UDP)> " + m_strSendMsg);
+          m_strSendMsg = "";
+        }
+      }
+      catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+  }
+
+  public class ReadSocketThread extends Thread {
+
+    public ReadSocketThread() {
+    }
+
+    public void run()
+    {
+      try
+      {
+        while (true)
+        {
+          byte[] inbuf = new byte[1024];
+          m_RcvPacket = new DatagramPacket(inbuf, inbuf.length);
+          m_Socket.receive(m_RcvPacket);
+
+          m_strRcvMsg = new String(m_RcvPacket.getData(), 0, m_RcvPacket.getLength());
+          m_OM_MainFrame.DisplayLog("RCV(UDP)> " + m_strRcvMsg);
+        }
+      }
+      catch (Exception e)
+      {
+        e.printStackTrace();
+      }
+    }
+  }
+
+  public void SendMsg(String strSendMsg)
+  {
+    m_strSendMsg = strSendMsg;
+  }
+
+  public void UDPCommStart()
+  {
+    m_SendSocketThread.start();
+    m_ReadSocketThread.start();
+  }
+
+}

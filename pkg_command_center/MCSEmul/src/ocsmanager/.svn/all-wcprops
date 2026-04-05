@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/OCS/!svn/ver/4770/current/UOCS/MCSEmul/src/ocsmanager
+END
+ocsmanager.zip
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/OCS/!svn/ver/33/current/UOCS/MCSEmul/src/ocsmanager/ocsmanager.zip
+END
+LongRun.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/OCS/!svn/ver/4770/current/UOCS/MCSEmul/src/ocsmanager/LongRun.java
+END
+OCSManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/OCS/!svn/ver/33/current/UOCS/MCSEmul/src/ocsmanager/OCSManager.java
+END
+UDPComm.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/OCS/!svn/ver/33/current/UOCS/MCSEmul/src/ocsmanager/UDPComm.java
+END
+Utility.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/OCS/!svn/ver/33/current/UOCS/MCSEmul/src/ocsmanager/Utility.java
+END
+DBAccessFrame.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/OCS/!svn/ver/4518/current/UOCS/MCSEmul/src/ocsmanager/DBAccessFrame.java
+END
+CarrierLocDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/OCS/!svn/ver/4770/current/UOCS/MCSEmul/src/ocsmanager/CarrierLocDAO.java
+END
+MsgEmulatorDlg.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/OCS/!svn/ver/4770/current/UOCS/MCSEmul/src/ocsmanager/MsgEmulatorDlg.java
+END
+about.png
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/OCS/!svn/ver/33/current/UOCS/MCSEmul/src/ocsmanager/about.png
+END
+CarrierLoc.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/OCS/!svn/ver/4770/current/UOCS/MCSEmul/src/ocsmanager/CarrierLoc.java
+END
+DBAccessFrame2.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/OCS/!svn/ver/4770/current/UOCS/MCSEmul/src/ocsmanager/DBAccessFrame2.java
+END
+OCSManagerMain.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/OCS/!svn/ver/4770/current/UOCS/MCSEmul/src/ocsmanager/OCSManagerMain.java
+END
+OCSManagerMainFrame.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/OCS/!svn/ver/4770/current/UOCS/MCSEmul/src/ocsmanager/OCSManagerMainFrame.java
+END
+IBSEMIF.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/OCS/!svn/ver/4770/current/UOCS/MCSEmul/src/ocsmanager/IBSEMIF.java
+END
+IBSEMIF.jbx
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/OCS/!svn/ver/33/current/UOCS/MCSEmul/src/ocsmanager/IBSEMIF.jbx
+END
+LongRunManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/OCS/!svn/ver/3137/current/UOCS/MCSEmul/src/ocsmanager/LongRunManager.java
+END
+FileLongRunManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/OCS/!svn/ver/4770/current/UOCS/MCSEmul/src/ocsmanager/FileLongRunManager.java
+END
+OCSManagerMainFrame.jbx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/OCS/!svn/ver/33/current/UOCS/MCSEmul/src/ocsmanager/OCSManagerMainFrame.jbx
+END
+SEMIF.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/OCS/!svn/ver/4770/current/UOCS/MCSEmul/src/ocsmanager/SEMIF.java
+END
+OCSManagerMainFrame_AboutBox.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/OCS/!svn/ver/33/current/UOCS/MCSEmul/src/ocsmanager/OCSManagerMainFrame_AboutBox.java
+END
+STBSEMIF.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/OCS/!svn/ver/4770/current/UOCS/MCSEmul/src/ocsmanager/STBSEMIF.java
+END
+OCSManagerMain.jbx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/OCS/!svn/ver/33/current/UOCS/MCSEmul/src/ocsmanager/OCSManagerMain.jbx
+END

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><!--JBuilder QuickDoc-->
+<HEAD>
+<TITLE>Class uohtcontroller.DBAccessFrame</TITLE><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+</HEAD>
+<BODY>
+
+<H2>
+<FONT SIZE="-1">uohtcontroller</FONT>
+<BR>Class DBAccessFrame</H2>
+<DL>
+<DT>public class <B>DBAccessFrame</B>
+</DL>
+<DL><DD>상용 DB에 접속 및 SQL문을 사용하여 DB정보 Handling을 위한 I/F 기능을 제공한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF"><TD COLSPAN=1><FONT SIZE="+2">
+<B>Method Detail</B>
+</FONT></TD></TR></TABLE>
+
+<H3>ExecSQL_NotFailGuaranteed</H3>
+<PRE>
+synchronized void <B>ExecSQL_NotFailGuaranteed</B>(String&nbsp;strSql)</PRE>
+<DL><DD>Transaction fail 시에도 retry를 하지 않도록 하는 SQL 실행함수<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>strSql</CODE> - String</DD>
+<DT><B>Throws:</B><DD><CODE>SQLException</CODE> - </DD>
+</DL>
+<HR>
+
+<H3>AddFailedSqlToList</H3>
+<PRE>
+void <B>AddFailedSqlToList</B>(String&nbsp;strSql)</PRE>
+<DL><DD>2006. 1. 23. 추가. 정정주 처리 실패한 Sql문을 List에 저장 바로 전에 등록된 Sql문과 동일한 sql문 저장하고자 할 경우 fail 처리 3번 retry fail 시에는 해당 sql문 제거<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>strSql</CODE> - String</DD>
+</DL>
+<HR>
+
+<H3>ExecSQL</H3>
+<PRE>
+synchronized void <B>ExecSQL</B>(String&nbsp;strSql)</PRE>
+<DL><DD>SQL문 실행<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>strSql</CODE> - String : 실행할 SQL문</DD>
+<DT><B>Throws:</B><DD><CODE>SQLException</CODE> - : Exception</DD>
+</DL>
+<HR>
+
+<H3>ExecBatch</H3>
+<PRE>
+synchronized void <B>ExecBatch</B>()</PRE>
+<DL><DD>Batch Query 실행<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Throws:</B><DD><CODE>SQLException</CODE> - </DD>
+</DL>
+<HR>
+
+<H3>ExecBatchSql</H3>
+<PRE>
+synchronized void <B>ExecBatchSql</B>(Vector&nbsp;lstSqlList)</PRE>
+<DL><DD>String Vector를 이용하여 구성된 Batch에 대해 동시에 실행<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>lstSqlList</CODE> - Vector</DD>
+</DL>
+<HR>
+
+<H3>ReconnectToDB</H3>
+<PRE>
+synchronized void <B>ReconnectToDB</B>()</PRE>
+<DL><DD>DB Connection fail에 따라 DB Reconnection 시도<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>RegisterDBAlarm</H3>
+<PRE>
+void <B>RegisterDBAlarm</B>(int&nbsp;nALID)</PRE>
+<DL><DD>2006. 1. 23. 추가. 정정주 DB Error에 대해 Alarm 등록<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>nALID</CODE> - int</DD>
+</DL>
+<HR>
+
+<H3>IsDBConnected</H3>
+<PRE>
+boolean <B>IsDBConnected</B>()</PRE>
+<DL><DD>DB 연결 정보<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>boolean</DD>
+</DL>
+<HR>
+
+<H3>GetPrevTimeStr</H3>
+<PRE>
+String <B>GetPrevTimeStr</B>(long&nbsp;lElapsedTime)</PRE>
+<DL><DD>일정 경과시간 이전의 시간 String<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>lElapsedTime</CODE> - long : 경과 시간</DD>
+<DT><B>Returns:</B><DD>String : YYYYMMDDhhmmsscc(16bytes)</DD>
+</DL>
+<HR>
+
+<H3>GetPrevDBTimeStr</H3>
+<PRE>
+String <B>GetPrevDBTimeStr</B>(long&nbsp;lElapsedTime)</PRE>
+<DL><DD>일정 경과시간 이전의 시간 String DB 기준 시간으로부터의 경과시간값<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>lElapsedTime</CODE> - long : 경과 시간</DD>
+<DT><B>Returns:</B><DD>String : YYYYMMDDhhmmss(14bytes)</DD>
+</DL>
+<HR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,47 @@
+03-31 13:29:13.148 INFO MCS 3.0.18
+03-31 13:29:13.148 RECD D1 S6F11W   SYSBYTE=176 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '210'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '33'>
+                               <L 2 ITEM(6)
+                                   <A 6 ITEM(7) 'OHT508'>
+                                   <A 13 ITEM(8) 'PremoveCmd001'>
+                               >
+                           >
+                       >
+                   >.
+03-31 13:29:13.156 RECD D1 S6F11W   SYSBYTE=177 S6F11
+                   <L 3 ITEM(0)
+                       <U4 1 ITEM(1) '0'>
+                       <U2 1 ITEM(2) '107'>
+                       <L 1 ITEM(3)
+                           <L 2 ITEM(4)
+                               <U2 1 ITEM(5) '17'>
+                               <L 3 ITEM(6)
+                                   <L 3 ITEM(7)
+                                       <A 13 ITEM(8) 'PremoveCmd001'>
+                                       <U2 1 ITEM(9) '10'>
+                                       <U2 1 ITEM(10) '0'>
+                                   >
+                                   <U2 1 ITEM(11) '1'>
+                                   <L 1 ITEM(12)
+                                       <L 2 ITEM(13)
+                                           <L 3 ITEM(14)
+                                               <A 10 ITEM(15) 'Carrier001'>
+                                               <A 9 ITEM(16) 'BHF005_B6'>
+                                               <A 9 ITEM(17) 'BDB001_B1'>
+                                           >
+                                           <A 8 ITEM(18) 'OHT508_1'>
+                                       >
+                                   >
+                               >
+                           >
+                       >
+                   >.
+03-31 13:29:13.170 SEND D1 S6F12    SYSBYTE=176
+                   <B 1 '0'>.
+03-31 13:29:13.178 SEND D1 S6F12    SYSBYTE=177
+                   <B 1 '0'>.

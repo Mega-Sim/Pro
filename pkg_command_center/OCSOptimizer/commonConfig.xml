@@ -1,0 +1,18 @@
+<config>
+	<dbConnection>
+		<PrimaryUrl>jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on) (ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=12.36.210.64)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=OCSDB)(SERVER=DEDICATED)))</PrimaryUrl>
+		<SecondaryUrl>jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on) (ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=12.36.210.64)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=OCSDB)(SERVER=DEDICATED)))</SecondaryUrl>
+	    <userName>UOCSDB_S1A6f_LSH</userName>
+	    <passWord>acsmcs2</passWord>
+<!--
+		<PrimaryUrl>jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on) (ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.240.50.154)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=OCSDB)(SERVER=DEDICATED)))</PrimaryUrl>
+		<SecondaryUrl>jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on) (ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=10.240.50.154)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=OCSDB)(SERVER=DEDICATED)))</SecondaryUrl>
+	    <userName>UOCSDB_S1B_TEST3</userName>
+	    <passWord>TEST3</passWord>
+-->
+    </dbConnection>
+ 	<hostName>Primary</hostName>
+ 	<hostServiceType>Primary</hostServiceType>
+    <remoteHostIpAddress>10.240.16.114</remoteHostIpAddress>
+    <vehicleSocketPort>5001</vehicleSocketPort>
+</config>

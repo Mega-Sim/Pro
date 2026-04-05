@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Wed Nov 07 15:28:20 KST 2018
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=OcsSTBC.jar
+manifest.mergeall=true
+manifest.mainclass=com.samsung.ocs.stbc.STBCMain
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=<jar|jdom.jar>;<jar|log4j-1.2.16.jar>;<jar|secomdriver-3.1.0.jar>;<jar|xcs-commons-0.0.3_20110501.jar>;<jar|xutil4j-1.0.jar>;<jar|ojdbc14.jar>;<jar|xcs-commons-0.0.3_20110501.jar>;<jar|log4j-1.2.16.jar>
+includes=

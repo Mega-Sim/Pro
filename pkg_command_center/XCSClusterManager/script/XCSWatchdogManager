@@ -1,0 +1,38 @@
+#! /bin/bash
+
+LOG=${UOCSPATH}/01_XCSClusterManager/WatchdogManager$(date +%Y%m%d%H%M%S).log
+touch ${LOG}
+
+while [ 1 ]
+
+do 
+
+OSNAME=$(uname)
+case $OSNAME in
+        Linux)
+                PPS=$(pgrep -f "DUOCSModule=clustermanager" | wc -l)
+                        ;;
+        SunOS)
+                PPS=$(pgrep -f "DUOCSModule=clustermanager" | wc -l)
+                        ;;
+        *)
+          OSNAME=$(uname)
+          export OSNAME
+          echo "[$(date +%Y/%m/%d-%H:%M:%S:%3N)] The OSNAME environment reset to ${OSNAME}" >> ${LOG}
+          sleep 2
+          continue
+                        ;;
+esac
+
+if [ ${PPS} -eq 0 ]
+then
+   echo "[$(date +%Y/%m/%d-%H:%M:%S:%3N)] pgrep Result: ${PPS}" >> ${LOG}
+   cd ${UOCSPATH}/01_XCSClusterManager
+   echo "[$(date +%Y/%m/%d-%H:%M:%S:%3N)] Now is $(pwd)" >> ${LOG}
+   nohup ${UOCSPATH}/01_XCSClusterManager/XCSClusterManager -console 1>/dev/null 2>&1 &
+   echo "[$(date +%Y/%m/%d-%H:%M:%S:%3N)] Cluster Manager is started..." >> ${LOG}
+fi
+
+sleep 2
+
+done

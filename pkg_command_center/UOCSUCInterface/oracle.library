@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <!--JBuilder Library Definition File-->
+  <fullname>oracle</fullname>
+  <class>
+    <path>[lib/ojdbc14.jar]</path>
+  </class>
+  <lastmodsaved>1342749200678</lastmodsaved>
+</library>

@@ -1,0 +1,547 @@
+package com.sec.iesw.mcs.infra.common.ucom;
+
+import SEComEnabler.SEComPlugIn.SXPlugIn;
+import SEComEnabler.SEComStructure.SEComError;
+import SEComEnabler.SEComStructure.SEComPlugInEvent;
+import SEComEnabler.SEComStructure.SXTransaction;
+import SEComEnabler.SEComStructure.SEComError.SEComTimeout;
+import XCom.XCom;
+import XCom.XComErr;
+import XCom.XSecsMsg;
+
+/**
+ * SECS 통신을 하기위한 클래스
+ * <p>
+ * 현재 사용되고 있는 XCOm과 SECom을 간단한 옵션 변경만으로 두 모듈을 같이 사용하기 위해서 사용되는 클래스
+ * 
+ * @author Hyung Doo, Yoon
+ * @version 1.0
+ * @since 1.4
+ * @see UCom, UComMsg
+ */
+
+public class UCom {
+	public static final int COM_TYPE_XCOM = 1;
+
+	/** XCOM 상수 */
+
+	public static final int COM_TYPE_SECOM = 2;
+
+	/** SECOM 상수 */
+
+	private int m_nComType;
+
+	/** COM모듈 타입 */
+
+	private MyXCom m_XCom;
+
+	/** XCOM 인스턴트 */
+
+	private MySECom m_SECom;
+
+	/** SECOM 인스턴트 */
+
+	private String m_strCommCfgFile;
+
+	/** 통신설정 파일명 */
+
+	private IUComEventListener m_iListener;
+
+	/** 이벤트를 받을 인스턴트 */
+
+	/**
+	 * XCom과 통신을 하기 위한 Inner Class
+	 * <p>
+	 * XCom과 통신을 하여 이벤트 및 메세지 수신시 리스너의 적당한 메소드를 호출 한다.
+	 * 
+	 * @author Hyung Doo, Yoon
+	 * @version 1.0
+	 * @since 1.4
+	 * @see UCom, XCom
+	 */
+	private class MyXCom extends XCom {
+
+		/**
+		 * XCom으로부터 메시지를 수신시 호출되는 함수
+		 *
+		 * @param msg
+		 *            XCom용 SECS메세지
+		 */
+		public void OnSecsMsg(XSecsMsg msg) {
+			m_iListener.OnSECSReceived(new UComMsg(msg));
+		}
+
+		/**
+		 * XCom으로부터 이벤트 수신시 호출되는 함수
+		 *
+		 * @param nEventId
+		 *            발생된 이벤트 ID
+		 * @param msg
+		 *            발생된 이벤트에 따라 발생되는 XCom용 SECS메세지
+		 */
+		public void OnSecsEvent(int nEventId, XSecsMsg msg) {
+			switch (nEventId) {
+			case XComErr.ALMXC_T3: // ALARM_T3_TIMEOUT...
+				m_iListener.OnSECST3TimeOut();
+				break;
+			case XComErr.EVTXC_SELECTED: // LARM_CONNECT...				
+				m_iListener.OnSECSConnected();
+				break;
+			case XComErr.EVTXC_NOT_CONNECTED: // ALARM_NOT_CONNECT...				
+				m_iListener.OnSECSDisConnected();
+				break;
+			}
+		}
+
+		/**
+		 * XCom서비스를 시작하는 method
+		 */
+		public int startService() {
+			int nRtnCode = 0;
+
+			nRtnCode = m_XCom.Initialize(m_strCommCfgFile);
+			if (nRtnCode < 0) {
+				WriteLog("XCom initialization failed=" + nRtnCode + " - " + XComErr.getText(nRtnCode));
+			}
+
+			nRtnCode = m_XCom.Start();
+
+			return nRtnCode;
+		}
+
+		/**
+		 * XCom서비스를 중지시키는 method
+		 */
+		public int stopService() {
+			int nRtnCode = 0;
+
+			nRtnCode = m_XCom.Close();
+
+			m_XCom = null;
+
+			return nRtnCode;
+		}
+	}
+
+	/**
+	 * SECom과 통신을 하기 위한 Inner Class
+	 * <p>
+	 * SECom과 통신을 하여 이벤트 및 메세지 수신시 리스너의 적당한 메소드를 호출 한다.
+	 * 
+	 * @author Hyung Doo, Yoon
+	 * @version 1.0
+	 * @since 1.4
+	 * @see UCom, XCom
+	 */
+
+	private class MySECom implements SEComPlugInEvent {
+		private SXPlugIn m_Plugin;
+
+		/** SECom을 제어하기 위한 클래스 */
+
+		private String m_strDriverId;
+
+		/** SECom에서 동작시킬 드라이버 Id */
+
+		/** MySECom 생성자 */
+		MySECom() {
+			m_Plugin = new SXPlugIn(this);
+			m_strDriverId = "MCS";
+		}
+
+		/**
+		 * SECom연결시 호출되는 함수
+		 * 
+		 * @param driverId
+		 *            연결된 드라이버 Id
+		 */
+
+		public void OnSECSConnected(String driverId) {
+			m_iListener.OnSECSConnected();
+		}
+
+		/**
+		 * SECom연결이 끊겼을 경우 호출되는 함수
+		 * 
+		 * @param driverId
+		 *            연결이 끊긴 드라이버 Id
+		 */
+		public void OnSECSDisConnected(String driverId) {
+			m_iListener.OnSECSDisConnected();
+		}
+
+		/**
+		 * SECS 메세지 수신시 호출되는 함수
+		 * 
+		 * @param driverId
+		 *            메세지를 송신한 드라이버 Id
+		 * @param trx
+		 *            수신된 SECS 메세지
+		 */
+		public void OnSECSReceived(String driverId, SXTransaction trx) {
+			UComMsg msg = new UComMsg(trx);
+			//			m_iListener.OnSECSReceived(new UComMsg(trx));
+			if (msg.GetStream() == 1 && msg.GetFunc() == 4) {
+				System.out.println("S" + msg.GetStream() + "F" + msg.GetFunc());
+			}
+			m_iListener.OnSECSReceived(msg);
+		}
+
+		/**
+		 * SECom통신 중 TimeOut이 발생되었을 경우 호출되는 함수
+		 * 
+		 * @param driverId
+		 *            메세지를 송신한 드라이버 Id
+		 * @param trx
+		 *            수신된 SECS 메세지
+		 */
+		public void OnSECSTimeOut(String driverId, SXTransaction trx) {
+			switch (trx.getErrorCode()) {
+			case SEComTimeout.ERR_TIMEOUT_T3:
+				m_iListener.OnSECST3TimeOut();
+				break;
+			}
+		}
+
+		public void OnSECSInvalidReceived(String driverId, SXTransaction trx) {
+		}
+
+		public void OnSECSUnknownMessage(String driverId, SXTransaction trx) {
+		}
+
+		public void OnSECSAbortMessage(String driverId, SXTransaction trx) {
+		}
+
+		public void OnSECS1Log(String driverId, String aSECS1Log) {
+		}
+
+		public void OnSECS2Log(String driverId, String aSECS2Log) {
+		}
+
+		/**
+		 * SECom서비스를 시작하는 method
+		 */
+		public int startService() {
+			int nRtnCode = 0;
+			nRtnCode = m_Plugin.initializeDriver(m_strDriverId, m_strCommCfgFile);
+			if (nRtnCode != 0) {
+				WriteLog("SECom Error : " + nRtnCode + "(" + SEComError.getErrDescription(nRtnCode) + ")");
+			}
+
+			return nRtnCode;
+		}
+
+		/**
+		 * SECom서비스를 중지하는 method
+		 */
+		public int stopService() {
+			int nRtnCode = 0;
+
+			m_Plugin.terminate();
+
+			return nRtnCode;
+		}
+
+		/**
+		 * 전송 SECS메세지를 만드는 함수
+		 * 
+		 * @param nStream
+		 *            Stream번호
+		 * @param nFunction
+		 *            Function번호
+		 * @param bWaitBit
+		 *            waite bit 설정여부
+		 */
+		SXTransaction MakeSendMsg(int nStream, int nFunction, boolean bWaitBit) {
+			SXTransaction rsp = new SXTransaction(m_strDriverId);
+			rsp.setStream(nStream);
+			rsp.setFunction(nFunction);
+			rsp.setWait(bWaitBit);
+
+			return rsp;
+		}
+
+		/**
+		 * 응답 SECS메세지를 만드는 함수
+		 * 
+		 * @param nStream
+		 *            Stream번호
+		 * @param nFunction
+		 *            Function번호
+		 * @param lSystemBytes
+		 *            응답 SECS메세지를 만들기 위한 System Bytes
+		 */
+		SXTransaction MakeReplyMsg(int nStream, int nFunction, long lSystemBytes) {
+			SXTransaction rsp = new SXTransaction(m_strDriverId);
+			rsp.setStream(nStream);
+			rsp.setFunction(nFunction);
+			rsp.setSystemBytes(lSystemBytes);
+			rsp.setWait(false);
+
+			return rsp;
+		}
+
+		/**
+		 * 요청 메세지 보내기
+		 * 
+		 * @param umsg
+		 *            SECS 메세지
+		 */
+		int requestMessage(UComMsg umsg) {
+			int nReturn = m_Plugin.request(umsg.getSEComMsg());
+
+			return nReturn;
+		}
+
+		/**
+		 * 응답 메세지 보내기
+		 * 
+		 * @param umsg
+		 *            SECS 메세지
+		 */
+		int replyMessage(UComMsg umsg) {
+			int nReturn = m_Plugin.reply(umsg.getSEComMsg());
+
+			return nReturn;
+		}
+
+	}
+
+	/**
+	 * UCom 생성자
+	 * 
+	 * @param comtype
+	 *            통신모듈 타입
+	 * @param listener
+	 *            통신모듈에서 발생한 이벤트를 받을 인터페이스
+	 */
+	public UCom(int comtype, IUComEventListener listener) {
+		m_XCom = null;
+		m_SECom = null;
+		m_iListener = null;
+		m_strCommCfgFile = null;
+
+		m_nComType = comtype;
+
+		switch (m_nComType) {
+		case COM_TYPE_XCOM:
+			m_XCom = new MyXCom();
+			break;
+		case COM_TYPE_SECOM:
+			m_SECom = new MySECom();
+			break;
+		}
+
+		m_iListener = listener;
+	}
+
+	/**
+	 * 통신설정파일을 Setting 한다.
+	 * 
+	 * @param filename
+	 *            통신파일명
+	 */
+	public void setCommCfgFile(String filename) {
+		m_strCommCfgFile = filename;
+	}
+
+	/**
+	 * 통신서비스를 선택한 모듈에 따라 시작한다.
+	 */
+	public boolean startService() {
+		int nRtnCode = 0;
+
+		switch (m_nComType) {
+		case COM_TYPE_XCOM:
+			nRtnCode = m_XCom.startService();
+			break;
+		case COM_TYPE_SECOM:
+			nRtnCode = m_SECom.startService();
+			break;
+		}
+
+		return (!checkError(nRtnCode));
+	}
+
+	/**
+	 * 통신서비스를 선택한 모듈에 따라 재시작한다.
+	 */
+	public boolean restartService() {
+		int nRtnCode = 0;
+
+		switch (m_nComType) {
+		case COM_TYPE_XCOM:
+			nRtnCode = m_XCom.stopService();
+			nRtnCode = m_XCom.startService();
+			break;
+		case COM_TYPE_SECOM:
+			nRtnCode = m_SECom.stopService();
+			nRtnCode = m_SECom.startService();
+			break;
+		}
+
+		return (!checkError(nRtnCode));
+	}
+
+	/**
+	 * 통신서비스를 선택한 모듈에 따라 중지시킨다.
+	 */
+	public boolean stopService() {
+		int nRtnCode = 0;
+
+		switch (m_nComType) {
+		case COM_TYPE_XCOM:
+			nRtnCode = m_XCom.stopService();
+			break;
+		case COM_TYPE_SECOM:
+			nRtnCode = m_SECom.stopService();
+			break;
+		}
+
+		return (!checkError(nRtnCode));
+	}
+
+	/**
+	 * 선택한 통신모듈에 따라 전송 메세지를 만든다.
+	 * 
+	 * @param nStream
+	 *            Stream번호
+	 * @param nFunction
+	 *            Function번호
+	 * @param bWaitBit
+	 *            waite bit 설정여부
+	 */
+	public UComMsg MakeSendMsg(int nStream, int nFunction, boolean bWaitBit) {
+		UComMsg rsp = null;
+
+		switch (m_nComType) {
+		case COM_TYPE_XCOM:
+			rsp = new UComMsg(m_XCom.MakeSecsMsg(nStream, nFunction));
+			break;
+		case COM_TYPE_SECOM:
+			rsp = new UComMsg(m_SECom.MakeSendMsg(nStream, nFunction, bWaitBit));
+			break;
+		}
+
+		return rsp;
+	}
+
+	public UComMsg MakeSecsMsg(int nStream, int nFUnction) {
+		return MakeSendMsg(nStream, nFUnction, true);
+	}
+
+	/**
+	 * 선택한 통신모듈에 따라 응답 메세지를 만든다.
+	 * 
+	 * @param nStream
+	 *            Stream번호
+	 * @param nFunction
+	 *            Function번호
+	 * @param lSystemBytes
+	 *            System Bytes
+	 */
+
+	public UComMsg MakeReplyMsg(int nStream, int nFunction, long lSystemBytes) {
+		UComMsg rsp = null;
+
+		switch (m_nComType) {
+		case COM_TYPE_XCOM:
+			rsp = new UComMsg(m_XCom.MakeSecsMsg(nStream, nFunction, (int) lSystemBytes));
+			break;
+		case COM_TYPE_SECOM:
+			rsp = new UComMsg(m_SECom.MakeReplyMsg(nStream, nFunction, lSystemBytes));
+			break;
+		}
+
+		return rsp;
+	}
+
+	/**
+	 * XCom과 컨버전을 용의하게 하기 위해서 추가된 함수
+	 * 
+	 * @param umsg
+	 *            전송메세지
+	 * @param bIsRequestMsg
+	 *            전송메세지 여부
+	 */
+	public UComMsg MakeSecsMsg(int nStream, int nFUnction, long lSystemBytes) {
+		return MakeReplyMsg(nStream, nFUnction, lSystemBytes);
+	}
+
+	/**
+	 * 선택한 통신모듈에 따라 메세지를 전송한다.
+	 * 
+	 * @param umsg
+	 *            전송메세지
+	 * @param bIsRequestMsg
+	 *            전송메세지 여부
+	 */
+	public boolean Send(UComMsg umsg, boolean bIsRequestMsg) {
+		int nReturn = 0;
+
+		switch (m_nComType) {
+		case COM_TYPE_XCOM:
+			nReturn = m_XCom.Send(umsg.getXComMsg());
+			break;
+		case COM_TYPE_SECOM:
+			if (bIsRequestMsg == true)
+				nReturn = m_SECom.requestMessage(umsg);
+			else
+				nReturn = m_SECom.replyMessage(umsg);
+			break;
+		}
+
+		return (!checkError(nReturn));
+	}
+
+	public void CloseSecsMsg(UComMsg msg) {
+		switch (m_nComType) {
+		case COM_TYPE_XCOM:
+			m_XCom.CloseSecsMsg(msg.getXComMsg());
+			break;
+		case COM_TYPE_SECOM:
+			// 아무일도 하지 않는다.
+			break;
+		}
+	}
+
+	/**
+	 * 로그를 출력하는 함수
+	 * 
+	 * @param strmsg
+	 *            로그내용
+	 */
+	private void WriteLog(String strmsg) {
+		System.out.println(strmsg);
+	}
+
+	/**
+	 * 선택한 모듈별로 에러를 체크하는 함수
+	 * 
+	 * @param nRtnCode
+	 *            리턴코드
+	 */
+
+	public boolean checkError(int nRtnCode) {
+		boolean bRet = false;
+
+		switch (m_nComType) {
+		case COM_TYPE_XCOM:
+
+			if (nRtnCode != XComErr.EXC_NO_ERR) {
+				WriteLog("[ERROR] ErrCode:" + String.valueOf(nRtnCode) + " ErrMsg: " + XComErr.getText(nRtnCode));
+				bRet = true;
+			}
+
+			break;
+		case COM_TYPE_SECOM:
+			if (nRtnCode != SEComError.ERR_NONE) {
+				WriteLog("[ERROR] ErrCode:" + String.valueOf(nRtnCode) + " ErrMsg: " + SEComError.getErrDescription(nRtnCode));
+				bRet = true;
+			}
+			break;
+		}
+
+		return bRet;
+	}
+}

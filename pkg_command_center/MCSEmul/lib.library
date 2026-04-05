@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <!--JBuilder Library Definition File-->
+  <fullname>lib</fullname>
+  <class>
+    <path>[lib/jbcl.jar]</path>
+    <path>[lib/jds.jar]</path>
+    <path>[lib/ojdbc14.zip]</path>
+    <path>[lib/secomdriver-3.0.18.jar]</path>
+    <path>[lib/secomplugin-3.0.6.jar]</path>
+    <path>[lib/xcom.jar]</path>
+    <path>[lib/jxl.jar]</path>
+  </class>
+  <required>lib</required>
+  <lastmodsaved>1257205969249</lastmodsaved>
+</library>

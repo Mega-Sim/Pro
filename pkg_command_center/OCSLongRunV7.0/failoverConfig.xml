@@ -1,0 +1,88 @@
+<config>
+ 
+ 	<failoverUse>TRUE</failoverUse>
+ 	
+ 	<databaseConnCheck>
+ 		<intervalMillis>1000</intervalMillis>
+ 		<timeoutCount>3</timeoutCount>
+ 	</databaseConnCheck>
+ 	
+ 	<heartBeatList>
+ 		<heartBeat>
+ 			<ipAddress></ipAddress>
+		 	<port>6001</port>
+ 		</heartBeat>
+	    <intervalMillis>2000</intervalMillis>
+	    <listenIntervalCount>2</listenIntervalCount>
+	    <timeoutCount>4</timeoutCount>
+ 	</heartBeatList>
+ 	
+ 	<publicNetCheck usage="false">
+ 		<gatewayIpAddress></gatewayIpAddress>
+ 		<remotePublicIpAddress></remotePublicIpAddress>
+ 		<pingTimeoutMillis>2000</pingTimeoutMillis>
+ 		<intervalMillis>500</intervalMillis>
+ 		<timeoutCount>4</timeoutCount>
+ 	</publicNetCheck>
+ 	
+ 	<localNetCheck usage="false">
+ 		<gatewayIpAddress></gatewayIpAddress>
+ 		<remoteLocalIpAddress></remoteLocalIpAddress>
+ 		<pingTimeoutMillis>2000</pingTimeoutMillis>
+ 		<intervalMillis>500</intervalMillis>
+ 		<timeoutCount>5</timeoutCount>
+ 	</localNetCheck>
+ 	
+	<deleteLogDay>5</deleteLogDay>
+	
+	<watchdogIntervalMillis>1000</watchdogIntervalMillis>
+	<remoteInitTimeOutCount>20</remoteInitTimeOutCount>  <!-- remote에게서 정보를 못받으면 이정도까지 기다려줌 -->
+	<autoTakeOverCount>2</autoTakeOverCount>  <!-- auto take over : remote 상태가 안좋아서 뺏어올때 그 conditiond을 몇번이나 볼지. -->
+	<inserviceRequestTimeoutCount>20</inserviceRequestTimeoutCount>  <!-- INSERVICE상태여야 하는데 계속 안올라올때 몇번 기다릴지 -->
+	<unknownWaitCount>5</unknownWaitCount>  <!-- when remote service status is unknown, failover wait  count -->
+		
+	<localProcessList>
+		<operation failoverUse="TRUE">
+			<watchdogControl>
+				<run>TRUE</run>
+				<policy></policy>  <!-- ALWAYS_UP , ALWAYS_DOWN, VIP_STRICT, VIP_BASE_UP, VIP_BASE_DOWN, BALANCING  : active-active를 사용하려면 ALWAYS_UP해야한다. 
+				                        VIP_STRICT는 VIP에 따라 up,down 다하는거고, VIP_BASE_UP은 VIP가 있을때 up만 하는거, VIP_BASE_DOWN은 VIP 없을때 down만 하는거  -->
+			</watchdogControl>
+			<failoverPolicy>NETDBBASE</failoverPolicy>   <!-- VIPBASE, NETDBBASE, ANYHOST  -->
+			<netCheckUsage>
+				<public></public>
+				<local></local>
+			</netCheckUsage>
+		</operation>
+		<jobassign failoverUse="TRUE">
+                <watchdogControl>
+                        <run>TRUE</run>
+                        <policy>ALWAYS_UP</policy>
+                </watchdogControl>
+                <failoverPolicy>NETDBBASE</failoverPolicy>
+                <!--failoverPolicy>VIPBASE</failoverPolicy-->
+                <netCheckUsage>
+                        <public>TRUE</public>
+                        <local>FALSE</local>
+                </netCheckUsage>
+        </jobassign>
+        <longrun failoverUse="TRUE">
+                <watchdogControl>
+                        <run>TRUE</run>
+                        <policy>ALWAYS_UP</policy>
+                </watchdogControl>
+                <failoverPolicy>NETDBBASE</failoverPolicy>
+                <!--failoverPolicy>VIPBASE</failoverPolicy-->
+                <netCheckUsage>
+                        <public>TRUE</public>
+                        <local>FALSE</local>
+                </netCheckUsage>
+        </longrun>
+        <remoteserver failoverUse="FALSE">
+                <watchdogControl>
+                        <run>TRUE</run>
+                        <policy>VIP_STRICT</policy>
+                </watchdogControl>
+        </remoteserver>
+ 	</localProcessList>
+</config>

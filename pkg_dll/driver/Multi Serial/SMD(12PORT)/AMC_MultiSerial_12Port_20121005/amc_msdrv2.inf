@@ -1,0 +1,49 @@
+[Version]
+Signature="$WINDOWS NT$"
+Class=Cantops
+ClassGuid = {cfb15040-5bc7-11d3-b194-0060b0efd334}
+Provider="CANTOPS"
+
+[SourceDisksNames]
+1=%DiskId%
+
+[SourceDisksFiles]
+amc_msdrv2.sys=1
+
+[ClassInstall32]
+Addreg=AddHwClass
+
+[AddHwClass]
+HKR,,,,%ClassName%
+HKR,,Icon,,"-5"
+
+[DestinationDirs]
+DefaultDestDir=12
+
+[Manufacturer]
+%Mfg%=MfgDeviceSection
+
+[MfgDeviceSection]
+%DeviceDesc% = amc_msdrv2, amc_msdrv2
+
+[amc_msdrv2]
+CopyFiles=@amc_msdrv2.sys
+
+[amc_msdrv2.Services]
+AddService = amc_msdrv2,%SPSVCINST_ASSOCSERVICE%,Cantops_Service_Inst
+
+[Cantops_Service_Inst]
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_MANUAL_START%
+ErrorControl   = %SERVICE_ERROR_NORMAL%
+ServiceBinary  = %12%\amc_msdrv2.sys 
+
+[Strings]
+ClassName 	= "Cantops"
+DeviceDesc 	= "Cantops AMC Multi Serial Driver2"
+DiskId 		= "Sample Install Disk 1"
+Mfg = "CANTOPS"
+SPSVCINST_ASSOCSERVICE = 0x00000002
+SERVICE_KERNEL_DRIVER  = 1
+SERVICE_MANUAL_START   = 3
+SERVICE_ERROR_NORMAL   = 1

@@ -1,0 +1,142 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: amclib - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\±è°æ¼ö\LOCALS~1\Temp\RSPF4.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /I "../include/" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "AMCLIB_EXPORTS" /FR"Debug/" /Fp"Debug/amclib.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\amc_filter.cpp"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\amc_fs.cpp"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\amcio.cpp"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\amclib.cpp"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\amcmap.cpp"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\crc\crc32.cpp"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\gain.cpp"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\s_move.cpp"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\watchdog.c"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\±è°æ¼ö\LOCALS~1\Temp\RSPF4.tmp"" 
+Creating temporary file "C:\DOCUME~1\±è°æ¼ö\LOCALS~1\Temp\RSPF5.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /I "../include/" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "AMCLIB_EXPORTS" /FR"Debug/" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\pacfg.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\pamp.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\panalog.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\petc.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\pframe.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\pgain.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\phome.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\pinit.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\pint.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\pinter.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\pio.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\plib.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\plib1.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\plimit.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\pmove.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\pmovs.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\psave.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\pstatus.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\pstop.c"
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\ptraj.c"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\±è°æ¼ö\LOCALS~1\Temp\RSPF5.tmp"" 
+Creating temporary file "C:\DOCUME~1\±è°æ¼ö\LOCALS~1\Temp\RSPF6.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /I "../include/" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "AMCLIB_EXPORTS" /FR"Debug/" /Fp"Debug/amclib.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"D:\BackUp\KKS\work\AMC_7_0_DLL\amclib\StdAfx.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\±è°æ¼ö\LOCALS~1\Temp\RSPF6.tmp"" 
+Creating temporary file "C:\DOCUME~1\±è°æ¼ö\LOCALS~1\Temp\RSPF7.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /incremental:no /pdb:"Debug/amc.pdb" /debug /machine:I386 /def:".\amclib.def" /out:"../bin/amc.dll" /implib:"Debug/amc.lib" /pdbtype:sept 
+.\Debug\amc_filter.obj
+.\Debug\amc_fs.obj
+.\Debug\amcio.obj
+.\Debug\amclib.obj
+.\Debug\amcmap.obj
+.\Debug\crc32.obj
+.\Debug\gain.obj
+.\Debug\pacfg.obj
+.\Debug\pamp.obj
+.\Debug\panalog.obj
+.\Debug\petc.obj
+.\Debug\pframe.obj
+.\Debug\pgain.obj
+.\Debug\phome.obj
+.\Debug\pinit.obj
+.\Debug\pint.obj
+.\Debug\pinter.obj
+.\Debug\pio.obj
+.\Debug\plib.obj
+.\Debug\plib1.obj
+.\Debug\plimit.obj
+.\Debug\pmove.obj
+.\Debug\pmovs.obj
+.\Debug\psave.obj
+.\Debug\pstatus.obj
+.\Debug\pstop.obj
+.\Debug\ptraj.obj
+.\Debug\s_move.obj
+.\Debug\StdAfx.obj
+.\Debug\watchdog.obj
+]
+Creating command line "link.exe @"C:\DOCUME~1\±è°æ¼ö\LOCALS~1\Temp\RSPF7.tmp""
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+amc_filter.cpp
+amc_fs.cpp
+amcio.cpp
+amclib.cpp
+amcmap.cpp
+crc32.cpp
+gain.cpp
+s_move.cpp
+watchdog.c
+Compiling...
+pacfg.c
+pamp.c
+panalog.c
+petc.c
+pframe.c
+pgain.c
+phome.c
+pinit.c
+pint.c
+pinter.c
+pio.c
+plib.c
+plib1.c
+plimit.c
+pmove.c
+pmovs.c
+psave.c
+pstatus.c
+pstop.c
+ptraj.c
+Generating Code...
+Linking...
+LINK : warning LNK4075: ignoring /EDITANDCONTINUE due to /INCREMENTAL:NO specification
+   Creating library Debug/amc.lib and object Debug/amc.exp
+Creating temporary file "C:\DOCUME~1\±è°æ¼ö\LOCALS~1\Temp\RSPFB.bat" with contents
+[
+@echo off
+copy Debug\amc.lib ..\bin\amc.lib
+]
+Creating command line ""C:\DOCUME~1\±è°æ¼ö\LOCALS~1\Temp\RSPFB.bat""
+
+        1°³ ÆÄÀÏÀÌ º¹»çµÇ¾ú½À´Ï´Ù.
+
+
+
+<h3>Results</h3>
+amc.dll - 0 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

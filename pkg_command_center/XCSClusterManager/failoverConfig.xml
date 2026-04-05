@@ -1,0 +1,112 @@
+<config>
+ 
+ 	<failoverUse>FALSE</failoverUse>
+ 	
+ 	<databaseConnCheck>
+ 		<intervalMillis>1000</intervalMillis>
+ 		<timeoutCount>3</timeoutCount>
+ 	</databaseConnCheck>
+ 	
+ 	<heartBeatList>
+ 		<heartBeat>
+ 			<ipAddress>127.0.0.1</ipAddress>
+		 	<port>7001</port>
+		 	<type>DIRECT</type> <!-- LOCAL, DIRECT, PUBLIC -->
+ 		</heartBeat>
+	    <intervalMillis>2000</intervalMillis>
+	    <listenIntervalCount>2</listenIntervalCount>
+	    <timeoutCount>8</timeoutCount>
+	    <historyInsertCount>4</historyInsertCount>   <!-- 표시보다 크면 db에 history insert 기본값은 timeoutCount/2-->
+	    <delayInformMillis>3000</delayInformMillis>
+ 	</heartBeatList>
+ 	
+ 	<directHeartBeat>
+ 		<ipAddress></ipAddress>
+		<port>7001</port>
+ 	</directHeartBeat>
+ 	
+	<tcpHeartBeat>
+		<ipAddress>127.0.0.1</ipAddress>
+    	<port>7006</port>
+    	<clientTimeoutMillis>2000</clientTimeoutMillis>
+    	<serverTimeoutMillis>3000</serverTimeoutMillis>
+	</tcpHeartBeat>
+ 	
+ 	<publicNetCheck usage="false">
+ 		<gatewayIpAddress></gatewayIpAddress>
+ 		<remotePublicIpAddress></remotePublicIpAddress>
+ 		<pingTimeoutMillis>2000</pingTimeoutMillis>
+ 		<intervalMillis>500</intervalMillis>
+ 		<timeoutCount>4</timeoutCount>
+ 	</publicNetCheck>
+ 	
+ 	<localNetCheck usage="false">
+ 		<gatewayIpAddress></gatewayIpAddress>
+ 		<remoteLocalIpAddress></remoteLocalIpAddress>
+ 		<pingTimeoutMillis>2000</pingTimeoutMillis>
+ 		<intervalMillis>500</intervalMillis>
+ 		<timeoutCount>5</timeoutCount>
+ 	</localNetCheck>
+ 	
+	<deleteLogDay>5</deleteLogDay>
+	<deleteHistory usage="true">
+        <deleteHistoryDay>90</deleteHistoryDay>
+        <deleteHistoryCheckIntervalSec>86400</deleteHistoryCheckIntervalSec>
+    </deleteHistory>
+	
+	<watchdogIntervalMillis>1000</watchdogIntervalMillis>
+	<remoteInitTimeOutCount>20</remoteInitTimeOutCount>  <!-- remote에게서 정보를 못받으면 이정도까지 기다려줌 -->
+	<autoTakeOverCount>2</autoTakeOverCount>  <!-- auto take over : remote 상태가 안좋아서 뺏어올때 그 conditiond을 몇번이나 볼지. -->
+	<inserviceRequestTimeoutCount>20</inserviceRequestTimeoutCount>  <!-- INSERVICE상태여야 하는데 계속 안올라올때 몇번 기다릴지 -->
+	<unknownWaitCount>5</unknownWaitCount>  <!-- when remote service status is unknown, failover wait  count -->
+	
+	<localProcessList>
+		<operation failoverUse="FALSE">
+			<failoverPolicy>NETDBBASE</failoverPolicy>   <!-- VIPBASE, NETDBBASE, ANYHOST  -->
+			<netCheckUsage>
+				<public></public>
+				<local></local>
+			</netCheckUsage>
+			<watchdogControl>
+				<run>TRUE</run>
+				<policy></policy>  <!-- ALWAYS_UP , ALWAYS_DOWN, VIP_STRICT, VIP_BASE_UP, VIP_BASE_DOWN, BALANCING  : active-active를 사용하려면 ALWAYS_UP해야한다. 
+				                        VIP_STRICT는 VIP에 따라 up,down 다하는거고, VIP_BASE_UP은 VIP가 있을때 up만 하는거, VIP_BASE_DOWN은 VIP 없을때 down만 하는거  -->
+			</watchdogControl>
+			
+			<fileSizeTrace usage="true">  <!-- file Size 가 늘어나면  Alarm에다가 넣어버릴꺼야 -->
+		 		<fileNamePrefix filePath="D:\Dev\workspace_ocs3\OCSOperationV7.0D\log\Exception\">OcsManagerException</fileNamePrefix>
+		 	</fileSizeTrace>
+		 	
+		</operation>
+		
+		<jobassign failoverUse="FALSE">
+			<failoverPolicy>NETDBBASE</failoverPolicy>   <!-- VIPBASE, NETDBBASE, ANYHOST  -->
+			<netCheckUsage>
+				<public></public>
+				<local></local>
+			</netCheckUsage>
+			<watchdogControl>
+				<run>TRUE</run>
+				<policy></policy>  <!-- ALWAYS_UP , ALWAYS_DOWN, VIP_STRICT, VIP_BASE_UP, VIP_BASE_DOWN, BALANCING  : active-active를 사용하려면 ALWAYS_UP해야한다. 
+				                        VIP_STRICT는 VIP에 따라 up,down 다하는거고, VIP_BASE_UP은 VIP가 있을때 up만 하는거, VIP_BASE_DOWN은 VIP 없을때 down만 하는거  -->
+			</watchdogControl>
+			
+			<fileSizeTrace usage="true">  <!-- file Size 가 늘어나면  Alarm에다가 넣어버릴꺼야 -->
+		 		<fileNamePrefix filePath="c:\\">abc</fileNamePrefix>
+		 	</fileSizeTrace>
+		 	
+		</jobassign>
+ 	</localProcessList>
+ 	
+ 	<fileSizeTraceIntervalMillis>10000</fileSizeTraceIntervalMillis> <!-- 파일 사이즈 체크 인터벌 -->
+ 	
+ 	<networkPingCheck usage="false">
+		<ipList>
+			<ipAddress name="3560_1">192.168.0.10</ipAddress>
+			<ipAddress name="3560_2">192.168.0.11</ipAddress>
+		</ipList>
+		<pingTimeoutMillis>2000</pingTimeoutMillis>
+		<intervalMillis>2000</intervalMillis>
+	</networkPingCheck>
+ 	
+</config>

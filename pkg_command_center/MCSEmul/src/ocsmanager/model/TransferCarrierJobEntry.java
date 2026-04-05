@@ -1,0 +1,85 @@
+package ocsmanager.model;
+
+public class TransferCarrierJobEntry {
+
+	protected String carrierId;
+	protected String nodeList;
+
+	protected String[] carrierLocListArray;
+
+	// 마지막 가져간 반송명령의 source를 기억함.
+	protected int currentIndex = 0;
+
+	public TransferCarrierJobEntry(String carrierId, String nodeList) {
+		this.carrierId = carrierId;
+		this.nodeList = nodeList;
+		carrierLocListArray = nodeList.split(",");
+		for (int i = 0; i < carrierLocListArray.length; i++) {
+			carrierLocListArray[i] = carrierLocListArray[i].trim();
+		}
+	}
+
+	public String getCarrierId() {
+		return carrierId;
+	}
+
+	public String getNodeList() {
+		return nodeList;
+	}
+
+	public boolean equalsContent(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj != null && obj instanceof TransferCarrierJobEntry) {
+			TransferCarrierJobEntry anotherTJE = (TransferCarrierJobEntry) obj;
+			if (carrierId.equals(anotherTJE.getCarrierId()) && nodeList.equals(anotherTJE.getNodeList())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public TransferItem getNextTransferItem(String currentSourceLoc, String currentDestLoc) {
+
+		String nextSourceLoc = "";
+		String nextDestLoc = "";
+
+		boolean find = false;
+		for (int i = 0; i < carrierLocListArray.length - 1; i++) {
+			if (carrierLocListArray[i].equals(currentSourceLoc) && carrierLocListArray[i + 1].equals(currentDestLoc)) {
+				find = true;
+				nextSourceLoc = currentDestLoc;
+				nextDestLoc = carrierLocListArray[(i + 2) % carrierLocListArray.length];
+				currentIndex = i + 1;
+				break;
+			}
+		}
+		if (find == false) {
+			if (carrierLocListArray[carrierLocListArray.length - 1].equals(currentSourceLoc) && carrierLocListArray[0].equals(currentDestLoc)) {
+				find = true;
+				nextSourceLoc = currentDestLoc;
+				nextDestLoc = carrierLocListArray[1];
+				currentIndex = carrierLocListArray.length - 1;
+			}
+		}
+		if (find) {
+			return new TransferItem(this.carrierId, nextSourceLoc, nextDestLoc);
+		} else {
+			return null;
+		}
+	}
+
+	public TransferItem getNextTransferItem() {
+		currentIndex = (currentIndex + 1) % carrierLocListArray.length;
+		String sourceLoc = carrierLocListArray[currentIndex];
+		String destLoc = carrierLocListArray[(currentIndex + 1) % carrierLocListArray.length];
+		return new TransferItem(this.carrierId, sourceLoc, destLoc);
+	}
+
+	public TransferItem getFirstTransferItem() {
+		currentIndex = 0;
+		return new TransferItem(this.carrierId, carrierLocListArray[0], carrierLocListArray[1]);
+	}
+
+}

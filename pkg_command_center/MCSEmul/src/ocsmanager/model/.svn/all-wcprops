@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/OCS/!svn/ver/4518/current/UOCS/MCSEmul/src/ocsmanager/model
+END
+TransferCommand.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/OCS/!svn/ver/4518/current/UOCS/MCSEmul/src/ocsmanager/model/TransferCommand.java
+END
+TransferItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/OCS/!svn/ver/2364/current/UOCS/MCSEmul/src/ocsmanager/model/TransferItem.java
+END
+AbstractOcsWorkThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/OCS/!svn/ver/2364/current/UOCS/MCSEmul/src/ocsmanager/model/AbstractOcsWorkThread.java
+END
+TransferCarrierJobEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/OCS/!svn/ver/2364/current/UOCS/MCSEmul/src/ocsmanager/model/TransferCarrierJobEntry.java
+END

@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
+	<appender name="Console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	
+<!-- StartupHistory -->
+	<appender name="StartupHistoryAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="StartupHistoryAsyncFile" />
+	</appender>
+	<appender name="StartupHistoryAsyncFile" class="org.apache.log4j.FileAppender">
+		<param name="File" value="StartupHistory.log" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="StartupHistory" additivity="true">
+		<level value="info" />
+		<appender-ref ref="StartupHistoryAsync" />
+	</logger>
+	
+<!-- UnitDeviceMain.java -->
+<!-- HIDMainDebug -->
+	<appender name="HIDMainDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="HIDMainDebugAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="HIDMainDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/HIDMainDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="HIDMainDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="HIDMainDebugAsync" />
+	</logger>
+	
+<!-- HIDMainException -->
+	<appender name="HIDMainExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="HIDMainExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="HIDMainExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/HIDMainException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="HIDMainException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="HIDMainExceptionAsync" />
+	</logger>
+
+
+<!-- HIDServerOperation.java -->
+<!-- HIDServerOperationDebug -->
+	<appender name="HIDServerOperationDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="HIDServerOperationDebugAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="HIDServerOperationDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/HIDServerOperationDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="HIDServerOperationDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="HIDServerOperationDebugAsync" />
+	</logger>
+	
+<!-- HIDServerOperationException -->
+	<appender name="HIDServerOperationExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="HIDServerOperationExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="HIDServerOperationExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/HIDServerOperationException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="HIDServerOperationException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="HIDServerOperationExceptionAsync" />
+	</logger>
+
+
+<!-- HIDServerComm.java -->
+<!-- HIDServerCommDebug -->
+	<appender name="HIDServerCommDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="HIDServerCommDebugAsyncFile" />
+	</appender>
+	<appender name="HIDServerCommDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/HIDServerCommDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="HIDServerCommDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="HIDServerCommDebugAsync" />
+	</logger>
+	
+<!-- HIDServerCommException -->
+	<appender name="HIDServerCommExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="HIDServerCommExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="HIDServerCommExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/HIDServerCommException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="HIDServerCommException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="HIDServerCommExceptionAsync" />
+	</logger>	
+	
+<!-- NetDeviceOperation.java -->
+<!-- NetDeviceOperationDebug -->
+	<appender name="NetDeviceOperationDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="NetDeviceOperationDebugAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="NetDeviceOperationDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/NetDeviceOperationDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="NetDeviceOperationDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="NetDeviceOperationDebugAsync" />
+	</logger>
+
+<!-- NetDeviceOperationException -->
+	<appender name="NetDeviceOperationExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="NetDeviceOperationExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="NetDeviceOperationExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/NetDeviceOperationException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="NetDeviceOperationException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="NetDeviceOperationExceptionAsync" />
+	</logger>
+	
+	
+<!-- HIDManager.java -->
+<!-- HIDManagerDebug -->
+	<appender name="HIDManagerDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="HIDManagerDebugAsyncFile" />
+	</appender>
+	<appender name="HIDManagerDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/HIDManagerDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="HIDManagerDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="HIDManagerDebugAsync" />
+	</logger>
+
+<!-- DockingStationManager.java -->
+<!-- DockingStationManagerDebug -->
+	<appender name="DockingStationManagerDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="DockingStationManagerDebugAsyncFile" />
+	</appender>
+	<appender name="DockingStationManagerDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/DockingStationManagerDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="DockingStationManagerDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="DockingStationManagerDebugAsync" />
+	</logger>
+	
+	
+<!-- NetDeviceManager.java -->
+<!-- NetDeviceManagerDebug -->
+	<appender name="NetDeviceManagerDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="NetDeviceManagerDebugAsyncFile" />
+	</appender>
+	<appender name="NetDeviceManagerDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/NetDeviceManagerDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="NetDeviceManagerDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="NetDeviceManagerDebugAsync" />
+	</logger>
+
+<!-- DockingStationOperation.java -->
+<!-- DockingStationOperationDebug -->
+	<appender name="DockingStationOperationDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="DockingStationOperationDebugAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="DockingStationOperationDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/DockingStationOperationDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="DockingStationOperationDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="DockingStationOperationDebugAsync" />
+	</logger>
+	
+<!-- DockingStationOperationException -->
+	<appender name="DockingStationOperationExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="DockingStationOperationExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="DockingStationOperationExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/DockingStationOperationException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="DockingStationOperationException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="DockingStationOperationExceptionAsync" />
+	</logger>
+
+
+<!-- DockingStationComm.java -->
+<!-- DockingStationCommDebug -->
+	<appender name="DockingStationCommDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="DockingStationCommDebugAsyncFile" />
+	</appender>
+	<appender name="DockingStationCommDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/DockingStationCommDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="DockingStationCommDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="DockingStationCommDebugAsync" />
+	</logger>
+	
+<!-- DockingStationCommException -->
+	<appender name="DockingStationCommExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="DockingStationCommExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="DockingStationCommExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/DockingStationCommException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="DockingStationCommException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="DockingStationCommExceptionAsync" />
+	</logger>
+
+	<!-- PassDoorClientComm.java -->
+	<!-- PassDoorCommDebug -->
+	<appender name="PassDoorCommDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="PassDoorCommDebugAsyncFile" />
+	</appender>
+	<appender name="PassDoorCommDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/PassDoorCommDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="PassDoorCommDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="PassDoorCommDebugAsync" />
+	</logger>
+	
+	<!-- PassDoorCommException -->
+	<appender name="PassDoorCommExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="PassDoorCommExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="PassDoorCommExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/PassDoorCommException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="PassDoorCommException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="PassDoorCommExceptionAsync" />
+	</logger>
+
+	<!-- PassDoorOperation.java -->
+	<!-- PassDoorOperationDebug -->
+	<appender name="PassDoorOperationDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="PassDoorOperationDebugAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="PassDoorOperationDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/PassDoorOperationDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="PassDoorOperationDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="PassDoorOperationDebugAsync" />
+	</logger>
+	
+	<!-- PassDoorOperationException -->
+	<appender name="PassDoorOperationExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="PassDoorOperationExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="PassDoorOperationExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/PassDoorOperationException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="PassDoorOperationException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="PassDoorOperationExceptionAsync" />
+	</logger>	
+
+	<!-- PassDoorManager.java -->
+	<!-- PassDoorManagerDebug -->
+	<appender name="PassDoorManagerDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="PassDoorManagerDebugAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="PassDoorManagerDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/PassDoorManagerDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="PassDoorManagerDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="PassDoorManagerDebugAsync" />
+	</logger>
+	
+	
+	
+	
+	<!-- FFUClientComm.java -->
+	<!-- FFUCommDebug -->
+	<appender name="FFUCommDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="FFUCommDebugAsyncFile" />
+	</appender>
+	<appender name="FFUCommDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/FFUCommDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="FFUCommDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="FFUCommDebugAsync" />
+	</logger>
+	
+	<!-- FFUCommException -->
+	<appender name="FFUCommExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="FFUCommExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="FFUCommExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/FFUCommException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="FFUCommException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="FFUCommExceptionAsync" />
+	</logger>
+
+	<!-- FFUOperation.java -->
+	<!-- FFUOperationDebug -->
+	<appender name="FFUOperationDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="FFUOperationDebugAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="FFUOperationDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/FFUOperationDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="FFUOperationDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="FFUOperationDebugAsync" />
+	</logger>
+	
+	<!-- FFUOperationException -->
+	<appender name="FFUOperationExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="FFUOperationExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="FFUOperationExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/FFUOperationException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="FFUOperationException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="FFUOperationExceptionAsync" />
+	</logger>	
+
+	<!-- FFUManager.java -->
+	<!-- FFUManagerDebug -->
+	<appender name="FFUManagerDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="FFUManagerDebugAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="FFUManagerDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/FFUManagerDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="FFUManagerDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="FFUManagerDebugAsync" />
+	</logger>
+	
+	
+	
+	<!-- FireDoorClientComm.java -->
+	<!-- FireDoorCommDebug -->
+	<appender name="FireDoorCommDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="FireDoorCommDebugAsyncFile" />
+	</appender>
+	<appender name="FireDoorCommDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/FireDoorCommDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="FireDoorCommDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="FireDoorCommDebugAsync" />
+	</logger>
+	
+	<!-- FireDoorCommException -->
+	<appender name="FireDoorCommExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="FireDoorCommExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="FireDoorCommExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/FireDoorCommException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="FireDoorCommException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="FireDoorCommExceptionAsync" />
+	</logger>
+
+	<!-- FireDoorOperation.java -->
+	<!-- FireDoorOperationDebug -->
+	<appender name="FireDoorOperationDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="FireDoorOperationDebugAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="FireDoorOperationDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/FireDoorOperationDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="FireDoorOperationDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="FireDoorOperationDebugAsync" />
+	</logger>
+	
+	<!-- FireDoorOperationException -->
+	<appender name="FireDoorOperationExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="FireDoorOperationExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="FireDoorOperationExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/FireDoorOperationException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="FireDoorOperationException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="FireDoorOperationExceptionAsync" />
+	</logger>	
+
+	<!-- FireDoorManager.java -->
+	<!-- FireDoorManagerDebug -->
+	<appender name="FireDoorManagerDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="FireDoorManagerDebugAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="FireDoorManagerDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/FireDoorManagerDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %m%n" />
+		</layout>
+	</appender>
+	<logger name="FireDoorManagerDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="FireDoorManagerDebugAsync" />
+	</logger>
+	
+</log4j:configuration>

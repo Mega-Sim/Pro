@@ -1,0 +1,14 @@
+<config>
+        <dbConnection>
+                <PrimaryUrl>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=12.36.210.63)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=OCSDB)(SERVER=DEDICATED)))</PrimaryUrl>
+                <SecondaryUrl>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=12.36.210.63)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=OCSDB)(SERVER=DEDICATED)))</SecondaryUrl>
+                <userName>UOCSDB_TSV_KBS</userName>
+                <passWord>acsmcs2</passWord>
+                <reconnectIntervalMillis>10000</reconnectIntervalMillis>
+                <logInTimeoutSeconds>10</logInTimeoutSeconds>
+        </dbConnection>
+        <hostServiceType>Primary</hostServiceType> <!-- Primary, Secondary -->
+        <remoteHostIpAddress>10.240.50.223</remoteHostIpAddress>
+  <vehicleSocketPort>5001</vehicleSocketPort>
+</config>
+

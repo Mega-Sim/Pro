@@ -1,0 +1,23 @@
+<config>
+        <rfcRead>
+                <broadcastAddress>12.56.64.255</broadcastAddress>
+                <powerCommPort>9000</powerCommPort>
+                <normalCommPort>9001</normalCommPort>
+
+                <stbcMachineCode>08</stbcMachineCode>
+                <rfcMachineCode>90</rfcMachineCode>
+                <stbcMachineId>STBC01</stbcMachineId>
+
+                <multipleReadCount>8</multipleReadCount>
+                <readRetryCount>1</readRetryCount>
+                <verifyRetryCount>1</verifyRetryCount>
+                <readAllRetryCount>1</readAllRetryCount>
+
+                <sendStatusIntervalMillis>9000</sendStatusIntervalMillis>
+                <rfcTimeoutMillis>60000</rfcTimeoutMillis>
+                <readTimeout>5000</readTimeout>
+                <readAllTimeout>95000</readAllTimeout>
+                <readAllNoResponseTimeout>3000</readAllNoResponseTimeout>
+
+        </rfcRead>
+</config>

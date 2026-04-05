@@ -1,0 +1,71 @@
+package com.sec.iesw.mcs.infra.common.ucom.test;
+
+import com.sec.iesw.mcs.infra.common.ucom.IUComEventListener;
+import com.sec.iesw.mcs.infra.common.ucom.UCom;
+import com.sec.iesw.mcs.infra.common.ucom.UComItem;
+import com.sec.iesw.mcs.infra.common.ucom.UComMsg;
+
+public class UComTestHost implements IUComEventListener {
+
+	UCom m_UComHost;
+
+	UComTestHost() {
+		m_UComHost = new UCom(UCom.COM_TYPE_XCOM, this);
+	}
+
+	void startService() {
+		m_UComHost.setCommCfgFile("TestHost.cfg");
+
+		m_UComHost.startService();
+
+	}
+
+	public void OnSECSReceived(UComMsg umsg) {
+		String strMssageName;
+		strMssageName = "S" + umsg.GetStream() + "F" + umsg.GetFunc();
+
+		WriteLog("[HOST<-EQUIP]" + strMssageName);
+
+		UComItem item = null;
+
+		int nCount = 0;
+
+		do {
+			item = umsg.GetCurrentItemAndMoveNext();
+
+			if (item != null) {
+				System.out.println(item.GetTypeName());
+				nCount++;
+			}
+		} while (item != null);
+
+		System.out.println("nCount =" + nCount);
+
+		WriteLog(umsg.toString());
+
+	}
+
+	public void OnSECSConnected() {
+		WriteLog("OnSECSConnected called");
+
+		// S1F1메세지 전송
+		UComMsg msg = m_UComHost.MakeSendMsg(1, 1, true);
+
+		System.out.println("SYSEM BYTE:" + msg.GetSystemBytes());
+
+		m_UComHost.Send(msg, true);
+
+	}
+
+	public void OnSECSDisConnected() {
+		WriteLog("OnSECSDisConnected called");
+	}
+
+	public void OnSECST3TimeOut() {
+		WriteLog("OnSECST3TimeOut called");
+	}
+
+	private void WriteLog(String msg) {
+		System.out.println("HOST : " + msg);
+	}
+}

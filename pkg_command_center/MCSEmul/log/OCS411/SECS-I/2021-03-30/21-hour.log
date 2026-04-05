@@ -1,0 +1,5 @@
+03-30 21:01:29.244 INFO MCS 3.0.18
+03-30 21:01:29.244 SEND FF FF 00 00 00 05 7F 00 00 49          Length=10           Linktest.req
+03-30 21:01:29.248 RECD FF FF 00 00 00 05 7F 00 00 32          Length=10           Linktest.req
+03-30 21:01:29.252 SEND FF FF 00 00 00 06 7F 00 00 32          Length=10           Linktest.rsp
+03-30 21:01:29.259 RECD FF FF 00 00 00 06 7F 00 00 49          Length=10           Linktest.rsp

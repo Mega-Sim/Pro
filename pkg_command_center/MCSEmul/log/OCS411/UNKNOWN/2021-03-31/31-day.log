@@ -1,0 +1,257 @@
+03-31 08:43:00.385 INFO MCS 3.0.18
+03-31 08:43:00.385 RECD D1 S2F50    SYSBYTE=20(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 09:19:24.249 RECD D1 S2F50    SYSBYTE=21(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 09:22:33.940 RECD D1 S2F50    SYSBYTE=22(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '2'>
+                       <L 0>
+                   >.
+03-31 09:23:23.622 RECD D1 S2F50    SYSBYTE=23(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 09:24:34.685 RECD D1 S2F50    SYSBYTE=25(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 09:35:18.033 RECD D1 S2F50    SYSBYTE=27(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 09:35:45.881 RECD D1 S2F50    SYSBYTE=28(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 10:21:36.537 RECD D1 S2F50    SYSBYTE=20(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 10:22:39.268 RECD D1 S2F50    SYSBYTE=21(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '52'>
+                       <L 2
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <B 1 '0'>
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <B 1 '2'>
+                           >
+                       >
+                   >.
+03-31 10:25:56.050 RECD D1 S2F50    SYSBYTE=23(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 10:27:15.986 RECD D1 S2F50    SYSBYTE=24(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 10:28:27.783 RECD D1 S2F50    SYSBYTE=25(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 10:29:23.533 RECD D1 S2F50    SYSBYTE=27(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 10:31:19.201 RECD D1 S2F50    SYSBYTE=29(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 10:32:04.624 RECD D1 S2F50    SYSBYTE=31(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 11:46:29.275 RECD D1 S2F50    SYSBYTE=32(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 11:47:27.753 RECD D1 S2F50    SYSBYTE=34(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 11:55:06.986 RECD D1 S2F50    SYSBYTE=35(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 11:57:13.485 RECD D1 S2F50    SYSBYTE=36(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 11:58:18.713 RECD D1 S2F50    SYSBYTE=37(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 11:59:24.839 RECD D1 S2F50    SYSBYTE=38(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 12:04:37.185 RECD D1 S2F50    SYSBYTE=39(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 12:05:30.664 RECD D1 S2F50    SYSBYTE=40(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 12:06:31.437 RECD D1 S2F50    SYSBYTE=41(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 18:40:15.254 RECD D1 S2F50    SYSBYTE=42(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 18:42:15.231 RECD D1 S2F50    SYSBYTE=43(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 18:45:53.699 RECD D1 S2F50    SYSBYTE=45(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '2'>
+                       <L 0>
+                   >.
+03-31 18:46:18.621 RECD D1 S2F50    SYSBYTE=46(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 20:25:24.146 RECD D1 S2F50    SYSBYTE=47(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 20:26:38.802 RECD D1 S2F50    SYSBYTE=49(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 20:27:54.154 RECD D1 S2F50    SYSBYTE=50(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 20:29:39.181 RECD D1 S2F50    SYSBYTE=53(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 20:31:07.900 RECD D1 S2F50    SYSBYTE=55(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 20:54:28.221 RECD D1 S2F50    SYSBYTE=56(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 20:55:58.047 RECD D1 S2F50    SYSBYTE=58(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 20:56:45.301 RECD D1 S2F50    SYSBYTE=59(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 21:01:40.090 RECD D1 S2F50    SYSBYTE=60(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 21:03:12.370 RECD D1 S2F50    SYSBYTE=62(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 21:04:02.801 RECD D1 S2F50    SYSBYTE=63(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 21:08:56.500 RECD D1 S2F50    SYSBYTE=65(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 21:19:44.963 RECD D1 S2F50    SYSBYTE=69(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '4'>
+                       <L 0>
+                   >.
+03-31 21:25:03.892 RECD D1 S2F50    SYSBYTE=75(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '3'>
+                       <L 2
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <B 1 '2'>
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <B 1 '0'>
+                           >
+                       >
+                   >.
+03-31 21:25:51.161 RECD D1 S2F50    SYSBYTE=76(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '3'>
+                       <L 2
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <B 1 '2'>
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <B 1 '0'>
+                           >
+                       >
+                   >.
+03-31 21:33:15.102 RECD D1 S2F50    SYSBYTE=79(ERR_DISPATCHER_UnrecognizedFunction)
+                   <L 2
+                       <B 1 '3'>
+                       <L 2
+                           <L 2
+                               <A 11 'COMMANDINFO'>
+                               <B 1 '2'>
+                           >
+                           <L 2
+                               <A 12 'TRANSFERINFO'>
+                               <B 1 '0'>
+                           >
+                       >
+                   >.

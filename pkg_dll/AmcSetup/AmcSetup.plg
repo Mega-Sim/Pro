@@ -1,0 +1,111 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: AmcSetup - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x412 /fo"Release/AmcSetup.res" /d "NDEBUG" /d "_AFXDLL" "D:\DLL\AmcSetup\AmcSetup.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2A.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/AmcSetup.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\DLL\AmcSetup\ActionPage.cpp"
+"D:\DLL\AmcSetup\AmcSetup.cpp"
+"D:\DLL\AmcSetup\AmcSetupDlg.cpp"
+"D:\DLL\AmcSetup\AxisConfig.cpp"
+"D:\DLL\AmcSetup\Console.cpp"
+"D:\DLL\AmcSetup\DataView.cpp"
+"D:\DLL\AmcSetup\DeviceOpenPage.cpp"
+"D:\DLL\AmcSetup\ErrorCodes.cpp"
+"D:\DLL\AmcSetup\FilterSetting.cpp"
+"D:\DLL\AmcSetup\FsShow.cpp"
+"D:\DLL\AmcSetup\IOTest.cpp"
+"D:\DLL\AmcSetup\LimitSwitch.cpp"
+"D:\DLL\AmcSetup\MoveMulti.cpp"
+"D:\DLL\AmcSetup\MoveX.cpp"
+"D:\DLL\AmcSetup\MyButton.cpp"
+"D:\DLL\AmcSetup\MyPropertySheet.cpp"
+"D:\DLL\AmcSetup\ParamTuning.cpp"
+"D:\DLL\AmcSetup\SoftLimits.cpp"
+"D:\DLL\AmcSetup\SyncMotion.cpp"
+"D:\DLL\AmcSetup\Btn\BtnST.cpp"
+"D:\DLL\AmcSetup\Btn\ShadeButtonST.cpp"
+"D:\DLL\AmcSetup\Btn\xDib.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2A.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2B.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/AmcSetup.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"D:\DLL\AmcSetup\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2B.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2C.tmp" with contents
+[
+/nologo /subsystem:windows /incremental:no /pdb:"Release/AmcSetup.pdb" /machine:I386 /out:"../Bin/AmcSetup.exe" 
+.\Release\ActionPage.obj
+.\Release\AmcSetup.obj
+.\Release\AmcSetupDlg.obj
+.\Release\AxisConfig.obj
+.\Release\Console.obj
+.\Release\DataView.obj
+.\Release\DeviceOpenPage.obj
+.\Release\ErrorCodes.obj
+.\Release\FilterSetting.obj
+.\Release\FsShow.obj
+.\Release\IOTest.obj
+.\Release\LimitSwitch.obj
+.\Release\MoveMulti.obj
+.\Release\MoveX.obj
+.\Release\MyButton.obj
+.\Release\MyPropertySheet.obj
+.\Release\ParamTuning.obj
+.\Release\SoftLimits.obj
+.\Release\StdAfx.obj
+.\Release\SyncMotion.obj
+.\Release\BtnST.obj
+.\Release\ShadeButtonST.obj
+.\Release\xDib.obj
+.\Release\AmcSetup.res
+..\bin\amc.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2C.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+ActionPage.cpp
+AmcSetup.cpp
+AmcSetupDlg.cpp
+AxisConfig.cpp
+Console.cpp
+DataView.cpp
+DeviceOpenPage.cpp
+ErrorCodes.cpp
+FilterSetting.cpp
+FsShow.cpp
+IOTest.cpp
+LimitSwitch.cpp
+MoveMulti.cpp
+MoveX.cpp
+MyButton.cpp
+MyPropertySheet.cpp
+ParamTuning.cpp
+SoftLimits.cpp
+SyncMotion.cpp
+BtnST.cpp
+Generating Code...
+Compiling...
+ShadeButtonST.cpp
+xDib.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+AmcSetup.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

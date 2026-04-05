@@ -1,0 +1,40 @@
+[PropertyInfo]
+ConnectionCheckTimer,java.util.Timer,false,false, , ,false,<default>
+ConnectionCheckTimerTask,ConnectionCheckTimerProc,false,false, , ,false,<default>
+m_bAutoInitialize,boolean,false,false, , ,false,<default>
+m_bCheckDisConnection,boolean,false,false, , ,false,<default>
+m_bResponse,boolean,false,false, , ,false,<default>
+m_bS2F33DeleteCompleted,boolean,false,false, , ,false,<default>
+m_bS2F37DisableCompleted,boolean,false,false, , ,false,<default>
+m_bS5F3EnableAllCompleted,boolean,false,false, , ,false,<default>
+m_nDeviceID,int,false,false, , ,false,<default>
+m_ocsMain,OCSManagerMain,false,false, , ,false,<default>
+m_pPortListInfo,MyHashtable,false,false, , ,false,<default>
+m_pSDOperationList,MsgVector,false,false, , ,false,<default>
+m_pTempRecordInfo,MyHashtable,false,false, , ,false,<default>
+m_strAlarmCode,String,false,false, , ,false,<default>
+m_strAlarmID,String,false,false, , ,false,<default>
+m_strAlarmState,String,false,false, , ,false,<default>
+m_strAlarmText,String,false,false, , ,false,<default>
+m_strCommState,String,false,false, , ,false,<default>
+m_strConfigFileName,String,false,false, , ,false,<default>
+m_strControlState,String,false,false, , ,false,<default>
+m_strCurrentCarrierID,String,false,false, , ,false,<default>
+m_strCurrentTrCmdID,String,false,false, , ,false,<default>
+m_strCurrentTrCmdType,String,false,false, , ,false,<default>
+m_strEqpName,String,false,false, , ,false,<default>
+m_strGetEnhancedDataState,String,false,false, , ,false,<default>
+m_strHSMSState,String,false,false, , ,false,<default>
+m_strOnlineSequenceState,String,false,false, , ,false,<default>
+m_strSCState,String,false,false, , ,false,<default>
+m_strSEMFormat,String,false,false, , ,false,<default>
+m_strSVID,String,false,false, , ,false,<default>
+m_strTSCName,String,false,false, , ,false,<default>
+m_UCom,UCom,false,false, , ,false,<default>
+S1F13Timer,java.util.Timer,false,false, , ,false,<default>
+S1F13TimerTask,S1F13TimerProc,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

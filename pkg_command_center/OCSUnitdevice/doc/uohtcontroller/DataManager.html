@@ -1,0 +1,1244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><!--JBuilder QuickDoc-->
+<HEAD>
+<TITLE>Class uohtcontroller.DataManager</TITLE><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+</HEAD>
+<BODY>
+
+<H2>
+<FONT SIZE="-1">uohtcontroller</FONT>
+<BR>Class DataManager</H2>
+<DL>
+<DT>public class <B>DataManager</B>
+</DL>
+<DL><DD>DataManager.java는 OCS의 전체 모듈간 I/F Function을 제공하는 역할을 한다. 상용 DataBase로 부터 정보를 얻어 서비스를 수행한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF"><TD COLSPAN=1><FONT SIZE="+2">
+<B>Constructor Detail</B>
+</FONT></TD></TR></TABLE>
+
+<H3>DataManager</H3>
+<PRE>
+public <B>DataManager</B>(boolean&nbsp;bConsole,
+                   UOCSMain&nbsp;pUOCSMain)</PRE>
+<DL><DD>DataManager의 생성자이다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF"><TD COLSPAN=1><FONT SIZE="+2">
+<B>Method Detail</B>
+</FONT></TD></TR></TABLE>
+
+<H3>Initialize</H3>
+<PRE>
+public void <B>Initialize</B>()</PRE>
+<DL><DD>DataManager의 정보를 초기화 한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateNodeDataFromDB</H3>
+<PRE>
+public boolean <B>CreateNodeDataFromDB</B>()</PRE>
+<DL><DD>DB로부터 NodeData를 가져와서 생성한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateLinkDataFromDB</H3>
+<PRE>
+public boolean <B>CreateLinkDataFromDB</B>()</PRE>
+<DL><DD>DB로부터 LinkData를 가져와서 생성한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateCarrierLocDataFromDB</H3>
+<PRE>
+public boolean <B>CreateCarrierLocDataFromDB</B>()</PRE>
+<DL><DD>DB로부터 CarrierLocData를 가져와서 생성한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateVehicleDataFromDB</H3>
+<PRE>
+public boolean <B>CreateVehicleDataFromDB</B>()</PRE>
+<DL><DD>DB로부터 VehicleData를 가져와서 생성한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateHIDDataFromDB</H3>
+<PRE>
+public boolean <B>CreateHIDDataFromDB</B>()</PRE>
+<DL><DD>DB로부터 HIDData를 가져와서 생성한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateMTLDataFromDB</H3>
+<PRE>
+public boolean <B>CreateMTLDataFromDB</B>()</PRE>
+<DL><DD>DB로부터 MTLData를 가져와서 생성한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateFDDataFromDB</H3>
+<PRE>
+public boolean <B>CreateFDDataFromDB</B>()</PRE>
+<DL><DD>DB로부터 FDData를 가져와서 생성한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateAreaDataFromDB</H3>
+<PRE>
+public boolean <B>CreateAreaDataFromDB</B>()</PRE>
+<DL><DD>DB로부터 AreaData를 가져와서 생성한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateAreaLinkDataFromDB</H3>
+<PRE>
+public boolean <B>CreateAreaLinkDataFromDB</B>()</PRE>
+<DL><DD>DB로부터 AreaLinkData를 가져와서 생성한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateAreaNodeDataFromDB</H3>
+<PRE>
+public boolean <B>CreateAreaNodeDataFromDB</B>()</PRE>
+<DL><DD>DB로부터 AreaNodeData를 가져와서 생성한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateAreaVehicleDataFromDB</H3>
+<PRE>
+public boolean <B>CreateAreaVehicleDataFromDB</B>()</PRE>
+<DL><DD>DB로부터 AreaVehicleData를 가져와서 생성한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>LoadCollisionDataFromDB</H3>
+<PRE>
+public boolean <B>LoadCollisionDataFromDB</B>(Vector&nbsp;vtNodeList1,
+                                       Vector&nbsp;vtNodeList2)</PRE>
+<DL><DD>DB에 CollisionData를 저장한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>SaveCollisionDataInDB</H3>
+<PRE>
+public boolean <B>SaveCollisionDataInDB</B>(Vector&nbsp;vtNodeList1,
+                                     Vector&nbsp;vtNodeList2)</PRE>
+<DL><DD>DB에 CollisionData를 저장한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>AddTrCmdInfoToDB</H3>
+<PRE>
+public int <B>AddTrCmdInfoToDB</B>(MyHashtable&nbsp;TrCmdTable)</PRE>
+<DL><DD>DB에 TrCmd에 대한 정보를 추가한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>DeleteTrCmdInfoToDB</H3>
+<PRE>
+public int <B>DeleteTrCmdInfoToDB</B>(String&nbsp;strCommandID)</PRE>
+<DL><DD>DB로부터 TrCmd에 대한 정보를 삭제한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateTrCmdInfoInDB</H3>
+<PRE>
+public boolean <B>UpdateTrCmdInfoInDB</B>(String&nbsp;strCommandID,
+                                   String&nbsp;strVehicle,
+                                   String&nbsp;strSrcLoc,
+                                   String&nbsp;strDestLoc,
+                                   String&nbsp;strCarrierLoc,
+                                   String&nbsp;strSrcNode,
+                                   String&nbsp;strDestNode)</PRE>
+<DL><DD>DB에 TrCmd에 대한 정보를 갱신한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateTrCmdInfoInDBUsingCarrierID</H3>
+<PRE>
+public boolean <B>UpdateTrCmdInfoInDBUsingCarrierID</B>(String&nbsp;strCarrierID,
+                                                 String&nbsp;strCommandID,
+                                                 String&nbsp;strSrcLoc,
+                                                 String&nbsp;strDestLoc,
+                                                 String&nbsp;strSrcNode,
+                                                 String&nbsp;strDestNode)</PRE>
+<DL><DD>DB에 TrCmd에 대한 정보를 갱신한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateTrCmdStatusInDB</H3>
+<PRE>
+public boolean <B>UpdateTrCmdStatusInDB</B>(String&nbsp;strCommandID,
+                                     String&nbsp;strTrCmdStatus,
+                                     String&nbsp;strDetailTrCmdStatus,
+                                     String&nbsp;strRemoteCmd)</PRE>
+<DL><DD>DB에 TrCmdStatus에 대한 정보를 갱신한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateTrCmdPauseInfoInDB</H3>
+<PRE>
+public boolean <B>UpdateTrCmdPauseInfoInDB</B>(String&nbsp;strCommandID,
+                                        String&nbsp;strJobPause,
+                                        String&nbsp;strPauseType,
+                                        int&nbsp;nPauseCnt)</PRE>
+<DL><DD>DB에 TrCmd Pause에 대한 정보를 갱신한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateTrCmdControlParaInDB</H3>
+<PRE>
+public boolean <B>UpdateTrCmdControlParaInDB</B>(String&nbsp;strCommandID,
+                                          String&nbsp;strJobPause,
+                                          String&nbsp;strJobRemove)</PRE>
+<DL><DD>DB에 TrCmd ControlPara에 대한 정보를 갱신한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateManualJobInDB</H3>
+<PRE>
+public int <B>CreateManualJobInDB</B>(String&nbsp;strCarrierID,
+                               String&nbsp;strSrcLoc,
+                               String&nbsp;strDestLoc,
+                               String&nbsp;strLoadingBypass)</PRE>
+<DL><DD>수동으로 작업을 생성시켜 DB에 저장한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateMoveJobInDB</H3>
+<PRE>
+public String <B>CreateMoveJobInDB</B>(String&nbsp;strSrcNode,
+                                String&nbsp;strDestNode,
+                                String&nbsp;strJobType,
+                                String&nbsp;strVehicleName)</PRE>
+<DL><DD>이동작업을 생성시켜 DB에 저장한다.(AreaManager에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CreateOperation</H3>
+<PRE>
+public boolean <B>CreateOperation</B>(String&nbsp;strVehicleName,
+                               String&nbsp;strIPAddress,
+                               String&nbsp;strVehicleLoc,
+                               String&nbsp;strNode,
+                               double&nbsp;dWorkTime)</PRE>
+<DL><DD>Operation 객체를 생성하여 OperationList에 추가한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>DeleteOperation</H3>
+<PRE>
+public boolean <B>DeleteOperation</B>(String&nbsp;strVehicleID)</PRE>
+<DL><DD>Operation 객체를 OperationList에서 삭제한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetOperationIndex</H3>
+<PRE>
+public int <B>GetOperationIndex</B>(String&nbsp;strVehicleID)</PRE>
+<DL><DD>Operation Index를 OperationList에서 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetOperation</H3>
+<PRE>
+public Operation <B>GetOperation</B>(String&nbsp;strVehicleID)</PRE>
+<DL><DD>Operation 객체를 OperationList에서 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>OperationUnitStart</H3>
+<PRE>
+public boolean <B>OperationUnitStart</B>(String&nbsp;strOperationName)</PRE>
+<DL><DD>Operation Unit을 시작한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>OperationUnitStop</H3>
+<PRE>
+public void <B>OperationUnitStop</B>(String&nbsp;strOperationName)</PRE>
+<DL><DD>Operation Unit을 종료한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>OperationUnitInitialize</H3>
+<PRE>
+public void <B>OperationUnitInitialize</B>(String&nbsp;strVehicleID)</PRE>
+<DL><DD>Operation Unit을 초기화시킨다. User에 의한 작업삭제시 해당 작업을 수행하고 있는 Vehicle 정보 reset<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>SetJobAllocation</H3>
+<PRE>
+public synchronized void <B>SetJobAllocation</B>()</PRE>
+<DL><DD>모든 Operation Unit의 JobAlloc이 가능한 것으로 설정한다. 작업생성과 같이 특정 Vehicle에 국한되지 않은 경우에 사용하고 특정 Vehicle에 국한된 경우에는 해당 Operation모듈의 SetJobAllocFlag(true) 함수를 사용하고 Idle 처리부에서 처리한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateNodeDataInDB</H3>
+<PRE>
+public boolean <B>UpdateNodeDataInDB</B>(String&nbsp;strNodeID,
+                                  String&nbsp;strItemType,
+                                  String&nbsp;strItemValue)</PRE>
+<DL><DD>DB에 Node에 대한 정보를 Update한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateLinkDataInDB</H3>
+<PRE>
+public boolean <B>UpdateLinkDataInDB</B>(String&nbsp;strLinkID,
+                                  String&nbsp;strItemType,
+                                  String&nbsp;strItemValue)</PRE>
+<DL><DD>DB에 Link에 대한 정보를 Update한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateHIDDataInDB</H3>
+<PRE>
+public boolean <B>UpdateHIDDataInDB</B>(String&nbsp;strHID,
+                                 String&nbsp;strStatus,
+                                 String&nbsp;strVoltage,
+                                 String&nbsp;strElectricCurrent,
+                                 String&nbsp;strTemperature,
+                                 String&nbsp;strFrequency,
+                                 String&nbsp;strErrorCode)</PRE>
+<DL><DD>DB에 HIDDevice에 대한 정보를 Update한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateHIDDataInDB</H3>
+<PRE>
+public boolean <B>UpdateHIDDataInDB</B>(String&nbsp;strHID,
+                                 String&nbsp;strStatus,
+                                 String&nbsp;strErrorCode)</PRE>
+<DL><DD>DB에 HIDDevice에 대한 정보를 Update한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateHIDEnabledFlagInDB</H3>
+<PRE>
+public boolean <B>UpdateHIDEnabledFlagInDB</B>(String&nbsp;strHID,
+                                        String&nbsp;strEnabled)</PRE>
+<DL><DD>DB에 HIDEnabled에 대한 정보를 Update한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateMTLDataInDB</H3>
+<PRE>
+public boolean <B>UpdateMTLDataInDB</B>(String&nbsp;strMTLID,
+                                 String&nbsp;strStatus,
+                                 String&nbsp;strErrorCode)</PRE>
+<DL><DD>DB에 MTLDevice에 대한 정보를 Update한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateMTLEnabledFlagInDB</H3>
+<PRE>
+public boolean <B>UpdateMTLEnabledFlagInDB</B>(String&nbsp;strMTLID,
+                                        String&nbsp;strEnabled)</PRE>
+<DL><DD>DB에 MTLEnabled에 대한 정보를 Update한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateFDDataInDB</H3>
+<PRE>
+public boolean <B>UpdateFDDataInDB</B>(String&nbsp;strFDID,
+                                String&nbsp;strStatus,
+                                String&nbsp;strErrorCode)</PRE>
+<DL><DD>DB에 FDDevice에 대한 정보를 Update한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateFDEnabledFlagInDB</H3>
+<PRE>
+public boolean <B>UpdateFDEnabledFlagInDB</B>(String&nbsp;strFDID,
+                                       String&nbsp;strEnabled)</PRE>
+<DL><DD>DB에 FDEnabled에 대한 정보를 Update한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateVehicleDataInDB</H3>
+<PRE>
+public synchronized boolean <B>UpdateVehicleDataInDB</B>(String&nbsp;strVehicleID,
+                                                  String&nbsp;strMode,
+                                                  String&nbsp;strStatus,
+                                                  String&nbsp;strCurrNode,
+                                                  boolean&nbsp;bCarrierExist,
+                                                  int&nbsp;nErrorCode)</PRE>
+<DL><DD>Vehicle 정보를 갱신한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateVehicleControlParaInDB</H3>
+<PRE>
+public synchronized boolean <B>UpdateVehicleControlParaInDB</B>(String&nbsp;strVehicleID,
+                                                         String&nbsp;strJobPause,
+                                                         String&nbsp;strActionPause,
+                                                         String&nbsp;strReqEnabled,
+                                                         String&nbsp;strLoadingByPass)</PRE>
+<DL><DD>Vehicle의 Control정보를 갱신한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateVehicleCurrNodeInfo</H3>
+<PRE>
+public synchronized boolean <B>UpdateVehicleCurrNodeInfo</B>(String&nbsp;strVehicleID,
+                                                      String&nbsp;strCurrNode)</PRE>
+<DL><DD>Vehicle의 CurrNode를 갱신한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateVehicleStopNodeInfo</H3>
+<PRE>
+public synchronized boolean <B>UpdateVehicleStopNodeInfo</B>(String&nbsp;strVehicleID,
+                                                      String&nbsp;strStopNode)</PRE>
+<DL><DD>Vehicle의 StopNode를 갱신한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateVehicleTargetNodeInfo</H3>
+<PRE>
+public synchronized boolean <B>UpdateVehicleTargetNodeInfo</B>(String&nbsp;strVehicleID,
+                                                        String&nbsp;strTargetNode)</PRE>
+<DL><DD>Vehicle의 TargetNode를 갱신한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>AddAreaInfoToDB</H3>
+<PRE>
+public void <B>AddAreaInfoToDB</B>(String&nbsp;strAreaID,
+                            String&nbsp;strType,
+                            int&nbsp;nFreeVehicleLimit,
+                            int&nbsp;nTotalVehicleLimit)</PRE>
+<DL><DD>DB에 Area에 대한 정보를 Add한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateAreaInfoInDB</H3>
+<PRE>
+public boolean <B>UpdateAreaInfoInDB</B>(String&nbsp;strAreaID,
+                                  String&nbsp;strType,
+                                  int&nbsp;nFreeVehicleLimit,
+                                  int&nbsp;nTotalVehicleLimit)</PRE>
+<DL><DD>DB에 Area에 대한 정보를 Update한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>DeleteAreaInfoInDB</H3>
+<PRE>
+public void <B>DeleteAreaInfoInDB</B>(String&nbsp;strAreaID)</PRE>
+<DL><DD>DB에 Area에 대한 정보를 Delete한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>AddAreaLinkInfoToDB</H3>
+<PRE>
+public void <B>AddAreaLinkInfoToDB</B>(String&nbsp;strArea1,
+                                String&nbsp;strArea2,
+                                String&nbsp;strNode1,
+                                String&nbsp;strNode2)</PRE>
+<DL><DD>DB에 AreaLink에 대한 정보를 Add한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>DeleteAreaLinkInfoInDB</H3>
+<PRE>
+public void <B>DeleteAreaLinkInfoInDB</B>(String&nbsp;strArea1,
+                                   String&nbsp;strArea2,
+                                   String&nbsp;strNode1,
+                                   String&nbsp;strNode2)</PRE>
+<DL><DD>DB에 AreaNode에 대한 정보를 Delete한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>AddAreaNodeInfoToDB</H3>
+<PRE>
+public void <B>AddAreaNodeInfoToDB</B>(String&nbsp;strAreaID,
+                                String&nbsp;strNode)</PRE>
+<DL><DD>DB에 AreaNode에 대한 정보를 Add한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>DeleteAreaNodeInfoInDB</H3>
+<PRE>
+public void <B>DeleteAreaNodeInfoInDB</B>(String&nbsp;strAreaID,
+                                   String&nbsp;strNode)</PRE>
+<DL><DD>DB에 AreaNode에 대한 정보를 Delete한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>AddAreaVehicleInfoToDB</H3>
+<PRE>
+public void <B>AddAreaVehicleInfoToDB</B>(String&nbsp;strAreaID,
+                                   String&nbsp;strVehicle)</PRE>
+<DL><DD>DB에 AreaVehicle에 대한 정보를 Add한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>DeleteAreaVehicleInfoInDB</H3>
+<PRE>
+public void <B>DeleteAreaVehicleInfoInDB</B>(String&nbsp;strAreaID,
+                                      String&nbsp;strVehicle)</PRE>
+<DL><DD>DB에 AreaVehicle에 대한 정보를 Delete한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateCollisionInfoInDB</H3>
+<PRE>
+public boolean <B>UpdateCollisionInfoInDB</B>(String&nbsp;strOperationType,
+                                       String&nbsp;strNode1,
+                                       String&nbsp;strNode2,
+                                       String&nbsp;strCollision)</PRE>
+<DL><DD>DB에 Collision에 대한 정보를 Update한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetOCSInfoFromDB</H3>
+<PRE>
+public int <B>GetOCSInfoFromDB</B>(MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 OCS의 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetOCSInfoAsStringFromDB</H3>
+<PRE>
+public String <B>GetOCSInfoAsStringFromDB</B>(String&nbsp;strFieldName)</PRE>
+<DL><DD>DB로부터 OCS의 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetOCSInfoAsIntFromDB</H3>
+<PRE>
+public int <B>GetOCSInfoAsIntFromDB</B>(String&nbsp;strFieldName)</PRE>
+<DL><DD>DB로부터 OCS의 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetOCSInfoAsDoubleFromDB</H3>
+<PRE>
+public double <B>GetOCSInfoAsDoubleFromDB</B>(String&nbsp;strFieldName)</PRE>
+<DL><DD>DB로부터 OCS의 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetOCSAutoStartMode</H3>
+<PRE>
+public boolean <B>GetOCSAutoStartMode</B>()</PRE>
+<DL><DD>OCS의 자동실행모드 여부에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetOCSAVJobPauseCnt</H3>
+<PRE>
+public int <B>GetOCSAVJobPauseCnt</B>()</PRE>
+<DL><DD>OCS의 AutoError Recovery Cnt 여부에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetOCSAVJobPauseTime</H3>
+<PRE>
+public int <B>GetOCSAVJobPauseTime</B>()</PRE>
+<DL><DD>OCS의 AutoError Recovery Time에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetSimulationMode</H3>
+<PRE>
+public boolean <B>GetSimulationMode</B>()</PRE>
+<DL><DD>OCS의 Simulation 모드 여부에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetExecutionSpeed</H3>
+<PRE>
+public double <B>GetExecutionSpeed</B>()</PRE>
+<DL><DD>OCS의 Execution Speed에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetVehicleIPAddress</H3>
+<PRE>
+public String <B>GetVehicleIPAddress</B>(String&nbsp;strVehicleName)</PRE>
+<DL><DD>Vehicle의 IPAddress를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetNodeInfoFromDB</H3>
+<PRE>
+public int <B>GetNodeInfoFromDB</B>(String&nbsp;strNodeID,
+                             MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 Node에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetCurrNodeUsingVehicleIDFromDB</H3>
+<PRE>
+public String <B>GetCurrNodeUsingVehicleIDFromDB</B>(String&nbsp;strVehicleID)</PRE>
+<DL><DD>DB로부터 CurrNode에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetStopNodeUsingVehicleIDFromDB</H3>
+<PRE>
+public String <B>GetStopNodeUsingVehicleIDFromDB</B>(String&nbsp;strVehicleID)</PRE>
+<DL><DD>DB로부터 StopNode에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetLinkInfoFromDB</H3>
+<PRE>
+public int <B>GetLinkInfoFromDB</B>(String&nbsp;strLinkID,
+                             MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 Link에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetVehicleInfoFromDB</H3>
+<PRE>
+public int <B>GetVehicleInfoFromDB</B>(String&nbsp;strVehicleID,
+                                MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 Vehicle에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetVehicleInfoUsingAreaFromDB</H3>
+<PRE>
+public int <B>GetVehicleInfoUsingAreaFromDB</B>(String&nbsp;strAreaID,
+                                         String&nbsp;strType,
+                                         MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 Area의 Vehicle에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetVehicleCntUsingAreaFromDB</H3>
+<PRE>
+public int <B>GetVehicleCntUsingAreaFromDB</B>(String&nbsp;strAreaID,
+                                        String&nbsp;strType)</PRE>
+<DL><DD>DB로부터 Area의 Vehicle에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetDeviceInfoFromDB</H3>
+<PRE>
+public int <B>GetDeviceInfoFromDB</B>(String&nbsp;strDeviceID,
+                               MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 Device에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetCarrierLocInfoFromDB</H3>
+<PRE>
+public int <B>GetCarrierLocInfoFromDB</B>(String&nbsp;strCarrierLocID,
+                                   MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 CarrierLoc에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetCarrierLocUsingOwnerFromDB</H3>
+<PRE>
+public String <B>GetCarrierLocUsingOwnerFromDB</B>(String&nbsp;strOwner)</PRE>
+<DL><DD>DB로부터 CarrierLocName에 대한 정보를 얻는다. Vehicle이 가지고 있는 CarrierLoc정보를 얻기 위한 용도로 사용<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetCarrierLocTypeFromDB</H3>
+<PRE>
+public String <B>GetCarrierLocTypeFromDB</B>(String&nbsp;strCarrierLocID)</PRE>
+<DL><DD>DB로부터 CarrierLocType에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetTrCmdInfoFromDB</H3>
+<PRE>
+public int <B>GetTrCmdInfoFromDB</B>(String&nbsp;strTrCmdID,
+                              MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 TrCmd에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetTrCmdInfoUsingAreaFromDB</H3>
+<PRE>
+public int <B>GetTrCmdInfoUsingAreaFromDB</B>(String&nbsp;strAreaID,
+                                       MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 Area의 TrCmd에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetTrCmdInfoUsingCarrierIDFromDB</H3>
+<PRE>
+public int <B>GetTrCmdInfoUsingCarrierIDFromDB</B>(String&nbsp;strCarrierID,
+                                            MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 TrCmd에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetTrCmdInfoUsingVehicleIDFromDB</H3>
+<PRE>
+public int <B>GetTrCmdInfoUsingVehicleIDFromDB</B>(String&nbsp;strVehicleID,
+                                            MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 TrCmd에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetNodeIDUsingCarrierLocIDFromDB</H3>
+<PRE>
+public String <B>GetNodeIDUsingCarrierLocIDFromDB</B>(String&nbsp;strCarrierLocID)</PRE>
+<DL><DD>DB로부터 CarrierLoc정보를 사용하여 Node ID에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetCarrierLocIDUsingNodeIDFromDB</H3>
+<PRE>
+public String <B>GetCarrierLocIDUsingNodeIDFromDB</B>(String&nbsp;strNodeID)</PRE>
+<DL><DD>DB로부터 Node Name에 대한 정보를 사용하여 CarrierLoc에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetHIDInfoFromDB</H3>
+<PRE>
+public int <B>GetHIDInfoFromDB</B>(String&nbsp;strHID,
+                            MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 HID에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetCarrierIDUsingTrCmdIDFromDB</H3>
+<PRE>
+public String <B>GetCarrierIDUsingTrCmdIDFromDB</B>(String&nbsp;strTrCmdID)</PRE>
+<DL><DD>DB로부터 TrCmdID에 대한 정보를 사용하여 CarrierID에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetTrCmdIDUsingCarrierIDFromDB</H3>
+<PRE>
+public String <B>GetTrCmdIDUsingCarrierIDFromDB</B>(String&nbsp;strCarrierID)</PRE>
+<DL><DD>DB로부터 CarrierID에 대한 정보를 사용하여 TrCmdID에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetNodeTypeUsingNodeIDFromDB</H3>
+<PRE>
+public String <B>GetNodeTypeUsingNodeIDFromDB</B>(String&nbsp;strNodeID)</PRE>
+<DL><DD>DB로부터 NodeID에 대한 정보를 사용하여 NodeType에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetAreaLinkFromDB</H3>
+<PRE>
+public int <B>GetAreaLinkFromDB</B>(MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 AreaLink에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetCollisionInfoFromDB</H3>
+<PRE>
+public int <B>GetCollisionInfoFromDB</B>(MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 GetCollision에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetErrorTextFromDB</H3>
+<PRE>
+public String <B>GetErrorTextFromDB</B>(String&nbsp;strAlarmID)</PRE>
+<DL><DD>DB로부터 ErrorText에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetUserInfoFromDB</H3>
+<PRE>
+public int <B>GetUserInfoFromDB</B>(String&nbsp;strCondition,
+                             MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 사용자에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetAreaNameUsingNode</H3>
+<PRE>
+public String <B>GetAreaNameUsingNode</B>(String&nbsp;strNode)</PRE>
+<DL><DD>Node를 사용하여 Node가 포함된 Area의 Name을 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetBalancingArea</H3>
+<PRE>
+public CArea <B>GetBalancingArea</B>(String&nbsp;strAreaName)</PRE>
+<DL><DD>FreeVehicle의 Balancing이 이뤄질 AreaName을 얻는다.(AreaManager에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetReportData</H3>
+<PRE>
+public String <B>GetReportData</B>()</PRE>
+<DL><DD>Report와 관련된 모든 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetCurrentTime</H3>
+<PRE>
+public String <B>GetCurrentTime</B>()</PRE>
+<DL><DD>현재 시간을 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>SetOCSInfoToDB</H3>
+<PRE>
+public boolean <B>SetOCSInfoToDB</B>(String&nbsp;strRecordName,
+                              String&nbsp;strRecordValue)</PRE>
+<DL><DD>OCS의 정보를 DB에 설정한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>AddReportInfoToDB</H3>
+<PRE>
+public void <B>AddReportInfoToDB</B>(int&nbsp;nReportID)</PRE>
+<DL><DD>DB에 Report에 대한 정보를 Add한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateReportInfoInDB</H3>
+<PRE>
+public boolean <B>UpdateReportInfoInDB</B>(int&nbsp;nReportID,
+                                    String&nbsp;strVID)</PRE>
+<DL><DD>DB에 Report에 대한 정보를 Update한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>DeleteReportInfoInDB</H3>
+<PRE>
+public void <B>DeleteReportInfoInDB</B>()</PRE>
+<DL><DD>DB에 Report에 대한 정보를 Delete한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetReportInfoFromDB</H3>
+<PRE>
+public int <B>GetReportInfoFromDB</B>(int&nbsp;nReportID,
+                               MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 Report에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>UpdateCollectionEventInfoInDB</H3>
+<PRE>
+public boolean <B>UpdateCollectionEventInfoInDB</B>(int&nbsp;nCEID,
+                                             String&nbsp;strReportID,
+                                             String&nbsp;strEnabled)</PRE>
+<DL><DD>DB에 CollectionEvent에 대한 정보를 Update한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetCollectionEventInfoFromDB</H3>
+<PRE>
+public int <B>GetCollectionEventInfoFromDB</B>(int&nbsp;nCEID,
+                                        String&nbsp;strCEName,
+                                        MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 CollectionEvent에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetVIDInfoFromDB</H3>
+<PRE>
+public int <B>GetVIDInfoFromDB</B>(int&nbsp;nVID,
+                            MyHashtable&nbsp;record)</PRE>
+<DL><DD>DB로부터 VID에 대한 정보를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>SetCarrierData</H3>
+<PRE>
+public boolean <B>SetCarrierData</B>(String&nbsp;strCarrierID,
+                              char&nbsp;szStatus)</PRE>
+<DL><DD>Carrier에 대한 정보를 갱신한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>SetVehicleData</H3>
+<PRE>
+public boolean <B>SetVehicleData</B>(int&nbsp;nVehicleID,
+                              char&nbsp;szStatus)</PRE>
+<DL><DD>Vehicle에 대한 정보를 갱신한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>SetVehicleData</H3>
+<PRE>
+public boolean <B>SetVehicleData</B>(String&nbsp;strVehicleName,
+                              char&nbsp;szStatus)</PRE>
+<DL><DD>Vehicle에 대한 정보를 갱신한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>SetVehicleName</H3>
+<PRE>
+public boolean <B>SetVehicleName</B>(int&nbsp;nVehicleID,
+                              String&nbsp;strVehicleName)</PRE>
+<DL><DD>Vehicle Name에 대한 정보를 갱신한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>NeedFreeVehicleBalancing</H3>
+<PRE>
+public boolean <B>NeedFreeVehicleBalancing</B>(String&nbsp;strAreaName)</PRE>
+<DL><DD>FreeVehicle의 Balancing 필요유무를 체크한다.(AreaManager에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>NeedTotalVehicleBalancing</H3>
+<PRE>
+public boolean <B>NeedTotalVehicleBalancing</B>(String&nbsp;strAreaName)</PRE>
+<DL><DD>TotalVehicle의 Balancing 필요유무를 체크한다.(AreaManager에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>SetNoDriveNode</H3>
+<PRE>
+public boolean <B>SetNoDriveNode</B>(String&nbsp;strNode,
+                              boolean&nbsp;bIsNoDrive)</PRE>
+<DL><DD>TotalVehicle의 Balancing에 의해 Drive가 제한된 것을 설정한다.(AreaManager에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>SetErrorInfoInDB</H3>
+<PRE>
+public boolean <B>SetErrorInfoInDB</B>(String&nbsp;strErrorCode,
+                                String&nbsp;strErrorText)</PRE>
+<DL><DD>Error 정보를 DB에 설정한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>ClearErrorInfoInDB</H3>
+<PRE>
+public boolean <B>ClearErrorInfoInDB</B>()</PRE>
+<DL><DD>DB로부터 Error 정보를 삭제한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CheckNodeInfoExist</H3>
+<PRE>
+public boolean <B>CheckNodeInfoExist</B>(String&nbsp;strNodeID)</PRE>
+<DL><DD>DB에 Node정보가 저장되어 있는 지 여부를 체크한다.(Operation에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CheckAllVehiclePaused</H3>
+<PRE>
+public boolean <B>CheckAllVehiclePaused</B>()</PRE>
+<DL><DD>모든 Vehicle이 Paused상태가 되었는 지 여부를 체크한다.(Operation에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>ExecJobAllocation</H3>
+<PRE>
+public synchronized boolean <B>ExecJobAllocation</B>(String&nbsp;strAreaID,
+                                              Vector&nbsp;vtAssignVehicleList,
+                                              Vector&nbsp;vtEmulVehicleLocusList)</PRE>
+<DL><DD>JobAllocation을 실행시킨다.(Operation에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>ExecForceToJobAlloc</H3>
+<PRE>
+public synchronized boolean <B>ExecForceToJobAlloc</B>(String&nbsp;strVehicleID,
+                                                String&nbsp;strTrCmdID,
+                                                String&nbsp;strSource,
+                                                String&nbsp;strDestination,
+                                                String&nbsp;strSrcNode,
+                                                String&nbsp;strDestNode)</PRE>
+<DL><DD>특정 Vehicle로 JobAllocation을 실행시킨다.(Operation에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>ExecJobRelease</H3>
+<PRE>
+public synchronized boolean <B>ExecJobRelease</B>(String&nbsp;strTrCmdID,
+                                           String&nbsp;strVehicleID)</PRE>
+<DL><DD>특정 Vehicle에 JobRelease을 실행시킨다.(Operation에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>ExecPathSearch</H3>
+<PRE>
+public synchronized boolean <B>ExecPathSearch</B>(String&nbsp;strAreaID,
+                                           String&nbsp;strVehicle,
+                                           String&nbsp;strToNode,
+                                           Vector&nbsp;vtAssignVehicleList,
+                                           Vector&nbsp;vtEmulVehicleLocusList)</PRE>
+<DL><DD>PathSearch를 실행시킨다.(Operation에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>ExecYieldAllocation</H3>
+<PRE>
+public synchronized boolean <B>ExecYieldAllocation</B>(String&nbsp;strAreaID,
+                                                String&nbsp;strVehicle,
+                                                String&nbsp;strYieldRequestVehicle,
+                                                Vector&nbsp;vtAssignVehicleList,
+                                                Vector&nbsp;vtEmulVehicleLocusList)</PRE>
+<DL><DD>YieldAllocation를 실행시킨다.(Operation에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>ExecPathDrive</H3>
+<PRE>
+public synchronized String <B>ExecPathDrive</B>(String&nbsp;strVehicleID,
+                                         String&nbsp;strPrevStopNode)</PRE>
+<DL><DD>PathDrive를 실행시킨다.(Operation에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>NeedYield</H3>
+<PRE>
+public synchronized boolean <B>NeedYield</B>(String&nbsp;strVehicleID)</PRE>
+<DL><DD>Yield가 필요한 지 여부를 체크한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>ResetVehicleLocusInfo</H3>
+<PRE>
+public synchronized boolean <B>ResetVehicleLocusInfo</B>(String&nbsp;strVehicleID,
+                                                  String&nbsp;strCurrNode)</PRE>
+<DL><DD>Vehicle의 Locus정보를 초기화 시킨다.(Operation에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>ExecVehicleMove</H3>
+<PRE>
+public boolean <B>ExecVehicleMove</B>(String&nbsp;strVehicleID,
+                               String&nbsp;strDestNode,
+                               String&nbsp;strJobType)</PRE>
+<DL><DD>Vehicle의 이동명령을 실행시킨다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>ExecHIDEnabled</H3>
+<PRE>
+public synchronized boolean <B>ExecHIDEnabled</B>(String&nbsp;strCondition,
+                                           String&nbsp;strEnabled)</PRE>
+<DL><DD>HIDEnabled를 실행시킨다.(Operation에서 사용하는 함수)<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>ReturnCalculatedWaitingTime</H3>
+<PRE>
+public synchronized double <B>ReturnCalculatedWaitingTime</B>(String&nbsp;strTrCmdQueuedTime)</PRE>
+<DL><DD>생성 경과 시간을 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CheckAbortCommandComplete</H3>
+<PRE>
+public boolean <B>CheckAbortCommandComplete</B>()</PRE>
+<DL><DD>Abort가 처리완료 되었는 지 체크한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>CheckCancelCommandComplete</H3>
+<PRE>
+public boolean <B>CheckCancelCommandComplete</B>()</PRE>
+<DL><DD>Cancel이 처리완료 되었는 지 체크한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>ReportCancelCompleted</H3>
+<PRE>
+public boolean <B>ReportCancelCompleted</B>(String&nbsp;strCommandID,
+                                     String&nbsp;strDetailTrCmdStatus)</PRE>
+<DL><DD>Cancel 완료를 보고한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetNewID</H3>
+<PRE>
+public String <B>GetNewID</B>(String&nbsp;strType)</PRE>
+<DL><DD>생성할 이동작업에 대한 새로운 CmdID를 얻는다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>GetLocusString</H3>
+<PRE>
+String <B>GetLocusString</B>(Vector&nbsp;vtLocusList)</PRE>
+<DL><DD>Vector에 저장된 Locus정보를 String으로 변환한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>AddRecordData</H3>
+<PRE>
+void <B>AddRecordData</B>(String&nbsp;strItem,
+                   String&nbsp;strData,
+                   MyHashtable&nbsp;record,
+                   boolean&nbsp;bFirst)</PRE>
+<DL><DD>MyHashtable에 정보를 추가한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>DataManagerTimerStart</H3>
+<PRE>
+public void <B>DataManagerTimerStart</B>()</PRE>
+<DL><DD>DataManager를 관리하는 Timer를 시작한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>DataManagerTimerStop</H3>
+<PRE>
+public void <B>DataManagerTimerStop</B>()</PRE>
+<DL><DD>DataManager를 관리하는 Timer를 종료한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>DataManagerTimerTimer</H3>
+<PRE>
+public void <B>DataManagerTimerTimer</B>()</PRE>
+<DL><DD>DataManager를 관리하는 Timer이다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>DataManagerTrace</H3>
+<PRE>
+public void <B>DataManagerTrace</B>(String&nbsp;strLog1,
+                             String&nbsp;strLog2)</PRE>
+<DL><DD>DataManager의 각종 이력을 저장한다.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+</BODY>
+</HTML>

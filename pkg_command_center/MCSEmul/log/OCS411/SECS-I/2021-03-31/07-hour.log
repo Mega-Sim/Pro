@@ -1,0 +1,12 @@
+03-31 07:54:37.834 INFO MCS 3.0.18
+03-31 07:54:37.834 SEND FF FF 00 00 00 05 7F 00 00 4A          Length=10           Linktest.req
+03-31 07:54:37.838 RECD FF FF 00 00 00 06 7F 00 00 4A          Length=10           Linktest.rsp
+03-31 07:56:37.840 RECD FF FF 00 00 00 05 7F 00 00 33          Length=10           Linktest.req
+03-31 07:56:37.843 SEND FF FF 00 00 00 05 7F 00 00 4B          Length=10           Linktest.req
+03-31 07:56:37.848 SEND FF FF 00 00 00 06 7F 00 00 33          Length=10           Linktest.rsp
+03-31 07:56:37.857 RECD FF FF 00 00 00 06 7F 00 00 4B          Length=10           Linktest.rsp
+03-31 07:58:37.855 SEND FF FF 00 00 00 05 7F 00 00 4C          Length=10           Linktest.req
+03-31 07:58:37.860 RECD FF FF 00 00 00 05 7F 00 00 34          Length=10           Linktest.req
+03-31 07:58:37.870 SEND FF FF 00 00 00 06 7F 00 00 34          Length=10           Linktest.rsp
+03-31 07:58:37.873 RECD FF FF 00 00 00 06 7F 00 00 4C          Length=10           Linktest.rsp
+03-31 08:00:37.869 INFO RECEIVE MESSAGE COUNT 0

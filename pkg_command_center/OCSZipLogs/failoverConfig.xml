@@ -1,0 +1,53 @@
+<config>
+ 
+ 	<failoverUse>TRUE</failoverUse>
+ 	
+ 	<databaseConnCheck>
+ 		<intervalMillis>1000</intervalMillis>
+ 		<timeoutCount>3</timeoutCount>
+ 	</databaseConnCheck>
+ 	
+ 	<heartBeatList>
+ 		<heartBeat>
+ 			<ipAddress></ipAddress>
+		 	<port>6001</port>
+ 		</heartBeat>
+	    <intervalMillis>2000</intervalMillis>
+	    <listenIntervalCount>2</listenIntervalCount>
+	    <timeoutCount>4</timeoutCount>
+ 	</heartBeatList>
+ 	
+ 	<publicNetCheck usage="false">
+ 		<gatewayIpAddress></gatewayIpAddress>
+ 		<remotePublicIpAddress></remotePublicIpAddress>
+ 		<pingTimeoutMillis>2000</pingTimeoutMillis>
+ 		<intervalMillis>500</intervalMillis>
+ 		<timeoutCount>4</timeoutCount>
+ 	</publicNetCheck>
+ 	
+ 	<localNetCheck usage="false">
+ 		<gatewayIpAddress></gatewayIpAddress>
+ 		<remoteLocalIpAddress></remoteLocalIpAddress>
+ 		<pingTimeoutMillis>2000</pingTimeoutMillis>
+ 		<intervalMillis>500</intervalMillis>
+ 		<timeoutCount>5</timeoutCount>
+ 	</localNetCheck>
+ 	
+	<deleteLogDay>5</deleteLogDay>
+	
+	<watchdogIntervalMillis>1000</watchdogIntervalMillis>
+	<remoteInitTimeOutCount>20</remoteInitTimeOutCount> 
+	<autoTakeOverCount>2</autoTakeOverCount>
+	<inserviceRequestTimeoutCount>20</inserviceRequestTimeoutCount> 
+	<unknownWaitCount>5</unknownWaitCount>
+		
+	<localProcessList>
+       <ziplogs failoverUse="FALSE">
+            <watchdogControl>
+                <run>TRUE</run>
+                <policy>ALWAYS_UP</policy>
+            </watchdogControl>
+        </ziplogs>
+ 	</localProcessList>
+
+</config>

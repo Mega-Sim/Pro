@@ -1,0 +1,25 @@
+<config>
+        <dbConnection>
+                <url>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP) (HOST=10.240.16.150) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=OCSDB)))</url>
+                <userName>uocsdb_tsv_kyk</userName>
+                <passWord>acsmcs2</passWord>
+        <!-- 
+                <url>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP) (HOST=10.240.16.190) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=OCSDB)))</url>
+                <userName>uocsdb_s16f</userName>
+                <url>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP) (HOST=10.240.50.154) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=OCSDB)))</url>
+                <userName>uocsdb_s1b_test3</userName>
+                <passWord>TEST3</passWord>
+         -->
+         <!-- 
+                <url>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP) (HOST=10.240.16.190) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=OCSDB)))</url>                
+                <userName>uocsdb_s16f_pmm</userName>
+                <passWord>acsmcs2</passWord>
+                <url>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP) (HOST=10.240.16.41) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=MCSDB)))</url>                
+                <userName>uocsdb_3fs1b</userName>
+                <passWord>acsmcs2</passWord>
+                -->
+        </dbConnection>
+	<hostServiceType>Primary</hostServiceType> <!-- Primary, Secondary -->
+	<remoteHostIpAddress>10.240.16.114</remoteHostIpAddress>
+  <vehicleSocketPort>5001</vehicleSocketPort>
+</config>

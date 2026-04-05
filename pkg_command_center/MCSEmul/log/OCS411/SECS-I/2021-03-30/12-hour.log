@@ -1,0 +1,20 @@
+03-30 12:00:30.436 INFO MCS 3.0.18
+03-30 12:00:30.436 SEND FF FF 00 00 00 05 7F 00 00 1E          Length=10           Linktest.req
+03-30 12:00:30.441 RECD FF FF 00 00 00 06 7F 00 00 1E          Length=10           Linktest.rsp
+03-30 12:00:30.445 RECD FF FF 00 00 00 05 7F 00 00 0F          Length=10           Linktest.req
+03-30 12:00:30.449 SEND FF FF 00 00 00 06 7F 00 00 0F          Length=10           Linktest.rsp
+03-30 12:02:30.705 SEND FF FF 00 00 00 05 7F 00 00 1F          Length=10           Linktest.req
+03-30 12:02:30.711 RECD FF FF 00 00 00 06 7F 00 00 1F          Length=10           Linktest.rsp
+03-30 12:04:30.857 SEND FF FF 00 00 00 05 7F 00 00 20          Length=10           Linktest.req
+03-30 12:04:30.862 RECD FF FF 00 00 00 06 7F 00 00 20          Length=10           Linktest.rsp
+03-30 12:06:30.977 SEND FF FF 00 00 00 05 7F 00 00 21          Length=10           Linktest.req
+03-30 12:06:30.983 RECD FF FF 00 00 00 06 7F 00 00 21          Length=10           Linktest.rsp
+03-30 12:08:31.084 SEND FF FF 00 00 00 05 7F 00 00 22          Length=10           Linktest.req
+03-30 12:08:31.089 RECD FF FF 00 00 00 06 7F 00 00 22          Length=10           Linktest.rsp
+03-30 12:10:31.143 SEND FF FF 00 00 00 05 7F 00 00 23          Length=10           Linktest.req
+03-30 12:10:31.147 RECD FF FF 00 00 00 05 7F 00 00 10          Length=10           Linktest.req
+03-30 12:10:31.153 SEND FF FF 00 00 00 06 7F 00 00 10          Length=10           Linktest.rsp
+03-30 12:10:31.155 RECD FF FF 00 00 00 06 7F 00 00 23          Length=10           Linktest.rsp
+03-30 12:10:42.912 WARN SOCKET READ ERROR(IOException):java.net.SocketException: Connection reset
+03-30 12:10:42.923 HSMS DISCONNECTED BY SECS TARGET
+03-30 13:29:49.360 INFO RECEIVE MESSAGE COUNT -1

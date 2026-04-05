@@ -1,0 +1,13 @@
+; amc.dll symbol exporting file.
+;
+LIBRARY		"amc.dll"
+DESCRIPTION	"cts_rcon Windows Dynamic Link Library"
+
+EXPORTS
+	DllMain			@1		PRIVATE
+	
+	amc_open		@2
+	amc_close		@3
+	set_bit			@4
+	reset_bit		@5
+;	set_amp_enable	@6

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<VIDLIST>
+
+	<ITEM>
+		<VID>1</VID>
+		<NAME>AlarmID</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>2</VID>
+		<NAME>EstablishCommunicationsTimeout</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>3</VID>
+		<NAME>AlarmsEnabled</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>4</VID>
+		<NAME>AlarmsSet</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>5</VID>
+		<NAME>Clock</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>6</VID>
+		<NAME>ControlState</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>7</VID>
+		<NAME>EventsEnabled</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>51</VID>
+		<NAME>ActiveCarriers</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>54</VID>
+		<NAME>CarrierID</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>55</VID>
+		<NAME>CarrierInfo</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>56</VID>
+		<NAME>CarrierLoc</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>57</VID>
+		<NAME>CarrierState</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>61</VID>
+		<NAME>EqpName</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>63</VID>
+		<NAME>IDReadStatus</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>64</VID>
+		<NAME>STBState</NAME>
+	</ITEM>
+	
+		<ITEM>
+		<VID>69</VID>
+		<NAME>ResultCode</NAME>
+	</ITEM>	
+
+	<ITEM>
+		<VID>114</VID>
+		<NAME>SpecVersion</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>115</VID>
+		<NAME>PortID</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>118</VID>
+		<NAME>CurrentPortState</NAME>
+	</ITEM>
+	
+	<ITEM>
+		<VID>151</VID>
+		<NAME>ActiveCarriers2</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>154</VID>
+		<NAME>FoupID</NAME>
+	</ITEM>
+
+	<ITEM>
+		<VID>204</VID>
+		<NAME>InstallTime</NAME>
+	</ITEM>
+
+</VIDLIST>	
+	
+

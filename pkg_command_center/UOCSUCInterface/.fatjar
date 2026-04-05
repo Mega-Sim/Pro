@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Wed Nov 07 15:30:18 KST 2018
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=OcsUCInterface.jar
+manifest.mergeall=true
+manifest.mainclass=uohtcontroller.UOHTController
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=<jar|ojdbc14.jar>
+includes=

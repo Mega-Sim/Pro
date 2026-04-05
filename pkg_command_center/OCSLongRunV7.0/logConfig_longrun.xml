@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
+	
+	<appender name="Console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	
+<!-- Common Logs -->
+	<!-- UDPSendContent
+	<appender name="UDPSendContentAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="UDPSendContentAsyncFile" />
+	</appender>
+	<appender name="UDPSendContentAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/UDPSendContent.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="UDPSendContent" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="UDPSendContentAsync" />
+	</logger>  -->
+	
+	<!-- UDPRecvContent 
+	<appender name="UDPRecvContentAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="UDPRecvContentAsyncFile" />
+	</appender>
+	<appender name="UDPRecvContentAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/UDPRecvContent.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="UDPRecvContent" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="UDPRecvContentAsync" />
+	</logger>-->
+	
+	<!-- DBAccessManager -->
+	<appender name="DBAccessManagerAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="DBAccessManagerAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="DBAccessManagerAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/DBAccessManager.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="DBAccessManager" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="DBAccessManagerAsync" />
+	</logger>
+	
+	<!-- StartupHistory -->
+	<appender name="StartupHistoryAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="StartupHistoryAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="StartupHistoryAsyncFile" class="org.apache.log4j.FileAppender">
+		<param name="File" value="StartupHistory.log" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="StartupHistory" additivity="true">
+		<level value="info" />
+		<appender-ref ref="StartupHistoryAsync" />
+	</logger>
+	
+	<!-- RuntimeUpdateHistory -->
+	<appender name="RuntimeUpdateHistoryAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="RuntimeUpdateHistoryAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="RuntimeUpdateHistoryAsyncFile" class="org.apache.log4j.FileAppender">
+		<param name="File" value="RuntimeUpdateHistory.log" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="RuntimeUpdateHistory" additivity="true">
+		<level value="info" />
+		<appender-ref ref="RuntimeUpdateHistoryAsync" />
+	</logger>
+	
+	<!-- common prj exception -->    
+    <appender name="CommonExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="CommonExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="CommonExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/CommonException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="CommonException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="CommonExceptionAsync" />
+	</logger>
+<!-- don;t touch Common's area -->
+	
+	
+<!-- Cluster Manager start -->
+	<!-- ClusterManager -->
+	<appender name="ClusterManagerAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="ClusterManagerAsyncFile" />
+	<!-- 		<appender-ref ref="Console" /> -->
+	</appender>
+	<appender name="ClusterManagerAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/ClusterManager.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="ClusterManager" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="ClusterManagerAsync" />
+	</logger>-->
+<!-- Cluster Manager end -->
+	
+	
+<!-- Cluster Interface -->
+	<!-- ClusterExecuter -->
+	<appender name="ClusterExecuterAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="ClusterExecuterAsyncFile" />
+<!--		<appender-ref ref="Console" /> -->
+	</appender>
+	<appender name="ClusterExecuterAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/ClusterExecuter.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="ClusterExecuter" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="ClusterExecuterAsync" />
+	</logger>
+	
+	
+<!-- OCSManager Logs -->
+	<!-- OcsManagerDebug -->
+	<appender name="OcsManagerDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="OcsManagerDebugAsyncFile" />
+	</appender>
+	<appender name="OcsManagerDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/OcsManagerDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="OcsManagerDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="OcsManagerDebugAsync" />
+	</logger>
+	
+	
+<!-- appender(async, dailyrolling) logger  -->
+
+<!-- LongRun Logs -->
+	<!-- LongRunMain -->
+	<appender name="LongRunMainAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="LongRunMainAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="LongRunMainAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/LongRunMain.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="LongRunMain" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="LongRunMainAsync" />
+	</logger>
+	
+	<!-- LongRunAbnormal -->
+	<appender name="LongRunAbnormalAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="LongRunAbnormalAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="LongRunAbnormalAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/LongRunAbnormal.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="LongRunAbnormal" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="LongRunAbnormalAsync" />
+	</logger>
+
+	<!-- LongRunDelay -->
+	<appender name="LongRunDelayAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="LongRunDelayAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="LongRunDelayAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/LongRunDelay.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="LongRunDelay" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="LongRunDelayAsync" />
+	</logger>
+
+
+<!-- Route Logs -->
+	<!-- RouteDebug -->
+	<appender name="RouteDebugAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="RouteDebugAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="RouteDebugAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/RouteDebug.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="RouteDebug" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="RouteDebugAsync" />
+	</logger>
+	
+<!-- Exception Logs -->
+	<!-- LongRunException -->
+	<appender name="LongRunExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="LongRunExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="LongRunExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/LongRunException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="LongRunException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="LongRunExceptionAsync" />
+	</logger>
+	
+	<!-- OcsManagerException -->
+	<appender name="OcsManagerExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="OcsManagerExceptionAsyncFile" />
+	</appender>
+	<appender name="OcsManagerExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/OcsManagerException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="OcsManagerException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="OcsManagerExceptionAsync" />
+	</logger>
+
+	<!-- RouteException -->
+	<appender name="RouteExceptionAsync" class="org.apache.log4j.AsyncAppender">
+		<param name="blocking" value="false" />
+		<appender-ref ref="RouteExceptionAsyncFile" />
+		<appender-ref ref="Console" />
+	</appender>
+	<appender name="RouteExceptionAsyncFile" class="com.samsung.xcs.commons.logger.XCSDailyRollingFileAppender">
+		<param name="File" value="log/Exception/RouteException.log" />
+		<param name="Append" value="true" />
+		<param name="DatePattern" value="yyyy-MM-dd/%syyyyMMddHH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss:SSS} %-5p - %m%n" />
+		</layout>
+	</appender>
+	<logger name="RouteException" additivity="true">
+		<level value="debug" />
+		<appender-ref ref="RouteExceptionAsync" />
+	</logger>
+
+
+</log4j:configuration>
