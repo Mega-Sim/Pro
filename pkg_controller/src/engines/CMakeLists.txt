@@ -1,0 +1,2 @@
+add_subdirectory(path_finder)
+add_subdirectory(task_allocator)
