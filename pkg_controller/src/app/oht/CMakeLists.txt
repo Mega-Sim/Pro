@@ -7,3 +7,6 @@ set(OHT_CONTROL_SOURCES
         ../../control/oht_hoist_unit_conversion.cpp
         oht_serial_devices.cpp oht_serial_devices.h oht_amc_axis.cpp oht_amc_axis.h oht_mark_detector.cpp oht_mark_detector.h oht_io_config.h)
 add_library(oht_control ${OHT_CONTROL_SOURCES})
+
+add_executable(oht_engine_demo oht_engine_demo.cpp)
+target_link_libraries(oht_engine_demo oht_path_finder oht_task_allocator)
