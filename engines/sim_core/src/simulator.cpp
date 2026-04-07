@@ -3,6 +3,9 @@
 #include <algorithm>
 #include <cstdint>
 
+#include "oht/sim_core/action_batch.hpp"
+#include "oht/sim_core/worker_pool.hpp"
+
 namespace oht::sim_core {
 
 bool Simulator::load_graph(const oht::path_finder::LoadedGraph& loaded_graph) {
@@ -105,6 +108,72 @@ bool Simulator::release_reservation(int resource_id, int vehicle_id) {
     return reservations_.release_reservation(resource_id, vehicle_id);
 }
 
+void Simulator::set_worker_count(std::size_t worker_count) {
+    worker_count_ = std::max<std::size_t>(1, worker_count);
+    worker_pool_ = std::make_unique<WorkerPool>(worker_count_);
+}
+
+std::size_t Simulator::worker_count() const {
+    return worker_count_;
+}
+
+WorldSnapshot Simulator::make_snapshot() const {
+    WorldSnapshot snapshot;
+    snapshot.current_time_sec = world_.current_time_sec;
+    snapshot.vehicles.reserve(world_.vehicles.size());
+
+    for (const VehicleRuntime& vehicle : world_.vehicles) {
+        if (!vehicle.has_active_route) {
+            continue;
+        }
+
+        snapshot.vehicles.push_back(WorldSnapshot::VehicleSnapshot{
+            vehicle.vehicle_id,
+            vehicle.current_node,
+            vehicle.current_resource_id,
+            vehicle.route_nodes,
+            vehicle.route_index,
+            vehicle.has_active_route,
+        });
+    }
+
+    return snapshot;
+}
+
+std::vector<SimAction> Simulator::evaluate_active_routes_parallel() const {
+    const WorldSnapshot snapshot = make_snapshot();
+    if (snapshot.vehicles.empty()) {
+        return {};
+    }
+
+    if (!worker_pool_ || worker_pool_->thread_count() != worker_count_) {
+        worker_pool_ = std::make_unique<WorkerPool>(worker_count_);
+    }
+
+    ActionBatch action_batch(worker_pool_->thread_count());
+    worker_pool_->parallel_for(
+        snapshot.vehicles.size(),
+        [&snapshot, &action_batch, this](std::size_t worker_index, std::size_t item_index) {
+            const SimAction action = evaluate_advance_route_snapshot(snapshot.vehicles[item_index]);
+            if (action.type != SimActionType::NoOp) {
+                action_batch.append(worker_index, action);
+            }
+        });
+
+    return action_batch.merged_actions();
+}
+
+void Simulator::apply_actions(const std::vector<SimAction>& actions) {
+    for (const SimAction& action : actions) {
+        apply_action(action);
+    }
+}
+
+void Simulator::advance_active_routes_parallel_once() {
+    const std::vector<SimAction> actions = evaluate_active_routes_parallel();
+    apply_actions(actions);
+}
+
 const WorldState& Simulator::world() const {
     return world_;
 }
@@ -148,6 +217,17 @@ VehicleRuntime* Simulator::find_vehicle_mutable(int vehicle_id) {
 }
 
 SimAction Simulator::evaluate_advance_route(const VehicleRuntime& vehicle) const {
+    return evaluate_advance_route_snapshot(WorldSnapshot::VehicleSnapshot{
+        vehicle.vehicle_id,
+        vehicle.current_node,
+        vehicle.current_resource_id,
+        vehicle.route_nodes,
+        vehicle.route_index,
+        vehicle.has_active_route,
+    });
+}
+
+SimAction Simulator::evaluate_advance_route_snapshot(const WorldSnapshot::VehicleSnapshot& vehicle) const {
     if (!vehicle.has_active_route) {
         return {};
     }
@@ -157,7 +237,7 @@ SimAction Simulator::evaluate_advance_route(const VehicleRuntime& vehicle) const
     }
 
     if (!world_.loaded_graph.has_value()) {
-        // TODO(phase-7b): support snapshot/static-context graph reads in worker threads.
+        // TODO(phase-8): move static graph context into immutable snapshot payload.
         return {};
     }
 
@@ -167,7 +247,7 @@ SimAction Simulator::evaluate_advance_route(const VehicleRuntime& vehicle) const
     const oht::path_finder::EdgeMetadata* edge =
         world_.loaded_graph->metadata.find_edge(current_from, current_to);
     if (edge == nullptr || edge->resource_id < 0) {
-        // TODO(phase-7b): attach malformed-route diagnostics to action batches.
+        // TODO(phase-8): attach malformed-route diagnostics to action batches.
         return {};
     }
 
@@ -191,7 +271,7 @@ SimAction Simulator::evaluate_advance_route(const VehicleRuntime& vehicle) const
         };
     }
 
-    // TODO(phase-7b): resolve cross-resource transitions through deterministic batch decisions.
+    // TODO(phase-8): resolve cross-resource transitions through deterministic batch decisions.
     return {};
 }
 
@@ -245,7 +325,7 @@ void Simulator::apply_leave_resource(VehicleRuntime& vehicle, int resource_id, b
         }
     }
 
-    // TODO(phase-7b): evaluate->apply batch should handle queue retry and deterministic merge order.
+    // TODO(phase-8): evaluate->apply batch should handle queue retry and deterministic merge order.
 }
 
 void Simulator::apply_complete_route(VehicleRuntime& vehicle) {

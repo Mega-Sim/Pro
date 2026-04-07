@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <vector>
 
 #include "oht/path_finder/graph.hpp"
@@ -7,12 +8,15 @@
 #include "oht/sim_core/event.hpp"
 #include "oht/sim_core/event_queue.hpp"
 #include "oht/sim_core/sim_action.hpp"
+#include "oht/sim_core/world_snapshot.hpp"
 #include "oht/sim_core/world_state.hpp"
 #include "oht/sim_core/vehicle_runtime.hpp"
 #include "oht/traffic_manager/occupancy_map.hpp"
 #include "oht/traffic_manager/reservation_manager.hpp"
 
 namespace oht::sim_core {
+
+class WorkerPool;
 
 class Simulator {
 public:
@@ -28,6 +32,14 @@ public:
     bool try_reserve_resource(int resource_id, int vehicle_id);
     bool release_reservation(int resource_id, int vehicle_id);
 
+    void set_worker_count(std::size_t worker_count);
+    std::size_t worker_count() const;
+
+    WorldSnapshot make_snapshot() const;
+    std::vector<SimAction> evaluate_active_routes_parallel() const;
+    void apply_actions(const std::vector<SimAction>& actions);
+    void advance_active_routes_parallel_once();
+
     const WorldState& world() const;
     const oht::traffic_manager::OccupancyMap& occupancy() const;
     const oht::traffic_manager::ReservationManager& reservations() const;
@@ -39,6 +51,7 @@ private:
     VehicleRuntime* find_vehicle_mutable(int vehicle_id);
 
     SimAction evaluate_advance_route(const VehicleRuntime& vehicle) const;
+    SimAction evaluate_advance_route_snapshot(const WorldSnapshot::VehicleSnapshot& vehicle) const;
 
     void apply_action(const SimAction& action);
     void apply_enter_resource(VehicleRuntime& vehicle, int resource_id);
@@ -49,6 +62,8 @@ private:
     WorldState world_;
     oht::traffic_manager::OccupancyMap occupancy_;
     oht::traffic_manager::ReservationManager reservations_;
+    std::size_t worker_count_ = 1;
+    mutable std::unique_ptr<WorkerPool> worker_pool_;
 };
 
 }  // namespace oht::sim_core
