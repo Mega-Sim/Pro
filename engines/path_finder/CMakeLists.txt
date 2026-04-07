@@ -1,5 +1,6 @@
 set(OHT_PATH_FINDER_SOURCES
     src/graph.cpp
+    src/graph_loader.cpp
     src/route_planner.cpp)
 
 add_library(oht_path_finder ${OHT_PATH_FINDER_SOURCES})
