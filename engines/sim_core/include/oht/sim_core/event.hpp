@@ -6,6 +6,8 @@ enum class EventType {
     VehicleSpawn,
     JobReady,
     Tick,
+    EnterResource,
+    LeaveResource,
 };
 
 struct Event {
@@ -15,6 +17,7 @@ struct Event {
     EventType event_type = EventType::Tick;
     int vehicle_id = kInvalidId;
     int job_id = kInvalidId;
+    int resource_id = kInvalidId;
 };
 
 }  // namespace oht::sim_core
