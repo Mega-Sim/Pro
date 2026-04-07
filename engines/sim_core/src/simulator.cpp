@@ -4,24 +4,6 @@
 #include <cstdint>
 
 namespace oht::sim_core {
-namespace {
-
-VehicleRuntime* find_vehicle(WorldState& world, int vehicle_id) {
-    const auto it = std::find_if(
-        world.vehicles.begin(),
-        world.vehicles.end(),
-        [vehicle_id](const VehicleRuntime& vehicle) {
-            return vehicle.vehicle_id == vehicle_id;
-        });
-
-    if (it == world.vehicles.end()) {
-        return nullptr;
-    }
-
-    return &(*it);
-}
-
-}  // namespace
 
 bool Simulator::load_graph(const oht::path_finder::LoadedGraph& loaded_graph) {
     world_.loaded_graph = loaded_graph;
@@ -33,7 +15,7 @@ bool Simulator::spawn_vehicle(int vehicle_id, int start_node) {
         return false;
     }
 
-    if (find_vehicle(world_, vehicle_id) != nullptr) {
+    if (find_vehicle_const(vehicle_id) != nullptr) {
         return false;
     }
 
@@ -54,7 +36,7 @@ bool Simulator::set_vehicle_route(
         return false;
     }
 
-    VehicleRuntime* vehicle = find_vehicle(world_, vehicle_id);
+    VehicleRuntime* vehicle = find_vehicle_mutable(vehicle_id);
     if (vehicle == nullptr) {
         return false;
     }
@@ -135,6 +117,183 @@ const oht::traffic_manager::ReservationManager& Simulator::reservations() const 
     return reservations_;
 }
 
+const VehicleRuntime* Simulator::find_vehicle_const(int vehicle_id) const {
+    const auto it = std::find_if(
+        world_.vehicles.begin(),
+        world_.vehicles.end(),
+        [vehicle_id](const VehicleRuntime& vehicle) {
+            return vehicle.vehicle_id == vehicle_id;
+        });
+
+    if (it == world_.vehicles.end()) {
+        return nullptr;
+    }
+
+    return &(*it);
+}
+
+VehicleRuntime* Simulator::find_vehicle_mutable(int vehicle_id) {
+    const auto it = std::find_if(
+        world_.vehicles.begin(),
+        world_.vehicles.end(),
+        [vehicle_id](const VehicleRuntime& vehicle) {
+            return vehicle.vehicle_id == vehicle_id;
+        });
+
+    if (it == world_.vehicles.end()) {
+        return nullptr;
+    }
+
+    return &(*it);
+}
+
+SimAction Simulator::evaluate_advance_route(const VehicleRuntime& vehicle) const {
+    if (!vehicle.has_active_route) {
+        return {};
+    }
+
+    if ((vehicle.route_index + 1U) >= vehicle.route_nodes.size()) {
+        return SimAction{SimActionType::CompleteRoute, vehicle.vehicle_id};
+    }
+
+    if (!world_.loaded_graph.has_value()) {
+        // TODO(phase-7b): support snapshot/static-context graph reads in worker threads.
+        return {};
+    }
+
+    const oht::path_finder::NodeId current_from = vehicle.route_nodes[vehicle.route_index];
+    const oht::path_finder::NodeId current_to = vehicle.route_nodes[vehicle.route_index + 1U];
+
+    const oht::path_finder::EdgeMetadata* edge =
+        world_.loaded_graph->metadata.find_edge(current_from, current_to);
+    if (edge == nullptr || edge->resource_id < 0) {
+        // TODO(phase-7b): attach malformed-route diagnostics to action batches.
+        return {};
+    }
+
+    const int next_resource_id = static_cast<int>(edge->resource_id);
+
+    if (vehicle.current_resource_id == VehicleRuntime::kInvalidId) {
+        return SimAction{
+            SimActionType::RequestEnterResource,
+            vehicle.vehicle_id,
+            next_resource_id,
+            static_cast<int>(current_to),
+        };
+    }
+
+    if (vehicle.current_resource_id == next_resource_id) {
+        return SimAction{
+            SimActionType::RequestLeaveResource,
+            vehicle.vehicle_id,
+            next_resource_id,
+            static_cast<int>(current_to),
+        };
+    }
+
+    // TODO(phase-7b): resolve cross-resource transitions through deterministic batch decisions.
+    return {};
+}
+
+void Simulator::apply_enter_resource(VehicleRuntime& vehicle, int resource_id) {
+    if (reservations_.can_enter(resource_id, vehicle.vehicle_id, occupancy_)) {
+        const bool occupied = occupancy_.occupy(resource_id, vehicle.vehicle_id);
+        if (!occupied) {
+            vehicle.state = VehicleState::WaitingForResource;
+            vehicle.target_resource_id = resource_id;
+            return;
+        }
+
+        vehicle.state = VehicleState::OnResource;
+        vehicle.current_resource_id = resource_id;
+        if (vehicle.target_resource_id == resource_id) {
+            vehicle.target_resource_id = VehicleRuntime::kInvalidId;
+        }
+        return;
+    }
+
+    vehicle.state = VehicleState::WaitingForResource;
+    vehicle.target_resource_id = resource_id;
+}
+
+void Simulator::apply_leave_resource(VehicleRuntime& vehicle, int resource_id, bool advance_route) {
+    if (!occupancy_.is_occupied_by(resource_id, vehicle.vehicle_id)) {
+        return;
+    }
+
+    occupancy_.release(resource_id, vehicle.vehicle_id);
+
+    if (reservations_.is_reserved_by(resource_id, vehicle.vehicle_id)) {
+        reservations_.release_reservation(resource_id, vehicle.vehicle_id);
+    }
+
+    if (vehicle.current_resource_id == resource_id) {
+        vehicle.current_resource_id = VehicleRuntime::kInvalidId;
+    }
+
+    if (vehicle.state == VehicleState::OnResource) {
+        vehicle.state = VehicleState::Idle;
+    }
+
+    if (advance_route && vehicle.has_active_route && ((vehicle.route_index + 1U) < vehicle.route_nodes.size())) {
+        const oht::path_finder::NodeId next_node = vehicle.route_nodes[vehicle.route_index + 1U];
+        vehicle.current_node = static_cast<int>(next_node);
+        ++vehicle.route_index;
+
+        if ((vehicle.route_index + 1U) >= vehicle.route_nodes.size()) {
+            apply_complete_route(vehicle);
+        }
+    }
+
+    // TODO(phase-7b): evaluate->apply batch should handle queue retry and deterministic merge order.
+}
+
+void Simulator::apply_complete_route(VehicleRuntime& vehicle) {
+    vehicle.has_active_route = false;
+    vehicle.target_resource_id = VehicleRuntime::kInvalidId;
+
+    if (vehicle.current_resource_id == VehicleRuntime::kInvalidId) {
+        vehicle.state = VehicleState::Idle;
+    }
+}
+
+void Simulator::apply_action(const SimAction& action) {
+    if (action.type == SimActionType::NoOp) {
+        return;
+    }
+
+    VehicleRuntime* vehicle = find_vehicle_mutable(action.vehicle_id);
+    if (vehicle == nullptr) {
+        return;
+    }
+
+    switch (action.type) {
+        case SimActionType::NoOp:
+            return;
+        case SimActionType::RequestEnterResource:
+            if (action.resource_id == Event::kInvalidId) {
+                return;
+            }
+            apply_enter_resource(*vehicle, action.resource_id);
+            return;
+        case SimActionType::RequestLeaveResource:
+            if (action.resource_id == Event::kInvalidId) {
+                return;
+            }
+            apply_leave_resource(*vehicle, action.resource_id, true);
+            return;
+        case SimActionType::AdvanceRouteIndex:
+            if (vehicle->has_active_route && ((vehicle->route_index + 1U) < vehicle->route_nodes.size())) {
+                vehicle->current_node = static_cast<int>(vehicle->route_nodes[vehicle->route_index + 1U]);
+                ++vehicle->route_index;
+            }
+            return;
+        case SimActionType::CompleteRoute:
+            apply_complete_route(*vehicle);
+            return;
+    }
+}
+
 void Simulator::process_event(const Event& event) {
     world_.current_time_sec = std::max(world_.current_time_sec, event.time_sec);
 
@@ -154,29 +313,12 @@ void Simulator::process_event(const Event& event) {
                 return;
             }
 
-            VehicleRuntime* vehicle = find_vehicle(world_, event.vehicle_id);
-            if (vehicle == nullptr) {
-                return;
-            }
-
-            if (reservations_.can_enter(event.resource_id, event.vehicle_id, occupancy_)) {
-                const bool occupied = occupancy_.occupy(event.resource_id, event.vehicle_id);
-                if (!occupied) {
-                    vehicle->state = VehicleState::WaitingForResource;
-                    vehicle->target_resource_id = event.resource_id;
-                    return;
-                }
-
-                vehicle->state = VehicleState::OnResource;
-                vehicle->current_resource_id = event.resource_id;
-                if (vehicle->target_resource_id == event.resource_id) {
-                    vehicle->target_resource_id = VehicleRuntime::kInvalidId;
-                }
-                return;
-            }
-
-            vehicle->state = VehicleState::WaitingForResource;
-            vehicle->target_resource_id = event.resource_id;
+            apply_action(SimAction{
+                SimActionType::RequestEnterResource,
+                event.vehicle_id,
+                event.resource_id,
+                Event::kInvalidId,
+            });
             return;
         }
         case EventType::LeaveResource: {
@@ -184,28 +326,12 @@ void Simulator::process_event(const Event& event) {
                 return;
             }
 
-            VehicleRuntime* vehicle = find_vehicle(world_, event.vehicle_id);
+            VehicleRuntime* vehicle = find_vehicle_mutable(event.vehicle_id);
             if (vehicle == nullptr) {
                 return;
             }
 
-            if (!occupancy_.is_occupied_by(event.resource_id, event.vehicle_id)) {
-                return;
-            }
-
-            occupancy_.release(event.resource_id, event.vehicle_id);
-
-            if (reservations_.is_reserved_by(event.resource_id, event.vehicle_id)) {
-                reservations_.release_reservation(event.resource_id, event.vehicle_id);
-            }
-
-            if (vehicle->current_resource_id == event.resource_id) {
-                vehicle->current_resource_id = VehicleRuntime::kInvalidId;
-            }
-
-            if (vehicle->state == VehicleState::OnResource) {
-                vehicle->state = VehicleState::Idle;
-            }
+            apply_leave_resource(*vehicle, event.resource_id, false);
 
             // TODO(phase-4): add wait queue retry and re-entry scheduling.
             // TODO(phase-4): add multi-resource route reservation chain release.
@@ -214,82 +340,13 @@ void Simulator::process_event(const Event& event) {
             return;
         }
         case EventType::AdvanceRoute: {
-            VehicleRuntime* vehicle = find_vehicle(world_, event.vehicle_id);
+            const VehicleRuntime* vehicle = find_vehicle_const(event.vehicle_id);
             if (vehicle == nullptr) {
                 return;
             }
 
-            if (!vehicle->has_active_route) {
-                return;
-            }
-
-            if ((vehicle->route_index + 1U) >= vehicle->route_nodes.size()) {
-                vehicle->has_active_route = false;
-                if (vehicle->state != VehicleState::WaitingForResource &&
-                    vehicle->state != VehicleState::OnResource) {
-                    vehicle->state = VehicleState::Idle;
-                }
-                return;
-            }
-
-            const oht::path_finder::NodeId current_from = vehicle->route_nodes[vehicle->route_index];
-            const oht::path_finder::NodeId current_to = vehicle->route_nodes[vehicle->route_index + 1U];
-
-            if (!world_.loaded_graph.has_value()) {
-                // TODO(phase-7): add route diagnostics when graph metadata is unavailable.
-                return;
-            }
-
-            const oht::path_finder::EdgeMetadata* edge =
-                world_.loaded_graph->metadata.find_edge(current_from, current_to);
-            if (edge == nullptr || edge->resource_id < 0) {
-                // TODO(phase-7): add malformed-route diagnostics and fallback strategy.
-                return;
-            }
-
-            const int next_resource_id = static_cast<int>(edge->resource_id);
-
-            if (vehicle->current_resource_id != VehicleRuntime::kInvalidId &&
-                vehicle->current_resource_id != next_resource_id) {
-                schedule_event(Event{
-                    world_.current_time_sec,
-                    EventType::LeaveResource,
-                    event.vehicle_id,
-                    Event::kInvalidId,
-                    vehicle->current_resource_id,
-                });
-                return;
-            }
-
-            if (vehicle->current_resource_id == VehicleRuntime::kInvalidId) {
-                schedule_event(Event{
-                    world_.current_time_sec,
-                    EventType::EnterResource,
-                    event.vehicle_id,
-                    Event::kInvalidId,
-                    next_resource_id,
-                });
-                return;
-            }
-
-            schedule_event(Event{
-                world_.current_time_sec,
-                EventType::LeaveResource,
-                event.vehicle_id,
-                Event::kInvalidId,
-                next_resource_id,
-            });
-
-            vehicle->current_node = static_cast<int>(current_to);
-            ++vehicle->route_index;
-
-            if ((vehicle->route_index + 1U) >= vehicle->route_nodes.size()) {
-                vehicle->has_active_route = false;
-                vehicle->state = VehicleState::Idle;
-                vehicle->current_resource_id = VehicleRuntime::kInvalidId;
-            }
-
-            // TODO(phase-7): add blocked-resource retry, dwell-time, and multi-resource reservation.
+            const SimAction action = evaluate_advance_route(*vehicle);
+            apply_action(action);
             return;
         }
     }

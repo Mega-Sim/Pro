@@ -6,7 +6,9 @@
 #include "oht/path_finder/graph_loader.hpp"
 #include "oht/sim_core/event.hpp"
 #include "oht/sim_core/event_queue.hpp"
+#include "oht/sim_core/sim_action.hpp"
 #include "oht/sim_core/world_state.hpp"
+#include "oht/sim_core/vehicle_runtime.hpp"
 #include "oht/traffic_manager/occupancy_map.hpp"
 #include "oht/traffic_manager/reservation_manager.hpp"
 
@@ -32,6 +34,16 @@ public:
 
 private:
     void process_event(const Event& event);
+
+    const VehicleRuntime* find_vehicle_const(int vehicle_id) const;
+    VehicleRuntime* find_vehicle_mutable(int vehicle_id);
+
+    SimAction evaluate_advance_route(const VehicleRuntime& vehicle) const;
+
+    void apply_action(const SimAction& action);
+    void apply_enter_resource(VehicleRuntime& vehicle, int resource_id);
+    void apply_leave_resource(VehicleRuntime& vehicle, int resource_id, bool advance_route);
+    void apply_complete_route(VehicleRuntime& vehicle);
 
     EventQueue event_queue_;
     WorldState world_;
