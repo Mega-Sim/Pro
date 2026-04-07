@@ -1,7 +1,13 @@
-# sim_core (Phase 7A: Evaluate -> Apply Split)
+# sim_core (Phase 7B: Parallel Evaluate Skeleton)
 
-`sim_core`는 OHT 시뮬레이터 런타임 골격 위에서 Phase-7A 리팩터링을 통해
-경로 실행을 **평가(evaluate)** 와 **적용(apply/commit)** 으로 분리한 모듈입니다.
+`sim_core`는 OHT 시뮬레이터 런타임 골격 위에서 Phase-7A의 evaluate/apply 분리를 유지하면서,
+Phase-7B에서 **멀티스레드 가능한 평가(runtime skeleton)** 를 최소 범위로 추가한 모듈입니다.
+
+핵심 원칙:
+- 시뮬레이터(`Simulator`)가 유일한 authoritative world owner
+- worker는 `WorldSnapshot` 기반 읽기 전용 평가만 수행
+- action은 `ActionBatch`로 모은 뒤 deterministic 규칙으로 병합
+- apply/commit은 단일 스레드에서만 수행
 
 현재 포함 범위:
 - 이벤트 타입/구조체 (`VehicleSpawn`, `JobReady`, `Tick`, `EnterResource`, `LeaveResource`, `AdvanceRoute`)
@@ -10,24 +16,30 @@
 - 최소 시뮬레이터 루프(`schedule_event`, `step`, `run_until`)
 - `traffic_manager`의 `OccupancyMap`, `ReservationManager`와 최소 연계
 - 최소 action 모델(`SimAction`) 기반의 route evaluate -> apply 실행
-- directed edge(resource) 기반 최소 route step 실행(결정/변이 분리)
-- 현재 동작의 결정성(deterministic) 유지
+- read-only `WorldSnapshot` 기반 active-route batch evaluate
+- 고정 크기 `WorkerPool`(C++17 std::thread/condition_variable 기반)
+- deterministic action merge (`vehicle_id`, `action_type`, worker-local insertion 순)
+- 단일 스레드 apply (`apply_actions`)
 
-Phase-7A에서 의도적으로 아직 미포함:
-- worker pool
-- parallel batch evaluation
-- dispatch/task allocator 연계
-- idle_control 연계
-- deadlock handling/recovery
-- automatic rerouting
-- merge/intersection policies
+현재 parallel scope:
+- active route vehicle 평가 1회 배치(`evaluate_active_routes_parallel`, `advance_active_routes_parallel_once`)만 지원
+
+아직 의도적으로 미포함:
+- full task_allocator parallel integration
+- full idle_control parallel integration
+- rerouting
+- deadlock recovery
+- merge/intersection scheduling
 - graph compaction
-- travel-time/dwell-time 이동 모델
+- travel-time/dwell-time model
+- zone/partition sharding
+- telemetry/metrics pipeline
 
-TODO(Phase-7B):
-- worker pool 기반 병렬 평가 파이프라인
-- snapshot 모델(읽기 전용 평가 상태)
-- batch action 수집/적용 및 deterministic merge
-- task_allocator 연계
-- idle_control 연계
-- static graph context / dynamic world state 분리
+Phase-8 TODO:
+- task_allocator batch scoring on worker pool
+- idle_control fleet decision batches on worker pool
+- traffic_manager precheck actions
+- graph static-context cleanup (dynamic state와 분리)
+- zone/partition sharding
+- metrics/telemetry hooks
+- benchmark harness for 500 vehicles
