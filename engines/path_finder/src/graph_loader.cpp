@@ -294,6 +294,7 @@ void add_directed_edge(
     NodeId to,
     Graph* graph,
     GraphMetadata* metadata,
+    std::int64_t* next_resource_id,
     std::vector<std::size_t>* out_degrees,
     std::vector<std::size_t>* in_degrees) {
     if (from < 0 || to < 0 || static_cast<std::size_t>(from) >= parsed_nodes.size() ||
@@ -304,7 +305,12 @@ void add_directed_edge(
     const double distance = distance_between(parsed_nodes[from], parsed_nodes[to]);
     graph->add_edge(from, to, distance, distance);
 
-    metadata->edges.push_back(EdgeMetadata{from, to});
+    EdgeMetadata edge;
+    edge.resource_id = (*next_resource_id)++;
+    edge.from = from;
+    edge.to = to;
+    metadata->resource_to_edge_index.emplace(edge.resource_id, metadata->edges.size());
+    metadata->edges.push_back(edge);
     ++(*out_degrees)[from];
     ++(*in_degrees)[to];
 }
@@ -328,8 +334,10 @@ LoadedGraph GraphLoader::load_from_graph_json(const std::string& path) {
 
     LoadedGraph loaded;
     loaded.metadata.nodes.reserve(parsed_nodes.size());
+    loaded.metadata.resource_to_edge_index.reserve(parsed_edges.size() * 2U);
     std::vector<std::size_t> out_degrees(parsed_nodes.size(), 0);
     std::vector<std::size_t> in_degrees(parsed_nodes.size(), 0);
+    std::int64_t next_resource_id = 0;
 
     for (const Node& node : parsed_nodes) {
         loaded.graph.add_node(node.id, *node.x, *node.y);
@@ -344,6 +352,7 @@ LoadedGraph GraphLoader::load_from_graph_json(const std::string& path) {
                 edge.dir_to,
                 &loaded.graph,
                 &loaded.metadata,
+                &next_resource_id,
                 &out_degrees,
                 &in_degrees);
         } else {
@@ -353,6 +362,7 @@ LoadedGraph GraphLoader::load_from_graph_json(const std::string& path) {
                 edge.end,
                 &loaded.graph,
                 &loaded.metadata,
+                &next_resource_id,
                 &out_degrees,
                 &in_degrees);
             add_directed_edge(
@@ -361,6 +371,7 @@ LoadedGraph GraphLoader::load_from_graph_json(const std::string& path) {
                 edge.start,
                 &loaded.graph,
                 &loaded.metadata,
+                &next_resource_id,
                 &out_degrees,
                 &in_degrees);
         }
@@ -381,10 +392,10 @@ LoadedGraph GraphLoader::load_from_graph_json(const std::string& path) {
         }
     }
 
-    // TODO(phase-5): add graph compaction and block/resource segmentation.
-    // TODO(phase-5): infer parking/wait/station nodes, zones, and merge semantics.
-    // TODO(phase-5): replace fixed cost with speed profile and travel-time models.
-    // TODO(phase-5): integrate resource_id with traffic_manager and node kinds with idle_control.
+    // TODO(phase-6): add graph compaction and richer block/resource segmentation.
+    // TODO(phase-6): infer parking/wait/station nodes, zones, and merge semantics.
+    // TODO(phase-6): integrate route execution in sim_core and couple traffic_manager beyond per-edge resource ids.
+    // TODO(phase-6): enrich idle_control metadata and replace fixed cost with congestion-aware travel-time models.
 
     return loaded;
 }
