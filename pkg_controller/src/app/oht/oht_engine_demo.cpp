@@ -3,12 +3,13 @@
 
 #include "oht/path_finder/graph.hpp"
 #include "oht/path_finder/route_planner.hpp"
+#include "oht/task_allocator/job_queue.hpp"
 #include "oht/task_allocator/task_allocator.hpp"
 
 int main() {
     using oht::path_finder::Graph;
     using oht::path_finder::RoutePlanner;
-    using oht::task_allocator::Job;
+    using oht::task_allocator::JobQueue;
     using oht::task_allocator::TaskAllocator;
     using oht::task_allocator::VehicleState;
 
@@ -43,18 +44,19 @@ int main() {
         {103, 2, 0.0},
     };
 
-    const std::vector<Job> jobs = {
+    JobQueue job_queue;
+    job_queue.enqueue({
         {201, 2, 3, 0.0, 1.0},
         {202, 1, 4, 0.0, 2.0},
         {203, 4, 3, 1.0, 0.0},
-    };
+    });
 
     TaskAllocator allocator;
     allocator.set_route_planner(&route_planner);
 
-    const auto assignments = allocator.assign(vehicles, jobs);
+    const auto assignments = allocator.assign_from_queue(vehicles, job_queue, 0.0);
 
-    std::cout << "Assignments:\n";
+    std::cout << "Assignments (from queue):\n";
     for (const auto& assignment : assignments) {
         std::cout << "  vehicle=" << assignment.vehicle_id
                   << " job=" << assignment.job_id
@@ -65,3 +67,4 @@ int main() {
 
     return 0;
 }
+

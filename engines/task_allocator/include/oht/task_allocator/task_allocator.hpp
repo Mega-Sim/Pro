@@ -4,6 +4,7 @@
 
 #include "oht/path_finder/route_planner.hpp"
 #include "oht/task_allocator/job.hpp"
+#include "oht/task_allocator/job_queue.hpp"
 
 namespace oht::task_allocator {
 
@@ -24,6 +25,11 @@ public:
     std::vector<Assignment> assign(
         const std::vector<VehicleState>& vehicles,
         const std::vector<Job>& jobs) const;
+
+    std::vector<Assignment> assign_from_queue(
+        const std::vector<VehicleState>& vehicles,
+        JobQueue& job_queue,
+        double now) const;
 
 private:
     struct ScoreBreakdown {
