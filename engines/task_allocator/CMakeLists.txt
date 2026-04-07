@@ -1,5 +1,6 @@
 set(OHT_TASK_ALLOCATOR_SOURCES
-    src/task_allocator.cpp)
+    src/task_allocator.cpp
+    src/job_queue.cpp)
 
 add_library(oht_task_allocator ${OHT_TASK_ALLOCATOR_SOURCES})
 target_include_directories(oht_task_allocator

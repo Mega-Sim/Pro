@@ -57,6 +57,27 @@ std::vector<Assignment> TaskAllocator::assign(
     return assignments;
 }
 
+std::vector<Assignment> TaskAllocator::assign_from_queue(
+    const std::vector<VehicleState>& vehicles,
+    JobQueue& job_queue,
+    double now) const {
+    if (vehicles.empty() || job_queue.empty()) {
+        return {};
+    }
+
+    const std::vector<Job> ready_jobs = job_queue.list_ready(now, vehicles.size());
+    if (ready_jobs.empty()) {
+        return {};
+    }
+
+    std::vector<Assignment> assignments = assign(vehicles, ready_jobs);
+    for (const Assignment& assignment : assignments) {
+        job_queue.remove(assignment.job_id);
+    }
+
+    return assignments;
+}
+
 TaskAllocator::ScoreBreakdown TaskAllocator::score_candidate(
     const VehicleState& vehicle,
     const Job& job) const {
