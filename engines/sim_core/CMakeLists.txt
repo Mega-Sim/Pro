@@ -8,5 +8,6 @@ target_include_directories(oht_sim_core
         ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_link_libraries(oht_sim_core
     PUBLIC
+        oht_path_finder
         oht_traffic_manager)
 target_compile_features(oht_sim_core PUBLIC cxx_std_17)
