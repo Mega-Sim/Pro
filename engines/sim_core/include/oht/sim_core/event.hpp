@@ -8,6 +8,7 @@ enum class EventType {
     Tick,
     EnterResource,
     LeaveResource,
+    AdvanceRoute,
 };
 
 struct Event {
