@@ -1,8 +1,11 @@
 #include "oht/sim_core/simulator.hpp"
 
 #include <algorithm>
+#include <cmath>
 #include <cstdint>
+#include <limits>
 #include <optional>
+#include <string>
 
 #include "oht/sim_core/action_batch.hpp"
 #include "oht/sim_core/worker_pool.hpp"
@@ -11,6 +14,24 @@ namespace oht::sim_core {
 
 bool Simulator::load_graph(const oht::path_finder::LoadedGraph& loaded_graph) {
     graph_context_ = std::make_shared<GraphContext>(GraphContext::from_loaded_graph(loaded_graph));
+    route_planner_ = std::make_unique<oht::path_finder::RoutePlanner>(loaded_graph.graph);
+    task_allocator_.set_route_planner(route_planner_.get());
+    idle_controller_.set_travel_cost_fn(
+        [this](oht::idle_control::NodeId from, oht::idle_control::NodeId to) -> double {
+            if (!route_planner_) {
+                return std::abs(static_cast<double>(from - to));
+            }
+
+            const oht::path_finder::PathResult result =
+                route_planner_->find_shortest_path(
+                    static_cast<oht::path_finder::NodeId>(from),
+                    static_cast<oht::path_finder::NodeId>(to));
+            if (!result.found) {
+                return std::numeric_limits<double>::infinity();
+            }
+
+            return result.total_cost;
+        });
     return true;
 }
 
@@ -70,6 +91,15 @@ bool Simulator::schedule_advance_route(double time_sec, int vehicle_id) {
         Event::kInvalidId,
         Event::kInvalidId,
     });
+    return true;
+}
+
+bool Simulator::upsert_job(const oht::task_allocator::Job& job) {
+    if (job.id == 0) {
+        return false;
+    }
+
+    jobs_by_id_[static_cast<int>(job.id)] = job;
     return true;
 }
 
@@ -391,10 +421,10 @@ void Simulator::process_event(const Event& event) {
             return;
         }
         case EventType::JobReady:
-            // TODO(phase-4): integrate task allocator and dispatch decisions.
-            // TODO(phase-4): connect congestion-aware dispatch policy.
+            process_job_ready_event(event);
             return;
         case EventType::Tick:
+            process_tick_event();
             return;
         case EventType::EnterResource: {
             if (event.vehicle_id == Event::kInvalidId || event.resource_id == Event::kInvalidId) {
@@ -438,6 +468,156 @@ void Simulator::process_event(const Event& event) {
             return;
         }
     }
+}
+
+void Simulator::process_job_ready_event(const Event& event) {
+    if (!route_planner_) {
+        // TODO(phase-4): support queue-only mode before static graph is loaded.
+        return;
+    }
+
+    if (event.job_id == Event::kInvalidId) {
+        // TODO(phase-4): consume batch-ready jobs once external ingestion provides queue cursor.
+        return;
+    }
+
+    const auto job_it = jobs_by_id_.find(event.job_id);
+    if (job_it == jobs_by_id_.end()) {
+        // TODO(phase-4): wire external job store -> sim_core to avoid dropping unknown job ids.
+        return;
+    }
+
+    job_queue_.remove(job_it->second.id);
+    job_queue_.enqueue(job_it->second);
+
+    std::vector<oht::task_allocator::VehicleState> available_vehicles;
+    available_vehicles.reserve(world_.vehicles.size());
+    for (const VehicleRuntime& vehicle : world_.vehicles) {
+        if (vehicle.has_active_route || vehicle.state == VehicleState::WaitingForResource) {
+            continue;
+        }
+
+        available_vehicles.push_back(oht::task_allocator::VehicleState{
+            vehicle.vehicle_id,
+            static_cast<oht::path_finder::NodeId>(vehicle.current_node),
+            world_.current_time_sec});
+    }
+
+    const std::vector<oht::task_allocator::Assignment> assignments =
+        task_allocator_.assign_from_queue(available_vehicles, job_queue_, world_.current_time_sec);
+
+    for (const oht::task_allocator::Assignment& assignment : assignments) {
+        VehicleRuntime* vehicle = find_vehicle_mutable(static_cast<int>(assignment.vehicle_id));
+        if (vehicle == nullptr) {
+            continue;
+        }
+
+        const auto assigned_job_it = jobs_by_id_.find(static_cast<int>(assignment.job_id));
+        if (assigned_job_it == jobs_by_id_.end()) {
+            // TODO(phase-4): guarantee assignment->job lookup through immutable event payload.
+            continue;
+        }
+
+        const oht::task_allocator::Job& job = assigned_job_it->second;
+
+        const oht::path_finder::PathResult to_pickup =
+            route_planner_->find_shortest_path(
+                static_cast<oht::path_finder::NodeId>(vehicle->current_node),
+                job.pickup_node);
+        if (!to_pickup.found || to_pickup.path.empty()) {
+            continue;
+        }
+
+        const oht::path_finder::PathResult to_dropoff =
+            route_planner_->find_shortest_path(job.pickup_node, job.dropoff_node);
+        if (!to_dropoff.found || to_dropoff.path.empty()) {
+            continue;
+        }
+
+        std::vector<oht::path_finder::NodeId> route_nodes = to_pickup.path;
+        route_nodes.insert(route_nodes.end(), to_dropoff.path.begin() + 1, to_dropoff.path.end());
+        if (!set_vehicle_route(vehicle->vehicle_id, route_nodes)) {
+            continue;
+        }
+
+        vehicle->state = VehicleState::Busy;
+        (void)schedule_advance_route(world_.current_time_sec, vehicle->vehicle_id);
+    }
+
+    // TODO(phase-4): keep congestion-aware dispatch behind a feature flag (default false).
+    // TODO(phase-4): add predictive balancing hook without changing initial allocator behavior.
+}
+
+void Simulator::process_tick_event() {
+    std::vector<oht::idle_control::IdleVehicleState> idle_vehicles;
+    idle_vehicles.reserve(world_.vehicles.size());
+
+    for (const VehicleRuntime& vehicle : world_.vehicles) {
+        if (vehicle.has_active_route || vehicle.state == VehicleState::WaitingForResource) {
+            continue;
+        }
+
+        oht::idle_control::IdleVehicleState idle_vehicle;
+        idle_vehicle.vehicle_id = std::to_string(vehicle.vehicle_id);
+        idle_vehicle.current_node = static_cast<oht::idle_control::NodeId>(vehicle.current_node);
+        idle_vehicle.is_idle = (vehicle.state == VehicleState::Idle || vehicle.state == VehicleState::Parked);
+        idle_vehicle.has_job = false;
+        idle_vehicle.is_loaded = false;
+        idle_vehicle.dwell_time_sec = world_.current_time_sec;
+        idle_vehicle.last_idle_action_time_sec =
+            last_idle_action_time_sec_by_vehicle_.count(vehicle.vehicle_id) > 0
+                ? last_idle_action_time_sec_by_vehicle_.at(vehicle.vehicle_id)
+                : 0.0;
+
+        const auto last_target_it = last_idle_target_by_vehicle_.find(vehicle.vehicle_id);
+        if (last_target_it != last_idle_target_by_vehicle_.end()) {
+            idle_vehicle.last_target_node = static_cast<oht::idle_control::NodeId>(last_target_it->second);
+        }
+
+        idle_vehicles.push_back(std::move(idle_vehicle));
+    }
+
+    oht::idle_control::IdleWorldSnapshot snapshot;
+    snapshot.current_time_sec = world_.current_time_sec;
+    snapshot.vehicles = idle_vehicles;
+
+    // TODO(phase-4): populate candidate_nodes from explicit parking/standby metadata.
+    // NOTE(initial-engine): empty candidate list means HoldPosition no-op decisions only.
+    const std::vector<oht::idle_control::IdleDecision> decisions =
+        idle_controller_.decide_for_fleet(idle_vehicles, snapshot);
+
+    for (const oht::idle_control::IdleDecision& decision : decisions) {
+        if (!decision.target_node.has_value()) {
+            continue;
+        }
+
+        const int vehicle_id = std::stoi(decision.vehicle_id);
+        VehicleRuntime* vehicle = find_vehicle_mutable(vehicle_id);
+        if (vehicle == nullptr || route_planner_ == nullptr) {
+            continue;
+        }
+
+        const oht::path_finder::PathResult relocation =
+            route_planner_->find_shortest_path(
+                static_cast<oht::path_finder::NodeId>(vehicle->current_node),
+                static_cast<oht::path_finder::NodeId>(*decision.target_node));
+        if (!relocation.found || relocation.path.empty()) {
+            continue;
+        }
+
+        if (!set_vehicle_route(vehicle->vehicle_id, relocation.path)) {
+            continue;
+        }
+
+        vehicle->state = VehicleState::Busy;
+        last_idle_action_time_sec_by_vehicle_[vehicle->vehicle_id] = world_.current_time_sec;
+        last_idle_target_by_vehicle_[vehicle->vehicle_id] = relocation.path.back();
+        (void)schedule_advance_route(world_.current_time_sec, vehicle->vehicle_id);
+    }
+
+    // TODO(phase-4): keep dynamic reroute disabled in initial engine.
+    // TODO(phase-4): keep deadlock recovery disabled in initial engine.
+    // TODO(phase-4): keep advanced zone optimization disabled in initial engine.
 }
 
 }  // namespace oht::sim_core
