@@ -5,6 +5,7 @@
 
 #include "oht/path_finder/graph.hpp"
 #include "oht/path_finder/graph_loader.hpp"
+#include "oht/sim_core/graph_context.hpp"
 #include "oht/sim_core/event.hpp"
 #include "oht/sim_core/event_queue.hpp"
 #include "oht/sim_core/sim_action.hpp"
@@ -51,7 +52,9 @@ private:
     VehicleRuntime* find_vehicle_mutable(int vehicle_id);
 
     SimAction evaluate_advance_route(const VehicleRuntime& vehicle) const;
-    SimAction evaluate_advance_route_snapshot(const WorldSnapshot::VehicleSnapshot& vehicle) const;
+    SimAction evaluate_advance_route_snapshot(
+        const WorldSnapshot::VehicleSnapshot& vehicle,
+        const GraphContext& graph_context) const;
 
     void apply_action(const SimAction& action);
     void apply_enter_resource(VehicleRuntime& vehicle, int resource_id);
@@ -60,6 +63,7 @@ private:
 
     EventQueue event_queue_;
     WorldState world_;
+    std::shared_ptr<const GraphContext> graph_context_;
     oht::traffic_manager::OccupancyMap occupancy_;
     oht::traffic_manager::ReservationManager reservations_;
     std::size_t worker_count_ = 1;

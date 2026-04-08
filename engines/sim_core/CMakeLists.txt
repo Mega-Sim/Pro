@@ -1,5 +1,6 @@
 set(OHT_SIM_CORE_SOURCES
     src/action_batch.cpp
+    src/graph_context.cpp
     src/event_queue.cpp
     src/simulator.cpp
     src/worker_pool.cpp)

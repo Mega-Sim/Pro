@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cstdint>
+#include <optional>
 
 #include "oht/sim_core/action_batch.hpp"
 #include "oht/sim_core/worker_pool.hpp"
@@ -9,7 +10,7 @@
 namespace oht::sim_core {
 
 bool Simulator::load_graph(const oht::path_finder::LoadedGraph& loaded_graph) {
-    world_.loaded_graph = loaded_graph;
+    graph_context_ = std::make_shared<GraphContext>(GraphContext::from_loaded_graph(loaded_graph));
     return true;
 }
 
@@ -121,6 +122,7 @@ WorldSnapshot Simulator::make_snapshot() const {
     WorldSnapshot snapshot;
     snapshot.current_time_sec = world_.current_time_sec;
     snapshot.vehicles.reserve(world_.vehicles.size());
+    snapshot.graph_context = graph_context_;
 
     for (const VehicleRuntime& vehicle : world_.vehicles) {
         if (!vehicle.has_active_route) {
@@ -154,7 +156,13 @@ std::vector<SimAction> Simulator::evaluate_active_routes_parallel() const {
     worker_pool_->parallel_for(
         snapshot.vehicles.size(),
         [&snapshot, &action_batch, this](std::size_t worker_index, std::size_t item_index) {
-            const SimAction action = evaluate_advance_route_snapshot(snapshot.vehicles[item_index]);
+            if (!snapshot.graph_context) {
+                return;
+            }
+
+            const SimAction action = evaluate_advance_route_snapshot(
+                snapshot.vehicles[item_index],
+                *snapshot.graph_context);
             if (action.type != SimActionType::NoOp) {
                 action_batch.append(worker_index, action);
             }
@@ -217,17 +225,25 @@ VehicleRuntime* Simulator::find_vehicle_mutable(int vehicle_id) {
 }
 
 SimAction Simulator::evaluate_advance_route(const VehicleRuntime& vehicle) const {
-    return evaluate_advance_route_snapshot(WorldSnapshot::VehicleSnapshot{
-        vehicle.vehicle_id,
-        vehicle.current_node,
-        vehicle.current_resource_id,
-        vehicle.route_nodes,
-        vehicle.route_index,
-        vehicle.has_active_route,
-    });
+    if (!graph_context_) {
+        return {};
+    }
+
+    return evaluate_advance_route_snapshot(
+        WorldSnapshot::VehicleSnapshot{
+            vehicle.vehicle_id,
+            vehicle.current_node,
+            vehicle.current_resource_id,
+            vehicle.route_nodes,
+            vehicle.route_index,
+            vehicle.has_active_route,
+        },
+        *graph_context_);
 }
 
-SimAction Simulator::evaluate_advance_route_snapshot(const WorldSnapshot::VehicleSnapshot& vehicle) const {
+SimAction Simulator::evaluate_advance_route_snapshot(
+    const WorldSnapshot::VehicleSnapshot& vehicle,
+    const GraphContext& graph_context) const {
     if (!vehicle.has_active_route) {
         return {};
     }
@@ -236,37 +252,29 @@ SimAction Simulator::evaluate_advance_route_snapshot(const WorldSnapshot::Vehicl
         return SimAction{SimActionType::CompleteRoute, vehicle.vehicle_id};
     }
 
-    if (!world_.loaded_graph.has_value()) {
-        // TODO(phase-8): move static graph context into immutable snapshot payload.
-        return {};
-    }
-
     const oht::path_finder::NodeId current_from = vehicle.route_nodes[vehicle.route_index];
     const oht::path_finder::NodeId current_to = vehicle.route_nodes[vehicle.route_index + 1U];
 
-    const oht::path_finder::EdgeMetadata* edge =
-        world_.loaded_graph->metadata.find_edge(current_from, current_to);
-    if (edge == nullptr || edge->resource_id < 0) {
+    const std::optional<int> next_resource_id = graph_context.find_resource_id(current_from, current_to);
+    if (!next_resource_id.has_value()) {
         // TODO(phase-8): attach malformed-route diagnostics to action batches.
         return {};
     }
-
-    const int next_resource_id = static_cast<int>(edge->resource_id);
 
     if (vehicle.current_resource_id == VehicleRuntime::kInvalidId) {
         return SimAction{
             SimActionType::RequestEnterResource,
             vehicle.vehicle_id,
-            next_resource_id,
+            *next_resource_id,
             static_cast<int>(current_to),
         };
     }
 
-    if (vehicle.current_resource_id == next_resource_id) {
+    if (vehicle.current_resource_id == *next_resource_id) {
         return SimAction{
             SimActionType::RequestLeaveResource,
             vehicle.vehicle_id,
-            next_resource_id,
+            *next_resource_id,
             static_cast<int>(current_to),
         };
     }
