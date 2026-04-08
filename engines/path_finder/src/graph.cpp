@@ -50,4 +50,15 @@ const Node* Graph::get_node(NodeId id) const {
     return &it->second;
 }
 
+std::vector<NodeId> Graph::node_ids() const {
+    std::vector<NodeId> ids;
+    ids.reserve(nodes_.size());
+
+    for (const auto& [id, _] : nodes_) {
+        ids.push_back(id);
+    }
+
+    return ids;
+}
+
 }  // namespace oht::path_finder
