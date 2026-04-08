@@ -14,7 +14,9 @@ find_package(Threads REQUIRED)
 
 target_link_libraries(oht_sim_core
     PUBLIC
+        oht_idle_control
         oht_path_finder
+        oht_task_allocator
         oht_traffic_manager
     PRIVATE
         Threads::Threads)
