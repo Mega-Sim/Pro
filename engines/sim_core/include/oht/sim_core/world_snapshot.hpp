@@ -1,11 +1,14 @@
 #pragma once
 
 #include <cstddef>
+#include <memory>
 #include <vector>
 
 #include "oht/path_finder/graph.hpp"
 
 namespace oht::sim_core {
+
+class GraphContext;
 
 struct WorldSnapshot {
     struct VehicleSnapshot {
@@ -19,6 +22,7 @@ struct WorldSnapshot {
 
     double current_time_sec = 0.0;
     std::vector<VehicleSnapshot> vehicles;
+    std::shared_ptr<const GraphContext> graph_context;
 };
 
 }  // namespace oht::sim_core
