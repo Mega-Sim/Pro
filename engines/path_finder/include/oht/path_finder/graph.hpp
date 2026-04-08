@@ -29,6 +29,7 @@ public:
     bool has_node(NodeId id) const;
     const std::vector<Edge>& neighbors(NodeId id) const;
     const Node* get_node(NodeId id) const;
+    std::vector<NodeId> node_ids() const;
 
 private:
     std::unordered_map<NodeId, Node> nodes_;
