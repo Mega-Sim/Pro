@@ -3,14 +3,18 @@
 #include <algorithm>
 #include <cmath>
 #include <cstdint>
+#include <iostream>
 #include <limits>
 #include <optional>
 #include <string>
+#include <unordered_set>
 
 #include "oht/sim_core/action_batch.hpp"
 #include "oht/sim_core/worker_pool.hpp"
 
 namespace oht::sim_core {
+
+Simulator::~Simulator() = default;
 
 bool Simulator::load_graph(const oht::path_finder::LoadedGraph& loaded_graph) {
     graph_context_ = std::make_shared<GraphContext>(GraphContext::from_loaded_graph(loaded_graph));
@@ -503,18 +507,32 @@ void Simulator::process_job_ready_event(const Event& event) {
             world_.current_time_sec});
     }
 
+    const std::vector<oht::task_allocator::Job> ready_jobs =
+        job_queue_.list_ready(world_.current_time_sec, job_queue_.size());
+    if (ready_jobs.empty()) {
+        std::clog << "[sim_core] JobReady: no job is ready at t=" << world_.current_time_sec << '\n';
+        return;
+    }
+
     const std::vector<oht::task_allocator::Assignment> assignments =
-        task_allocator_.assign_from_queue(available_vehicles, job_queue_, world_.current_time_sec);
+        task_allocator_.assign(available_vehicles, ready_jobs);
+    std::unordered_set<int> assigned_vehicle_ids;
 
     for (const oht::task_allocator::Assignment& assignment : assignments) {
+        if (assigned_vehicle_ids.find(static_cast<int>(assignment.vehicle_id)) != assigned_vehicle_ids.end()) {
+            // NOTE(initial-engine): allow only one new job assignment per vehicle in a single JobReady handling.
+            continue;
+        }
+
         VehicleRuntime* vehicle = find_vehicle_mutable(static_cast<int>(assignment.vehicle_id));
         if (vehicle == nullptr) {
+            std::clog << "[sim_core] JobReady skip: missing vehicle id=" << assignment.vehicle_id << '\n';
             continue;
         }
 
         const auto assigned_job_it = jobs_by_id_.find(static_cast<int>(assignment.job_id));
         if (assigned_job_it == jobs_by_id_.end()) {
-            // TODO(phase-4): guarantee assignment->job lookup through immutable event payload.
+            std::clog << "[sim_core] JobReady skip: missing job id=" << assignment.job_id << '\n';
             continue;
         }
 
@@ -525,21 +543,33 @@ void Simulator::process_job_ready_event(const Event& event) {
                 static_cast<oht::path_finder::NodeId>(vehicle->current_node),
                 job.pickup_node);
         if (!to_pickup.found || to_pickup.path.empty()) {
+            std::clog << "[sim_core] JobReady skip: no path to pickup vehicle="
+                      << vehicle->vehicle_id << " job=" << job.id << '\n';
             continue;
         }
 
         const oht::path_finder::PathResult to_dropoff =
             route_planner_->find_shortest_path(job.pickup_node, job.dropoff_node);
         if (!to_dropoff.found || to_dropoff.path.empty()) {
+            std::clog << "[sim_core] JobReady skip: no path pickup->dropoff for job=" << job.id << '\n';
+            continue;
+        }
+
+        if (to_pickup.path.back() != to_dropoff.path.front()) {
+            std::clog << "[sim_core] JobReady skip: malformed route stitching job=" << job.id << '\n';
             continue;
         }
 
         std::vector<oht::path_finder::NodeId> route_nodes = to_pickup.path;
         route_nodes.insert(route_nodes.end(), to_dropoff.path.begin() + 1, to_dropoff.path.end());
         if (!set_vehicle_route(vehicle->vehicle_id, route_nodes)) {
+            std::clog << "[sim_core] JobReady skip: failed to set vehicle route vehicle="
+                      << vehicle->vehicle_id << " job=" << job.id << '\n';
             continue;
         }
 
+        (void)job_queue_.remove(assignment.job_id);
+        assigned_vehicle_ids.insert(vehicle->vehicle_id);
         vehicle->state = VehicleState::Busy;
         (void)schedule_advance_route(world_.current_time_sec, vehicle->vehicle_id);
     }

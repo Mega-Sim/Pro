@@ -9,6 +9,7 @@
 #include "oht/path_finder/graph_loader.hpp"
 #include "oht/path_finder/route_planner.hpp"
 #include "oht/sim_core/graph_context.hpp"
+#include "oht/sim_core/worker_pool.hpp"
 #include "oht/sim_core/event.hpp"
 #include "oht/sim_core/event_queue.hpp"
 #include "oht/sim_core/sim_action.hpp"
@@ -27,6 +28,8 @@ class WorkerPool;
 
 class Simulator {
 public:
+    ~Simulator();
+
     bool load_graph(const oht::path_finder::LoadedGraph& loaded_graph);
     bool spawn_vehicle(int vehicle_id, int start_node);
     bool set_vehicle_route(int vehicle_id, const std::vector<oht::path_finder::NodeId>& route_nodes);
