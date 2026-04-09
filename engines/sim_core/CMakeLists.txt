@@ -21,3 +21,10 @@ target_link_libraries(oht_sim_core
     PRIVATE
         Threads::Threads)
 target_compile_features(oht_sim_core PUBLIC cxx_std_17)
+
+add_executable(oht_sim_core_job_ready_example
+    examples/job_ready_basic_dispatch_example.cpp)
+target_link_libraries(oht_sim_core_job_ready_example
+    PRIVATE
+        oht_sim_core)
+target_compile_features(oht_sim_core_job_ready_example PRIVATE cxx_std_17)
