@@ -14,10 +14,42 @@
 
 namespace oht::sim_core {
 
+namespace {
+
+const oht::path_finder::NodeMetadata* find_node_metadata(
+    const oht::path_finder::GraphMetadata& metadata,
+    oht::path_finder::NodeId node_id) {
+    const auto it = std::find_if(
+        metadata.nodes.begin(),
+        metadata.nodes.end(),
+        [node_id](const oht::path_finder::NodeMetadata& node) {
+            return node.node_id == node_id;
+        });
+    if (it == metadata.nodes.end()) {
+        return nullptr;
+    }
+    return &(*it);
+}
+
+bool has_incident_edge_kind(
+    const oht::path_finder::GraphMetadata& metadata,
+    oht::path_finder::NodeId node_id,
+    oht::path_finder::EdgeKind kind) {
+    return std::any_of(
+        metadata.edges.begin(),
+        metadata.edges.end(),
+        [node_id, kind](const oht::path_finder::EdgeMetadata& edge) {
+            return edge.kind == kind && (edge.from == node_id || edge.to == node_id);
+        });
+}
+
+}  // namespace
+
 Simulator::~Simulator() = default;
 
 bool Simulator::load_graph(const oht::path_finder::LoadedGraph& loaded_graph) {
     graph_context_ = std::make_shared<GraphContext>(GraphContext::from_loaded_graph(loaded_graph));
+    graph_metadata_ = loaded_graph.metadata;
     route_planner_ = std::make_unique<oht::path_finder::RoutePlanner>(loaded_graph.graph);
     task_allocator_.set_route_planner(route_planner_.get());
     idle_controller_.set_travel_cost_fn(
@@ -583,6 +615,21 @@ void Simulator::process_tick_event() {
     idle_vehicles.reserve(world_.vehicles.size());
 
     for (const VehicleRuntime& vehicle : world_.vehicles) {
+        const bool is_idle_now =
+            !vehicle.has_active_route &&
+            vehicle.state != VehicleState::WaitingForResource &&
+            (vehicle.state == VehicleState::Idle || vehicle.state == VehicleState::Parked);
+        if (!is_idle_now) {
+            idle_since_time_sec_by_vehicle_.erase(vehicle.vehicle_id);
+            continue;
+        }
+
+        if (idle_since_time_sec_by_vehicle_.count(vehicle.vehicle_id) == 0U) {
+            idle_since_time_sec_by_vehicle_[vehicle.vehicle_id] = world_.current_time_sec;
+        }
+    }
+
+    for (const VehicleRuntime& vehicle : world_.vehicles) {
         if (vehicle.has_active_route || vehicle.state == VehicleState::WaitingForResource) {
             continue;
         }
@@ -593,7 +640,10 @@ void Simulator::process_tick_event() {
         idle_vehicle.is_idle = (vehicle.state == VehicleState::Idle || vehicle.state == VehicleState::Parked);
         idle_vehicle.has_job = false;
         idle_vehicle.is_loaded = false;
-        idle_vehicle.dwell_time_sec = world_.current_time_sec;
+        const double idle_since = idle_since_time_sec_by_vehicle_.count(vehicle.vehicle_id) > 0U
+            ? idle_since_time_sec_by_vehicle_.at(vehicle.vehicle_id)
+            : world_.current_time_sec;
+        idle_vehicle.dwell_time_sec = std::max(0.0, world_.current_time_sec - idle_since);
         idle_vehicle.last_idle_action_time_sec =
             last_idle_action_time_sec_by_vehicle_.count(vehicle.vehicle_id) > 0
                 ? last_idle_action_time_sec_by_vehicle_.at(vehicle.vehicle_id)
@@ -604,26 +654,97 @@ void Simulator::process_tick_event() {
             idle_vehicle.last_target_node = static_cast<oht::idle_control::NodeId>(last_target_it->second);
         }
 
+        const oht::path_finder::NodeId current_node = static_cast<oht::path_finder::NodeId>(vehicle.current_node);
+        const oht::path_finder::NodeMetadata* node = find_node_metadata(graph_metadata_, current_node);
+        if (node != nullptr && node->zone_id.has_value()) {
+            idle_vehicle.current_zone = std::to_string(*node->zone_id);
+        }
+
+        idle_vehicle.near_station =
+            (node != nullptr && node->kind == oht::path_finder::NodeKind::StationCandidate);
+        idle_vehicle.near_merge =
+            has_incident_edge_kind(graph_metadata_, current_node, oht::path_finder::EdgeKind::MergeCandidate);
+        idle_vehicle.on_main_flow =
+            has_incident_edge_kind(graph_metadata_, current_node, oht::path_finder::EdgeKind::MainFlowCandidate);
+        idle_vehicle.blocking_score =
+            (idle_vehicle.on_main_flow ? 0.6 : 0.0) +
+            (idle_vehicle.near_merge ? 0.25 : 0.0) +
+            (idle_vehicle.near_station ? 0.2 : 0.0);
+
         idle_vehicles.push_back(std::move(idle_vehicle));
     }
 
     oht::idle_control::IdleWorldSnapshot snapshot;
     snapshot.current_time_sec = world_.current_time_sec;
     snapshot.vehicles = idle_vehicles;
+    snapshot.candidate_nodes.reserve(graph_metadata_.nodes.size());
+    for (const oht::path_finder::NodeMetadata& node : graph_metadata_.nodes) {
+        oht::idle_control::IdleNodeInfo candidate;
+        candidate.node_id = static_cast<oht::idle_control::NodeId>(node.node_id);
+        candidate.is_parking_node = (node.kind == oht::path_finder::NodeKind::ParkingCandidate);
+        candidate.is_wait_node = (node.kind == oht::path_finder::NodeKind::WaitCandidate);
+        candidate.is_standby_node = candidate.is_wait_node;
+        candidate.is_protected = node.is_protected;
+        candidate.is_near_station = (node.kind == oht::path_finder::NodeKind::StationCandidate);
+        candidate.is_near_merge = has_incident_edge_kind(
+            graph_metadata_,
+            node.node_id,
+            oht::path_finder::EdgeKind::MergeCandidate);
+        candidate.is_on_main_flow = has_incident_edge_kind(
+            graph_metadata_,
+            node.node_id,
+            oht::path_finder::EdgeKind::MainFlowCandidate);
+        candidate.is_high_traffic = candidate.is_on_main_flow || candidate.is_near_merge;
+        candidate.is_reserved = false;
+        candidate.is_occupied = false;
+        candidate.capacity = 1;
+        candidate.used_count = 0;
+        if (node.zone_id.has_value()) {
+            candidate.zone_id = std::to_string(*node.zone_id);
+        }
 
-    // TODO(phase-4): populate candidate_nodes from explicit parking/standby metadata.
-    // NOTE(initial-engine): empty candidate list means HoldPosition no-op decisions only.
+        if (!candidate.is_parking_node && !candidate.is_standby_node && !candidate.is_wait_node) {
+            continue;
+        }
+        snapshot.candidate_nodes.push_back(std::move(candidate));
+    }
+
     const std::vector<oht::idle_control::IdleDecision> decisions =
         idle_controller_.decide_for_fleet(idle_vehicles, snapshot);
 
+    auto is_safe_target = [&snapshot](oht::idle_control::NodeId node_id) {
+        const auto candidate_it = std::find_if(
+            snapshot.candidate_nodes.begin(),
+            snapshot.candidate_nodes.end(),
+            [node_id](const oht::idle_control::IdleNodeInfo& node) { return node.node_id == node_id; });
+        if (candidate_it == snapshot.candidate_nodes.end()) {
+            return false;
+        }
+
+        return !candidate_it->is_protected &&
+               !candidate_it->is_reserved &&
+               !candidate_it->is_occupied &&
+               snapshot.blocked_nodes.find(node_id) == snapshot.blocked_nodes.end() &&
+               snapshot.reserved_nodes.find(node_id) == snapshot.reserved_nodes.end() &&
+               snapshot.protected_nodes.find(node_id) == snapshot.protected_nodes.end();
+    };
+
     for (const oht::idle_control::IdleDecision& decision : decisions) {
         if (!decision.target_node.has_value()) {
+            std::clog << "[sim_core] Tick idle action hold vehicle=" << decision.vehicle_id
+                      << " reason=" << decision.reason << '\n';
             continue;
         }
 
         const int vehicle_id = std::stoi(decision.vehicle_id);
         VehicleRuntime* vehicle = find_vehicle_mutable(vehicle_id);
         if (vehicle == nullptr || route_planner_ == nullptr) {
+            continue;
+        }
+
+        if (!is_safe_target(*decision.target_node)) {
+            std::clog << "[sim_core] Tick idle action skip vehicle=" << decision.vehicle_id
+                      << " reason=unsafe_target target=" << *decision.target_node << '\n';
             continue;
         }
 
@@ -642,6 +763,12 @@ void Simulator::process_tick_event() {
         vehicle->state = VehicleState::Busy;
         last_idle_action_time_sec_by_vehicle_[vehicle->vehicle_id] = world_.current_time_sec;
         last_idle_target_by_vehicle_[vehicle->vehicle_id] = relocation.path.back();
+        idle_since_time_sec_by_vehicle_.erase(vehicle->vehicle_id);
+        std::clog << "[sim_core] Tick idle action relocate vehicle=" << decision.vehicle_id
+                  << " action=" << static_cast<int>(decision.action_type)
+                  << " reason=" << decision.reason
+                  << " from=" << vehicle->current_node
+                  << " to=" << relocation.path.back() << '\n';
         (void)schedule_advance_route(world_.current_time_sec, vehicle->vehicle_id);
     }
 
