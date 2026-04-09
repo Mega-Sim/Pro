@@ -54,3 +54,13 @@ Phase-8 TODO:
 - zone/partition sharding
 - metrics/telemetry hooks
 - benchmark harness for 500 vehicles
+
+## 초기 엔진 검증(headless smoke) 실행
+- 목적: `graph_maker/graph.json` 로딩부터 JobReady/route advance/Tick까지 최소 루프가 동작하는지 확인합니다.
+- 빌드: `cmake -S engines -B build/engines && cmake --build build/engines --target oht_sim_core_initial_engine_smoke_example`
+- 실행(저장소 루트 기준): `./build/engines/sim_core/oht_sim_core_initial_engine_smoke_example`
+- 실행 결과에는 아래 최소 검증 지표가 출력됩니다.
+- `assigned_jobs`: JobReady 처리 후 실제 route가 잡힌 job 수
+- `path_not_found`: pickup/dropoff 또는 접근 경로 미존재로 실패한 건수
+- `moving_vehicles`, `idle_relocation`: route 진행/idle 재배치 상태
+- `idle_result parking/standby/hold`: Tick 1회 이후 idle 의사결정 결과 요약
