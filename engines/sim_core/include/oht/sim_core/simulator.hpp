@@ -6,6 +6,7 @@
 
 #include "oht/idle_control/idle_controller.hpp"
 #include "oht/path_finder/graph.hpp"
+#include "oht/path_finder/graph_metadata.hpp"
 #include "oht/path_finder/graph_loader.hpp"
 #include "oht/path_finder/route_planner.hpp"
 #include "oht/sim_core/graph_context.hpp"
@@ -82,8 +83,10 @@ private:
     oht::task_allocator::TaskAllocator task_allocator_;
     oht::task_allocator::JobQueue job_queue_;
     std::unordered_map<int, oht::task_allocator::Job> jobs_by_id_;
+    oht::path_finder::GraphMetadata graph_metadata_;
     oht::idle_control::IdleController idle_controller_;
     std::unordered_map<int, double> last_idle_action_time_sec_by_vehicle_;
+    std::unordered_map<int, double> idle_since_time_sec_by_vehicle_;
     std::unordered_map<int, oht::path_finder::NodeId> last_idle_target_by_vehicle_;
     std::size_t worker_count_ = 1;
     mutable std::unique_ptr<WorkerPool> worker_pool_;

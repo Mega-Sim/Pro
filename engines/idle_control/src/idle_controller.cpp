@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cmath>
 #include <limits>
+#include <sstream>
 #include <unordered_map>
 
 namespace oht::idle_control {
@@ -111,13 +112,14 @@ IdleDecision IdleController::decide_impl(
 
     const bool blocking_now = is_blocking_position(vehicle, config_.blocking_priority_threshold);
     const double elapsed_since_last_action = snapshot.current_time_sec - vehicle.last_idle_action_time_sec;
+    const bool idle_too_long = vehicle.dwell_time_sec >= config_.min_idle_seconds_before_relocate;
 
     if (!blocking_now && elapsed_since_last_action < config_.relocate_cooldown_sec) {
         hold.reason = "relocate_cooldown_active";
         return hold;
     }
 
-    if (!blocking_now && vehicle.dwell_time_sec < config_.min_idle_seconds_before_relocate) {
+    if (!blocking_now && !idle_too_long) {
         hold.reason = "minimum_idle_dwell_not_met";
         return hold;
     }
@@ -201,26 +203,50 @@ IdleDecision IdleController::decide_impl(
     decision.target_node = best.node->node_id;
     decision.score = best.score;
 
+    std::ostringstream reason_builder;
+    bool has_reason = false;
+    if (vehicle.blocking_score >= config_.blocking_priority_threshold) {
+        reason_builder << "high_blocking_score";
+        has_reason = true;
+    }
+    if (vehicle.near_station) {
+        reason_builder << (has_reason ? "+" : "") << "near_station";
+        has_reason = true;
+    }
+    if (vehicle.near_merge) {
+        reason_builder << (has_reason ? "+" : "") << "near_merge";
+        has_reason = true;
+    }
+    if (vehicle.on_main_flow) {
+        reason_builder << (has_reason ? "+" : "") << "on_main_flow";
+        has_reason = true;
+    }
+    if (idle_too_long) {
+        reason_builder << (has_reason ? "+" : "") << "idle_too_long";
+        has_reason = true;
+    }
+
     if (blocking_now) {
         decision.action_type = IdleActionType::RetreatFromBlocking;
-        decision.reason = "blocking_position_escape_requested";
+        decision.reason = has_reason ? reason_builder.str() : "blocking_position_escape_requested";
         return decision;
     }
 
     if (best.node->is_parking_node) {
         decision.action_type = IdleActionType::MoveToParking;
-        decision.reason = "parking_node_preferred";
+        decision.reason = has_reason ? reason_builder.str() : "parking_node_preferred";
         return decision;
     }
 
     if (best.node->is_standby_node || best.node->is_wait_node) {
         decision.action_type = IdleActionType::MoveToStandby;
-        decision.reason = "standby_or_wait_fallback";
+        decision.reason = has_reason ? reason_builder.str() : "standby_or_wait_fallback";
         return decision;
     }
 
-    decision.action_type = IdleActionType::SpreadOut;
-    decision.reason = "spread_idle_vehicles_to_reduce_clustering";
+    decision.action_type = IdleActionType::HoldPosition;
+    decision.target_node.reset();
+    decision.reason = "no_supported_idle_action_for_selected_target";
     return decision;
 }
 

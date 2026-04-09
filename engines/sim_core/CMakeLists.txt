@@ -28,3 +28,10 @@ target_link_libraries(oht_sim_core_job_ready_example
     PRIVATE
         oht_sim_core)
 target_compile_features(oht_sim_core_job_ready_example PRIVATE cxx_std_17)
+
+add_executable(oht_sim_core_tick_idle_relocation_example
+    examples/tick_idle_relocation_example.cpp)
+target_link_libraries(oht_sim_core_tick_idle_relocation_example
+    PRIVATE
+        oht_sim_core)
+target_compile_features(oht_sim_core_tick_idle_relocation_example PRIVATE cxx_std_17)
